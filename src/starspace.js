@@ -39,11 +39,8 @@ function init() {
     window.addEventListener("resize", onWindowResize, false);
 
     animate();
+}            
 
-    const loader = new GLTFLoader();
-
-    loader.load( 'earth.glb', function ( gltf ) { scene.add( gltf.scene );}, undefined, function ( error ) { console.error( error );} );
-    }
 
 
 function onWindowResize() {
