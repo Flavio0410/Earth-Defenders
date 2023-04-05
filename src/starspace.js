@@ -1,3 +1,4 @@
+
 let scene, camera, renderer, stars, starGeo;
 
 function init() {
