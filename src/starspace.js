@@ -1,4 +1,11 @@
-let scene, camera, renderer, stars, starGeo;
+//Import the THREE.js library
+import * as THREE from "https://cdn.skypack.dev/three@0.117.0/build/three.module.js";
+// To allow for the camera to move around the scene
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.117.0/examples/jsm/controls/OrbitControls.js";
+// To allow for importing the .gltf file
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.117.0/examples/jsm/loaders/GLTFLoader.js";
+
+let scene, camera, renderer, stars, starGeo, star;
 
 function init() {
 
