@@ -19,8 +19,8 @@ class ThreeJSObject {
       (gltf) => {
         this.object = gltf.scene;
         this.scene.add(this.object);
-        this.object.position.set(-350, 0, 0); // Move object to the center of the scene
-        this.object.scale.set(20, 20, 20);
+        this.object.position.set(0, 0, 0); // Move object to the center of the scene
+        this.object.scale.set(0.8, 0.8, 0.8);
 
       },
       (xhr) => {
@@ -75,4 +75,4 @@ class ThreeJSObject {
     this.renderer.render(this.scene, this.camera);
   }
 }
-let tt = new ThreeJSObject("container3D", "../public/assets/earth/scene.gltf");
+let tt = new ThreeJSObject("container3D", "../public/assets/spaceship/scene.gltf");
