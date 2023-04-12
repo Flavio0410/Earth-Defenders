@@ -1,6 +1,6 @@
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "https://cdn.skypack.dev/three@0.136.0/build/three.module.js";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
 
 class ThreeJSObject {
   constructor(containerId, modelUrl) {
@@ -8,10 +8,12 @@ class ThreeJSObject {
 
     this.scene = new THREE.Scene();
 
-    this.camera = new THREE.PerspectiveCamera(60,window.innerWidth / window.innerHeight,0.1,1000);
+    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera.position.z = 500;
 
-    this.renderer = new THREE.WebGLRenderer({ alpha: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.loader = new GLTFLoader();
     this.loader.load(
@@ -36,20 +38,18 @@ class ThreeJSObject {
     this.mouseX = window.innerWidth / 2;
     this.mouseY = window.innerHeight / 2;
 
-    this.camera.position.z = 500;
-
-    const topLight = new THREE.DirectionalLight(0xffffff, 1);
+    const topLight = new THREE.DirectionalLight(0xffffff);
     topLight.position.set(500, 500, 500);
     topLight.castShadow = true;
     this.scene.add(topLight);
 
-    const ambientLight = new THREE.AmbientLight(0x333333, 1);
+    const ambientLight = new THREE.AmbientLight(0x333333);
     this.scene.add(ambientLight);
 
-    document.onmousemove = (e) => {
-      this.mouseX = e.clientX;
-      this.mouseY = e.clientY;
-    };
+    document.addEventListener("mousemove", (event) => {
+      this.mouseX = event.clientX;
+      this.mouseY = event.clientY;
+    });
 
     window.addEventListener("resize", () => this.onWindowResize());
 
@@ -67,12 +67,11 @@ class ThreeJSObject {
   animate() {
     requestAnimationFrame(() => this.animate());
     if (this.object) {
-      this.object.rotation.y =
-        -3 + (this.mouseX / window.innerWidth) * 3;
-      this.object.rotation.x =
-        -1.2 + (this.mouseY * 2.5) / window.innerHeight;
+      this.object.rotation.y = -3 + (this.mouseX / window.innerWidth) * 3;
+      this.object.rotation.x = -1.2 + (this.mouseY * 2.5) / window.innerHeight;
     }
     this.renderer.render(this.scene, this.camera);
   }
 }
-let tt = new ThreeJSObject("container3D", "../public/assets/spaceship/scene.gltf");
+
+const tt = new ThreeJSObject("container3D", "../public/assets/spaceship/scene.gltf");
