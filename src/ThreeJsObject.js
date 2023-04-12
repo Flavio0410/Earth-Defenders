@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
-class LoadObject3d {
+class ThreeJSObject {
   constructor(containerId, modelUrl) {
     this.container = document.getElementById(containerId);
 
@@ -75,4 +75,4 @@ class LoadObject3d {
     this.renderer.render(this.scene, this.camera);
   }
 }
-let tt = new LoadObject3d("container3D", "../public/assets/earth/scene.gltf");
+let tt = new ThreeJSObject("container3D", "../public/assets/earth/scene.gltf");
