@@ -74,4 +74,4 @@ class ThreeJSObject {
   }
 }
 
-const tt = new ThreeJSObject("container3D", "../public/assets/spaceship/scene.gltf");
+const tt = new ThreeJSObject("container3D", "../public/assets/models/earth/scene.gltf");
