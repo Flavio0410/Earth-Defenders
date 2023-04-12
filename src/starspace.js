@@ -30,7 +30,7 @@ class Starspace {
     this.starGeo.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
     // Crea un materiale per le stelle
-    const sprite = new THREE.TextureLoader().load('../public/assets/star.png');
+    const sprite = new THREE.TextureLoader().load('../public/assets/images/star.png');
     const starMaterial = new THREE.PointsMaterial({
       color: 0xaaaaaa,
       size: 0.7,
