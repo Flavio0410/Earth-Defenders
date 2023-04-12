@@ -7,14 +7,8 @@
     <title>Space Invaders</title>
     <link rel="shortcut icon" href="#" />
     <style>
-      canvas {
-        box-shadow: black 20px 10px 50px;
-      }
-      h1 {
-        margin: 0px;
-        margin-bottom: 10px;
-        font-size: 2.9em;
-        font-family: "Helvetica";
+      html {
+        overflow: hidden;
       }
       body {
         display: flex;
@@ -23,6 +17,7 @@
         padding: 0px;
         margin: 0px;
         height: 100vh;
+        overflow: hidden;
         background: linear-gradient(
           0deg,
           rgb(97, 98, 99) 0%,
@@ -32,8 +27,9 @@
     </style>
   </head>
   <body>
-    <h1>Space Invaders</h1>
+    <!--<h1>Space Invaders</h1>-->
     <canvas id="game"></canvas>
     <script type="module" src="game.js"></script>
+    <!--<script type="module" src="../src/starspace.js"></script>-->
   </body>
 </html>
