@@ -55,12 +55,6 @@ export default class Player {
       if (event.code == "ArrowLeft") {
         this.leftPressed = true;
       }
-      if (event.code == "KeyD") {
-        this.rightPressed = true;
-      }
-      if (event.code == "KeyA") {
-        this.leftPressed = true;
-      }
       if (event.code == "Space") {
         this.shootPressed = true;
       }
@@ -71,12 +65,6 @@ export default class Player {
         this.rightPressed = false;
       }
       if (event.code == "ArrowLeft") {
-        this.leftPressed = false;
-      }
-      if (event.code == "KeyD") {
-        this.rightPressed = false;
-      }
-      if (event.code == "KeyA") {
         this.leftPressed = false;
       }
       if (event.code == "Space") {

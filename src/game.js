@@ -5,15 +5,14 @@ import BulletController from "./BulletController.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-canvas.width = document.body.clientWidth;
-canvas.height = document.body.clientHeight;
-
+canvas.width = 600;
+canvas.height = 600;
 
 const background = new Image();
 background.src = "../public/assets/space.png";
 
-const playerBulletController = new BulletController(canvas, 20, "red", true);
-const enemyBulletController = new BulletController(canvas, 10, "white", false);
+const playerBulletController = new BulletController(canvas, 10, "red", true);
+const enemyBulletController = new BulletController(canvas, 4, "white", false);
 const enemyController = new EnemyController(
   canvas,
   enemyBulletController,
