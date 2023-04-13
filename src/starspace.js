@@ -1,9 +1,9 @@
 import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
+
 
 class Starspace {
-  constructor() {
+  constructor() 
+  {
     // Inizializza la scena, la telecamera e il renderer
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
@@ -18,7 +18,7 @@ class Starspace {
     const positions = [];
     const velocities = [];
     const accelerations = [];
-    for (let i = 0; i < 6000; i++) {
+    for (let i = 0; i < 4000; i++) {
       positions.push(Math.random() * 600 - 300);
       positions.push(Math.random() * 600 - 300);
       positions.push(Math.random() * 600 - 300);
@@ -82,4 +82,4 @@ class Starspace {
 }
 
 // // Crea un'isstanza della classe StarField e inizia l'animazione delle stelle
-let start = new Starspace();
+var start = new Starspace();
