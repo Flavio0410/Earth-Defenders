@@ -1,8 +1,9 @@
-import * as THREE from "https://cdn.skypack.dev/three@0.136.0/build/three.module.js";
+import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
 
-class ThreeJSObject {
+class ThreeJSObject
+{
   constructor(containerId, modelUrl) {
     this.container = document.getElementById(containerId);
 
@@ -22,8 +23,7 @@ class ThreeJSObject {
         this.object = gltf.scene;
         this.scene.add(this.object);
         this.object.position.set(0, 0, 0); // Move object to the center of the scene
-        this.object.scale.set(0.8, 0.8, 0.8);
-
+        this.object.scale.set(4, 4, 4);
       },
       (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -34,9 +34,10 @@ class ThreeJSObject {
     );
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.enableZoom = false;
+    this.controls.enabled = false;
 
-    this.mouseX = window.innerWidth / 2;
-    this.mouseY = window.innerHeight / 2;
+    
 
     const topLight = new THREE.DirectionalLight(0xffffff);
     topLight.position.set(500, 500, 500);
@@ -46,16 +47,14 @@ class ThreeJSObject {
     const ambientLight = new THREE.AmbientLight(0x333333);
     this.scene.add(ambientLight);
 
-    document.addEventListener("mousemove", (event) => {
-      this.mouseX = event.clientX;
-      this.mouseY = event.clientY;
-    });
-
     window.addEventListener("resize", () => this.onWindowResize());
 
     this.container.appendChild(this.renderer.domElement);
 
+
     this.animate();
+    
+
   }
 
   onWindowResize() {
@@ -67,11 +66,18 @@ class ThreeJSObject {
   animate() {
     requestAnimationFrame(() => this.animate());
     if (this.object) {
-      this.object.rotation.y = -3 + (this.mouseX / window.innerWidth) * 3;
-      this.object.rotation.x = -1.2 + (this.mouseY * 2.5) / window.innerHeight;
+      // Rimuovi la rotazione sull'asse Y e Z
+      this.object.rotation.y += 0.0015;
+      this.object.rotation.z += 0.0015;
+  
     }
     this.renderer.render(this.scene, this.camera);
   }
+  
+
+
+
+
 }
 
 const tt = new ThreeJSObject("container3D", "../public/assets/models/earth/scene.gltf");
