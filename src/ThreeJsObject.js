@@ -35,7 +35,11 @@ class ThreeJSObject
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableZoom = false;
-    this.controls.enabled = false;
+    //this.controls.enabled = false;
+    this.controls.minPolarAngle = Math.PI/2;
+    this.controls.maxPolarAngle = Math.PI/2;
+    this.controls.minAzimuthAngle = -Math.PI/2;
+
 
     
 
@@ -44,7 +48,7 @@ class ThreeJSObject
     topLight.castShadow = true;
     this.scene.add(topLight);
 
-    const ambientLight = new THREE.AmbientLight(0x333333);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     this.scene.add(ambientLight);
 
     window.addEventListener("resize", () => this.onWindowResize());
@@ -68,7 +72,6 @@ class ThreeJSObject
     if (this.object) {
       // Rimuovi la rotazione sull'asse Y e Z
       this.object.rotation.y += 0.0015;
-      this.object.rotation.z += 0.0015;
   
     }
     this.renderer.render(this.scene, this.camera);
