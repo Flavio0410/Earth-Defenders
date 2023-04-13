@@ -4,13 +4,14 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
 
 class ThreeJSObject
 {
-  constructor(containerId, modelUrl) {
+  constructor(containerId, modelUrl) 
+  {
     this.container = document.getElementById(containerId);
 
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 500;
+    this.camera.position.z = 400;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -38,7 +39,6 @@ class ThreeJSObject
     //this.controls.enabled = false;
     this.controls.minPolarAngle = Math.PI/2;
     this.controls.maxPolarAngle = Math.PI/2;
-    this.controls.minAzimuthAngle = -Math.PI/2;
 
 
     
