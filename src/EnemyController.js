@@ -12,6 +12,8 @@ export default class EnemyController {
   ];*/
   enemyMap = [];
   enemyRows = [];
+  table = [];
+  level = 1;
 
   currentDirection = MovingDirection.right;
   xVelocity = 0;
@@ -31,7 +33,7 @@ export default class EnemyController {
     this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
     this.enemyDeathSound.volume = 0.1;
 
-    this.setEnemiesForLevel(1);
+    this.setEnemiesForLevel(2);
     this.createEnemies();
   }
 
@@ -158,7 +160,18 @@ export default class EnemyController {
         [2, 3, 3, 3, 2],
         [3, 2, 2, 2, 3],
         [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
       ];
+    } else if (difficulty == 2){
+      this.table = [];
+      for (let i = 0; i < 5; i++){
+        for (let j = 0; j < 5; j++) {
+          this.table.push(Math.floor(Math.random() * 3)+1);
+        }
+        this.enemyMap.push(this.table);
+        this.table = [];
+      }
     }
   }
+
 }
