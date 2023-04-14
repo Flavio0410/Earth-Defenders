@@ -9,9 +9,9 @@ export default class Player {
       this.bulletController = bulletController;
   
       this.x = this.canvas.width / 2;
-      this.y = this.canvas.height - 75;
-      this.width = 50;
-      this.height = 50;
+      this.y = this.canvas.height - 115;
+      this.width = 100;
+      this.height = 100;
       this.image = new Image();
       this.image.src = "../public/assets/images/navicella1.png";
   
