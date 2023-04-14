@@ -153,15 +153,6 @@ export default class EnemyController {
   setEnemiesForLevel(difficulty){
     if (difficulty == 1){
       this.enemyMap = [
-        [1, 1, 1, 1],
-        [1, 1, 1, 1],
-        [2, 3, 3, 2],
-        [3, 2, 2, 3],
-        [1, 1, 1, 1],
-      ];
-      this.enemyMap.push([Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)]);
-    } else if (difficulty == 2){
-      this.enemyMap = [
         [1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1],
         [2, 3, 3, 3, 2],
