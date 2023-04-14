@@ -2,14 +2,15 @@ import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
 
 export default class EnemyController {
-  enemyMap = [
+  /*enemyMap = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
     [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  ];
+  ];*/
+  enemyMap = [];
   enemyRows = [];
 
   currentDirection = MovingDirection.right;
@@ -30,6 +31,7 @@ export default class EnemyController {
     this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
     this.enemyDeathSound.volume = 0.1;
 
+    this.setEnemiesForLevel(1);
     this.createEnemies();
   }
 
@@ -134,10 +136,10 @@ export default class EnemyController {
   createEnemies() {
     this.enemyMap.forEach((row, rowIndex) => {
       this.enemyRows[rowIndex] = [];
-      row.forEach((enemyNubmer, enemyIndex) => {
-        if (enemyNubmer > 0) {
+      row.forEach((enemyNumber, enemyIndex) => {
+        if (enemyNumber > 0) {
           this.enemyRows[rowIndex].push(
-            new Enemy(enemyIndex * 50, rowIndex * 35, enemyNubmer)
+            new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber)
           );
         }
       });
@@ -146,5 +148,26 @@ export default class EnemyController {
 
   collideWith(sprite) {
     return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite));
+  }
+
+  setEnemiesForLevel(difficulty){
+    if (difficulty == 1){
+      this.enemyMap = [
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [2, 3, 3, 2],
+        [3, 2, 2, 3],
+        [1, 1, 1, 1],
+      ];
+      this.enemyMap.push([Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)]);
+    } else if (difficulty == 2){
+      this.enemyMap = [
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [2, 3, 3, 3, 2],
+        [3, 2, 2, 2, 3],
+        [1, 1, 1, 1, 1],
+      ];
+    }
   }
 }
