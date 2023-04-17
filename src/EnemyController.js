@@ -10,6 +10,18 @@ export default class EnemyController {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
   ];*/
+
+  defaultParams = {
+    columns: 5,
+    rows: 5,
+    //formationAnimInterval: 1500, //1500 is good start value
+    //formationAnimSpeed: 0.2,
+    fireRate: 1, // Avg bullets per second
+    alien1Lives: 0,
+    alien2Lives: 0,
+    alien3Lives: 0
+  }
+
   enemyMap = [];
   enemyRows = [];
   table = [];
@@ -33,7 +45,8 @@ export default class EnemyController {
     this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
     this.enemyDeathSound.volume = 0.1;
 
-    this.setEnemiesForLevel(2);
+    let params = this.setEnemiesForLevel(this.level);
+    this.buildFormation(params.columns, params.rows);
     this.createEnemies();
   }
 
@@ -152,26 +165,79 @@ export default class EnemyController {
     return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite));
   }
 
-  setEnemiesForLevel(difficulty){
-    if (difficulty == 1){
-      this.enemyMap = [
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-        [2, 3, 3, 3, 2],
-        [3, 2, 2, 2, 3],
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-      ];
-    } else if (difficulty == 2){
-      this.table = [];
-      for (let i = 0; i < 5; i++){
-        for (let j = 0; j < 5; j++) {
-          this.table.push(Math.floor(Math.random() * 3)+1);
+  buildFormation(columns, rows){
+    this.table = [];
+      for (let i = 0; i < rows; i++){
+        for (let j = 0; j < columns; j++) {
+          if (i < 2){
+            this.table.push(1);
+          } else if (i < 4){
+            this.table.push(2);
+          } else {
+            this.table.push(3);
+          }
+          //this.table.push(Math.floor(Math.random() * 3) + 1);
         }
         this.enemyMap.push(this.table);
         this.table = [];
       }
-    }
+  }
+
+  setEnemiesForLevel(level){
+    let levelParams = this.defaultParams;
+    const maxColumns = 10;
+    const maxRows = 6;
+
+    levelParams.columns = this.defaultParams.columns + level - 1; 
+    levelParams.rows = this.defaultParams.rows + this.level;
+
+    if (levelParams.columns > maxColumns) levelParams.columns = maxColumns;
+    if (levelParams.rows > maxRows) levelParams.rows = maxRows;
+
+    return levelParams;
+
   }
 
 }
+
+/*levelFormationAlgorithm() {
+    let levelParams = this.defaultParams;
+
+    // Alien grid gets bigger each level up to a max size
+    const maxColumns = 10;
+    const maxRows = 6;
+    levelParams.columns = this.defaultParams.columns + State.level - 1;
+    levelParams.rows = this.defaultParams.rows + State.level - 1;
+    if (levelParams.columns > maxColumns) levelParams.columns = maxColumns;
+    if (levelParams.rows > maxRows) levelParams.rows = maxRows;
+
+    // Fire rate increases every level by a multiple;
+    const fireRateIncreaseMultiple = 1.2;
+    levelParams.fireRate = this.defaultParams.fireRate * Math.pow(fireRateIncreaseMultiple, State.level - 1);
+
+    // Increase the number of barriers;
+    // Additional barrier every 2 levels
+    // up to a maximum
+    const maxBarriers = 6;
+    levelParams.numBarriers = Math.floor(this.defaultParams.numBarriers + (State.level / 2) - 0.5);
+    if (levelParams.numBarriers > maxBarriers) levelParams.numBarriers = maxBarriers;
+
+    // Give aliens lives, so they take more than one hit to die.
+    // From Level 4 Alien1 gets 1 life increasing by 1 every 3 levels.
+    // From Level 6 Alien2 gets 1 life increasing by 1 every 3 levels.
+    const maxAlienLives = 3;
+    if (State.level > 3) {
+      levelParams.alien1Lives = 1 + Math.floor((State.level / 3) - 1);
+      if (levelParams.alien1Lives > maxAlienLives) levelParams.alien1Lives = maxAlienLives;
+    }
+    if (State.level > 5) {
+      levelParams.alien2Lives = 1 + Math.floor((State.level / 3) - 2);
+      if (levelParams.alien2Lives > maxAlienLives) levelParams.alien2Lives = maxAlienLives;
+    }
+
+    // Motherships spawn faster at higher levels.
+    this.motherShip.interval = spaceinvadersConfig.motherShip.interval - (State.level / 2);
+    this.motherShip.fireRate = 2 + (State.level / 3);
+
+    return levelParams
+  }*/
