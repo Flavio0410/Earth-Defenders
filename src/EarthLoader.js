@@ -10,8 +10,9 @@ class EarthLoader
     
     this.scene = new THREE.Scene(); //crea una nuova scena Three.js
     
-    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 60 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
-    this.camera.position.z = 400; //posiziona la camera a una distanza di 400 unità lungo l'asse z dalla scena
+    this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 60 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
+    this.camera.position.z = 350; //posiziona la camera a una distanza di 400 unità lungo l'asse z dalla scena
+
     
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //crea un nuovo renderer Three.js basato sulla tecnologia WebGL, abilita l'antialiasing e l'alpha per la trasparenza
     this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta le dimensioni del renderer per adattarsi alle dimensioni della finestra corrente
@@ -25,7 +26,8 @@ class EarthLoader
         this.object = gltf.scene; //memorizza l'oggetto radice del modello
         this.scene.add(this.object); //aggiunge l'oggetto radice alla scena Three.js
         this.object.position.set(0, 0, 0); //posiziona l'oggetto radice al centro della scena
-        this.object.scale.set(4, 4, 4); //scala l'oggetto radice per renderlo più grande
+        this.object.scale.set(1, 1, 1); //scala l'oggetto radice per renderlo più grande
+        this.object.translateY(-75); //sposta l'oggetto radice lungo l'asse Y
       },
     );
     
