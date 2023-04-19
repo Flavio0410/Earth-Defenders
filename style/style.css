@@ -16,10 +16,10 @@ body {
 } */
 
 #container3D canvas {
-  width: 100vw !important;
-  height: 100vh !important;
+  width: 80% !important;
+  height: 80% !important;
   position: absolute;
   top: 0;
-  left: 0;
-  margin-left: -30%;
+  margin-left: -35%;
+  margin-top: 40%;
 }
