@@ -12,8 +12,8 @@ canvas.height = document.body.clientHeight;
 const background = new Image();
 background.src = "../public/assets/images/space.png";
 
-const playerBulletController = new BulletController(canvas, 5, "red", true);
-const enemyBulletController = new BulletController(canvas, 10, "white", false);
+const playerBulletController = new BulletController(canvas, 20, "white", true);
+const enemyBulletController = new BulletController(canvas, 10, "red", false);
 const enemyController = new EnemyController(
   canvas,
   enemyBulletController,
@@ -36,6 +36,12 @@ function game() {
   }
 }
 
+function reGame(){
+  enemyController.levelUp();
+  enemyController.buildFormation();
+  enemyController.createEnemies();
+}
+
 function displayGameOver() {
   if (isGameOver) {
     let text = didWin ? "You Win" : "Game Over";
@@ -44,6 +50,8 @@ function displayGameOver() {
     ctx.fillStyle = "white";
     ctx.font = "70px Arial";
     ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    reGame();
+    isGameOver = false;
   }
 }
 

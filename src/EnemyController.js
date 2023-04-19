@@ -198,6 +198,14 @@ export default class EnemyController {
 
   }
 
+  levelUp(){
+    this.level += 1;
+    this.enemyMap = [];
+    let params = this.setEnemiesForLevel(this.level);
+    this.buildFormation(params.columns, params.rows);
+    this.createEnemies();
+  }
+
 }
 
 /*levelFormationAlgorithm() {
