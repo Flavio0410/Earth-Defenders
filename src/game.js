@@ -40,6 +40,7 @@ function reGame(){
   enemyController.levelUp();
   enemyController.buildFormation();
   enemyController.createEnemies();
+  enemyController.fireBulletTimer -= 50;
 }
 
 function displayGameOver() {

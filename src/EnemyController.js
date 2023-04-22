@@ -16,7 +16,7 @@ export default class EnemyController {
     rows: 5,
     //formationAnimInterval: 1500, //1500 is good start value
     //formationAnimSpeed: 0.2,
-    fireRate: 1, // Avg bullets per second
+    fireRate: 100, // Avg bullets per second
     alien1Lives: 0,
     alien2Lives: 0,
     alien3Lives: 0
@@ -200,8 +200,9 @@ export default class EnemyController {
 
   levelUp(){
     this.level += 1;
+    this.fireBulletTimerDefault -= 25;
     this.enemyMap = [];
-    let params = this.setEnemiesForLevel(this.level);
+    let params = this.setEnemiesForLevel(this.level += 1);
     this.buildFormation(params.columns, params.rows);
     this.createEnemies();
   }
