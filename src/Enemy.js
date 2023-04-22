@@ -1,7 +1,7 @@
 export default class Enemy {
   constructor(x, y, imageNumber) {
-    this.x = x;
-    this.y = y;
+    this.x = x + 50;
+    this.y = y + 50;
     this.width = 44;
     this.height = 32;
 
