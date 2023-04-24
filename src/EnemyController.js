@@ -152,15 +152,15 @@ export default class EnemyController {
         if (enemyNumber > 0) {
           if (enemyNumber == 1){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life1)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
             );
           } else if (enemyNumber == 2){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life2)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
             );
           } else if (enemyNumber == 3){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life3)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
             );
           }
         }
