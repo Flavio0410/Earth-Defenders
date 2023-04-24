@@ -2,7 +2,7 @@ import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
 
-class ThreeJSObject
+class SpaceShipLoader
 {
   constructor(containerId, modelUrl) 
   {
@@ -24,7 +24,7 @@ class ThreeJSObject
         this.object = gltf.scene;
         this.scene.add(this.object);
         this.object.position.set(0, 0, 0); // Move object to the center of the scene
-        this.object.scale.set(4, 4, 4);
+        this.object.scale.set(5, 5, 5);
       },
       (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -34,9 +34,9 @@ class ThreeJSObject
       }
     );
 
+
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableZoom = false;
-    //this.controls.enabled = false;
     this.controls.minPolarAngle = Math.PI/2;
     this.controls.maxPolarAngle = Math.PI/2;
 
@@ -83,4 +83,4 @@ class ThreeJSObject
 
 }
 
-const tt = new ThreeJSObject("container3D", "../public/assets/models/earth/scene.gltf");
+const tt = new SpaceShipLoader("spaceShipContainer", "../public/assets/models/spaceship/scene.gltf");
