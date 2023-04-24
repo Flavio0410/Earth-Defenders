@@ -2,14 +2,14 @@ import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
 
 export default class EnemyController {
-  /*enemyMap = [
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-    [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  ];*/
+  // enemyMap = [
+  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  //   [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
+  //   [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
+  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  //   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  // ];
 
   defaultParams = {
     columns: 5,
@@ -145,8 +145,6 @@ export default class EnemyController {
       enemy.draw(ctx);
     });
   }
-
-  happy = () => {};
 
   createEnemies() {
     this.enemyMap.forEach((row, rowIndex) => {

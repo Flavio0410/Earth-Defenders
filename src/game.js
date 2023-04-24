@@ -75,4 +75,11 @@ function checkGameOver() {
   }
 }
 
+function onwindowresize() {
+  canvas.width = document.body.clientWidth;
+  canvas.height = document.body.clientHeight;
+}
+
+window.addEventListener("resize", onwindowresize);
+
 setInterval(game, 1000 / 60);
