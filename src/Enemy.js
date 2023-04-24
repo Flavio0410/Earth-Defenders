@@ -1,9 +1,11 @@
 export default class Enemy {
-  constructor(x, y, imageNumber) {
+
+  constructor(x, y, imageNumber, life) {
     this.x = x + 50;
     this.y = y + 50;
     this.width = 44;
     this.height = 32;
+    this.life = life;
 
     this.image = new Image();
     this.image.src = `../public/assets/images/enemy${imageNumber}.png`;
@@ -29,5 +31,13 @@ export default class Enemy {
     } else {
       return false;
     }
+  }
+
+  getLife(){
+    return this.life;
+  }
+
+  hit(){
+    this.life -= 1;
   }
 }

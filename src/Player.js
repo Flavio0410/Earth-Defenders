@@ -2,6 +2,7 @@ export default class Player {
     rightPressed = false;
     leftPressed = false;
     shootPressed = false;
+    life = 3;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -83,4 +84,15 @@ export default class Player {
         this.shootPressed = false;
       }
     };
+
+    getLife(){
+      return this.life;
+    }
+
+    hit(){
+      if (this.life > 0){
+        this.life -= 1;
+      }
+    }
+
   }

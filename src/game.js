@@ -40,7 +40,6 @@ function reGame(){
   enemyController.levelUp();
   enemyController.buildFormation();
   enemyController.createEnemies();
-  enemyController.fireBulletTimer -= 50;
 }
 
 function displayGameOver() {
@@ -62,11 +61,17 @@ function checkGameOver() {
   }
 
   if (enemyBulletController.collideWith(player)) {
-    isGameOver = true;
+    player.hit();
+    if (player.getLife() == 0){
+      isGameOver = true;
+    }
   }
 
   if (enemyController.collideWith(player)) {
-    isGameOver = true;
+    player.hit();
+    if (player.getLife() == 0){
+      isGameOver = true;
+    }
   }
 
   if (enemyController.enemyRows.length === 0) {

@@ -14,9 +14,7 @@ export default class EnemyController {
   defaultParams = {
     columns: 5,
     rows: 5,
-    //formationAnimInterval: 1500, //1500 is good start value
-    //formationAnimSpeed: 0.2,
-    fireRate: 100, // Avg bullets per second
+    fireRate: 100,
     alien1Lives: 0,
     alien2Lives: 0,
     alien3Lives: 0
@@ -53,7 +51,8 @@ export default class EnemyController {
   draw(ctx) {
     this.decrementMoveDownTimer();
     this.updateVelocityAndDirection();
-    this.collisionDetection();
+    this.collisionDetectionMine();
+    //this.collisionDetection();
     this.drawEnemies(ctx);
     this.resetMoveDownTimer();
     this.fireBullet();
@@ -146,14 +145,24 @@ export default class EnemyController {
     });
   }
 
-  createEnemies() {
+  createEnemies(life1, life2, life3) {
     this.enemyMap.forEach((row, rowIndex) => {
       this.enemyRows[rowIndex] = [];
       row.forEach((enemyNumber, enemyIndex) => {
         if (enemyNumber > 0) {
-          this.enemyRows[rowIndex].push(
-            new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber)
-          );
+          if (enemyNumber == 1){
+            this.enemyRows[rowIndex].push(
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life1)
+            );
+          } else if (enemyNumber == 2){
+            this.enemyRows[rowIndex].push(
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life2)
+            );
+          } else if (enemyNumber == 3){
+            this.enemyRows[rowIndex].push(
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, life3)
+            );
+          }
         }
       });
     });
@@ -174,7 +183,6 @@ export default class EnemyController {
           } else {
             this.table.push(3);
           }
-          //this.table.push(Math.floor(Math.random() * 3) + 1);
         }
         this.enemyMap.push(this.table);
         this.table = [];
@@ -192,17 +200,43 @@ export default class EnemyController {
     if (levelParams.columns > maxColumns) levelParams.columns = maxColumns;
     if (levelParams.rows > maxRows) levelParams.rows = maxRows;
 
+    const maxAlienLives = 3;
+    if (this.level > 3) {
+      levelParams.alien3Lives = 1 + Math.floor((this.level / 3) - 1);
+      if (levelParams.alien3Lives > maxAlienLives) levelParams.alien3Lives = maxAlienLives;
+    }
+    if (this.level > 5) {
+      levelParams.alien2Lives = 1 + Math.floor((this.level / 3) - 2);
+      if (levelParams.alien2Lives > maxAlienLives) levelParams.alien2Lives = maxAlienLives;
+    }
+
     return levelParams;
 
   }
 
   levelUp(){
-    this.level += 1;
-    this.fireBulletTimerDefault -= 25;
+    this.fireBulletTimerDefault = this.fireBulletTimerDefault*0.8;
     this.enemyMap = [];
     let params = this.setEnemiesForLevel(this.level += 1);
     this.buildFormation(params.columns, params.rows);
-    this.createEnemies();
+    this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
+  }
+
+  collisionDetectionMine() {
+    this.enemyRows.forEach((enemyRow) => {
+      enemyRow.forEach((enemy, enemyIndex) => {
+        if (this.playerBulletController.collideWith(enemy)) {
+          enemyRow[enemyIndex].hit();
+          if (enemyRow[enemyIndex].getLife() < 0){
+            this.enemyDeathSound.currentTime = 0;
+            this.enemyDeathSound.play();
+            enemyRow.splice(enemyIndex, 1);
+          }
+        }
+      });
+    });
+
+    this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
   }
 
 }
