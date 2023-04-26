@@ -1,6 +1,7 @@
-import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
+import * as THREE from "https://unpkg.com/three@0.136.0/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
+
 
 class SpaceShipLoader
 {
@@ -10,8 +11,8 @@ class SpaceShipLoader
 
     this.scene = new THREE.Scene();
 
-    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 400;
+    this.camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera.position.z = 100;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -24,7 +25,7 @@ class SpaceShipLoader
         this.object = gltf.scene;
         this.scene.add(this.object);
         this.object.position.set(0, 0, 0); // Move object to the center of the scene
-        this.object.scale.set(5, 5, 5);
+        this.object.scale.set(1, 1, 1);
       },
       (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -39,6 +40,7 @@ class SpaceShipLoader
     this.controls.enableZoom = false;
     this.controls.minPolarAngle = Math.PI/2;
     this.controls.maxPolarAngle = Math.PI/2;
+
 
 
     
