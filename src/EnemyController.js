@@ -145,7 +145,7 @@ export default class EnemyController {
     });
   }
 
-  createEnemies(life1, life2, life3) {
+  createEnemies(a, b, c) {
     this.enemyMap.forEach((row, rowIndex) => {
       this.enemyRows[rowIndex] = [];
       row.forEach((enemyNumber, enemyIndex) => {
@@ -239,46 +239,8 @@ export default class EnemyController {
     this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
   }
 
+  stampalo(a){
+    console.log(a);
+  }
+
 }
-
-/*levelFormationAlgorithm() {
-    let levelParams = this.defaultParams;
-
-    // Alien grid gets bigger each level up to a max size
-    const maxColumns = 10;
-    const maxRows = 6;
-    levelParams.columns = this.defaultParams.columns + State.level - 1;
-    levelParams.rows = this.defaultParams.rows + State.level - 1;
-    if (levelParams.columns > maxColumns) levelParams.columns = maxColumns;
-    if (levelParams.rows > maxRows) levelParams.rows = maxRows;
-
-    // Fire rate increases every level by a multiple;
-    const fireRateIncreaseMultiple = 1.2;
-    levelParams.fireRate = this.defaultParams.fireRate * Math.pow(fireRateIncreaseMultiple, State.level - 1);
-
-    // Increase the number of barriers;
-    // Additional barrier every 2 levels
-    // up to a maximum
-    const maxBarriers = 6;
-    levelParams.numBarriers = Math.floor(this.defaultParams.numBarriers + (State.level / 2) - 0.5);
-    if (levelParams.numBarriers > maxBarriers) levelParams.numBarriers = maxBarriers;
-
-    // Give aliens lives, so they take more than one hit to die.
-    // From Level 4 Alien1 gets 1 life increasing by 1 every 3 levels.
-    // From Level 6 Alien2 gets 1 life increasing by 1 every 3 levels.
-    const maxAlienLives = 3;
-    if (State.level > 3) {
-      levelParams.alien1Lives = 1 + Math.floor((State.level / 3) - 1);
-      if (levelParams.alien1Lives > maxAlienLives) levelParams.alien1Lives = maxAlienLives;
-    }
-    if (State.level > 5) {
-      levelParams.alien2Lives = 1 + Math.floor((State.level / 3) - 2);
-      if (levelParams.alien2Lives > maxAlienLives) levelParams.alien2Lives = maxAlienLives;
-    }
-
-    // Motherships spawn faster at higher levels.
-    this.motherShip.interval = spaceinvadersConfig.motherShip.interval - (State.level / 2);
-    this.motherShip.fireRate = 2 + (State.level / 3);
-
-    return levelParams
-  }*/
