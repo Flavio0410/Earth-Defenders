@@ -12,7 +12,7 @@ class SpaceShipLoader
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 100;
+    this.camera.position.z = 200;
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -50,7 +50,7 @@ class SpaceShipLoader
     topLight.castShadow = true;
     this.scene.add(topLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     this.scene.add(ambientLight);
 
     window.addEventListener("resize", () => this.onWindowResize());

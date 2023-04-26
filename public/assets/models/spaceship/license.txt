@@ -1,11 +1,11 @@
 Model Information:
-* title:	Spaceship
-* source:	https://sketchfab.com/3d-models/spaceship-1d2f6d0c373e497c83e7846ec3f5fad6
-* author:	Jefferson Frenay (https://sketchfab.com/MrTeckmachin)
+* title:	SpaceShip
+* source:	https://sketchfab.com/3d-models/spaceship-6164a883f57f4f13938c3c5999bc0e1f
+* author:	JazOone (https://sketchfab.com/JazOone)
 
 Model License:
-* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
-* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Spaceship" (https://sketchfab.com/3d-models/spaceship-1d2f6d0c373e497c83e7846ec3f5fad6) by Jefferson Frenay (https://sketchfab.com/MrTeckmachin) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+This work is based on "SpaceShip" (https://sketchfab.com/3d-models/spaceship-6164a883f57f4f13938c3c5999bc0e1f) by JazOone (https://sketchfab.com/JazOone) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
