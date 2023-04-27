@@ -11,7 +11,10 @@ class Starspace {
     
     this.renderer = new THREE.WebGLRenderer(); // Crea un nuovo renderer WebGL
     this.renderer.setSize(window.innerWidth, window.innerHeight); // Imposta le dimensioni del renderer in base alle dimensioni della finestra
+    this.renderer.setClearColor(0x010c19, 1); // Imposta il colore di sfondo del renderer su blu scuro
     document.body.appendChild(this.renderer.domElement); // Aggiunge il renderer al DOM sotto forma di canvas HTML
+
+
 
 
     this.starGeo = new THREE.BufferGeometry(); // Crea un nuovo BufferGeometry per le stelle con attributi per la posizione, la velocità e l'accelerazione
@@ -33,36 +36,33 @@ class Starspace {
     this.starGeo.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 1)); 
     this.starGeo.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
-    // //aggiunge la texture star.png ad alcune stelle e la texture star1.png ad altre stelle
-    // const sprite1 = new THREE.TextureLoader().load('../public/assets/images/star.png');
-    // const sprite2 = new THREE.TextureLoader().load('../public/assets/images/star1.png');
-    // const starMaterial1 = new THREE.PointsMaterial({
-    //   color: 0xaaaaaa,
-    //   size: 0.7,
-    //   map: sprite1,
-    //   transparent: true,
-    //   blending: THREE.AdditiveBlending,
-    // });
-    // const starMaterial2 = new THREE.PointsMaterial({
-    //   color: 0xaaaaaa,
-    //   size: 0.7,
-    //   map: sprite2,
-    //   transparent: true,
-    //   blending: THREE.AdditiveBlending,
-    // });
 
     const sprite = new THREE.TextureLoader().load('../public/assets/images/star.png'); // Carica la texture per le stelle da un'immagine
     const starMaterial = new THREE.PointsMaterial({
       color: 0xaaaaaa,
-      size: 0.7,
+      size: 0.2,
       map: sprite,
       transparent: true,
       blending: THREE.AdditiveBlending,
     });
 
+    
+    const sprite2 = new THREE.TextureLoader().load('../public/assets/images/purplestar.png');
+    const starMaterial2 = new THREE.PointsMaterial({
+      color: 0xffffff,
+      size: 2,
+      map: sprite2,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+    });
+    
+
     // Crea un oggetto Points per le stelle e lo aggiunge alla scena
     this.stars = new THREE.Points(this.starGeo, starMaterial);
     this.scene.add(this.stars);
+
+    this.stars2 = new THREE.Points(this.starGeo, starMaterial2);
+    this.scene.add(this.stars2);
 
     // Aggiunge un listener per la ridimensione della finestra
     window.addEventListener('resize', this.onWindowResize.bind(this), false);
