@@ -4,35 +4,54 @@ import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
 class Starspace {
   constructor() 
   {
-    // Inizializza la scena, la telecamera e il renderer
-    this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-    this.camera.position.z = 1;
-    this.camera.rotation.x = Math.PI / 2;
-    this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
+    this.scene = new THREE.Scene(); // Crea una nuova scena Three.js
+    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000); // Crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 60 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 1 e 1000
+    this.camera.position.z = 1; // Posiziona la camera a una distanza di 1 unità lungo l'asse z dalla scena
+    this.camera.rotation.x = Math.PI / 2; // Ruota la camera di 90 gradi lungo l'asse x per posizionarla in modo che punti verso il basso
+    
+    this.renderer = new THREE.WebGLRenderer(); // Crea un nuovo renderer WebGL
+    this.renderer.setSize(window.innerWidth, window.innerHeight); // Imposta le dimensioni del renderer in base alle dimensioni della finestra
+    document.body.appendChild(this.renderer.domElement); // Aggiunge il renderer al DOM sotto forma di canvas HTML
 
-    // Crea una geometria per le stelle
-    this.starGeo = new THREE.BufferGeometry();
-    const positions = [];
-    const velocities = [];
-    const accelerations = [];
-    for (let i = 0; i < 4000; i++) {
-      positions.push(Math.random() * 600 - 300);
-      positions.push(Math.random() * 600 - 300);
-      positions.push(Math.random() * 600 - 300);
 
-      velocities.push(0);
+    this.starGeo = new THREE.BufferGeometry(); // Crea un nuovo BufferGeometry per le stelle con attributi per la posizione, la velocità e l'accelerazione
+    const positions = []; // Crea un array per le posizioni delle stelle
+    const velocities = []; // Crea un array per le velocità delle stelle
+    const accelerations = []; // Crea un array per le accelerazioni delle stelle
+    for (let i = 0; i < 4000; i++) { // Crea 4000 stelle
+      positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse x tra -300 e 300
+      positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse y tra -300 e 300
+      positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse z tra -300 e 300
 
-      accelerations.push(0.02);
+      velocities.push(0); // Aggiunge una velocità iniziale di 0
+
+      accelerations.push(0.02); // Aggiunge un'accelerazione iniziale di 0.02
     }
-    this.starGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-    this.starGeo.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 1));
+
+
+    this.starGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3)); // Aggiunge gli attributi di posizione, velocità e accelerazione alla geometria delle stelle come buffer di float a 32 bit con 3 valori per ogni elemento (x, y, z)
+    this.starGeo.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 1)); 
     this.starGeo.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
-    // Crea un materiale per le stelle
-    const sprite = new THREE.TextureLoader().load('../public/assets/images/star.png');
+    // //aggiunge la texture star.png ad alcune stelle e la texture star1.png ad altre stelle
+    // const sprite1 = new THREE.TextureLoader().load('../public/assets/images/star.png');
+    // const sprite2 = new THREE.TextureLoader().load('../public/assets/images/star1.png');
+    // const starMaterial1 = new THREE.PointsMaterial({
+    //   color: 0xaaaaaa,
+    //   size: 0.7,
+    //   map: sprite1,
+    //   transparent: true,
+    //   blending: THREE.AdditiveBlending,
+    // });
+    // const starMaterial2 = new THREE.PointsMaterial({
+    //   color: 0xaaaaaa,
+    //   size: 0.7,
+    //   map: sprite2,
+    //   transparent: true,
+    //   blending: THREE.AdditiveBlending,
+    // });
+
+    const sprite = new THREE.TextureLoader().load('../public/assets/images/star.png'); // Carica la texture per le stelle da un'immagine
     const starMaterial = new THREE.PointsMaterial({
       color: 0xaaaaaa,
       size: 0.7,

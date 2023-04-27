@@ -10,7 +10,7 @@ class EarthLoader
     
     this.scene = new THREE.Scene(); //crea una nuova scena Three.js
     
-    this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 60 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
+    this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 15 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
     this.camera.position.z = 550; //posiziona la camera a una distanza di 520 unità lungo l'asse z dalla scena
 
     
