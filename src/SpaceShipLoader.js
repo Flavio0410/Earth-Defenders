@@ -64,7 +64,7 @@ class SpaceShipLoader
   animate() { //funzione per l'animazione della scena
     requestAnimationFrame(() => this.animate()); //richiede l'animazione del frame
     if (this.object) { //se l'oggetto è stato caricato
-      this.object.rotation.y += 0.0015; //ruota l'oggetto lungo l'asse y di 0.0015 radianti ad ogni frame
+      this.object.rotation.y -= 0.0015; //ruota l'oggetto lungo l'asse y di 0.0015 radianti ad ogni frame
     }
     this.renderer.render(this.scene, this.camera); //renderizza la scena
   }

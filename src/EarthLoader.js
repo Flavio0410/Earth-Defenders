@@ -65,6 +65,7 @@ animate() { //definisce una funzione animate()
     if (this.object) { //verifica se l'oggetto 3D è stato caricato
       // Rimuovi la rotazione sull'asse Y e Z
       this.object.rotation.y += 0.0015; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
+      this.object.rotation.z += 0.0010; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Z
   
     }
     this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer

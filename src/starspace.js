@@ -101,4 +101,4 @@ class Starspace {
 }
 
 // // Crea un'isstanza della classe StarField e inizia l'animazione delle stelle
-var start = new Starspace();
+const start = new Starspace();
