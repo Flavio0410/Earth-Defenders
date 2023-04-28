@@ -1,8 +1,8 @@
 export default class Enemy {
 
   constructor(x, y, imageNumber, life) {
-    this.x = x + 50;
-    this.y = y + 50;
+    this.x = x + 70;
+    this.y = y + 70;
     this.width = 44;
     this.height = 32;
     this.life = life;
