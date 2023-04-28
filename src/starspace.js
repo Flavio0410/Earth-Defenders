@@ -21,7 +21,7 @@ class Starspace {
     const positions = []; // Crea un array per le posizioni delle stelle
     const velocities = []; // Crea un array per le velocità delle stelle
     const accelerations = []; // Crea un array per le accelerazioni delle stelle
-    for (let i = 0; i < 4000; i++) { // Crea 4000 stelle
+    for (let i = 0; i < 3000; i++) { // Crea 4000 stelle
       positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse x tra -300 e 300
       positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse y tra -300 e 300
       positions.push(Math.random() * 600 - 300); // Aggiunge una posizione casuale lungo l'asse z tra -300 e 300
@@ -37,10 +37,10 @@ class Starspace {
     this.starGeo.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
 
-    const sprite = new THREE.TextureLoader().load('../public/assets/images/star.png'); // Carica la texture per le stelle da un'immagine
+    const sprite = new THREE.TextureLoader().load('../public/assets/images/whitestar.png'); // Carica la texture per le stelle da un'immagine
     const starMaterial = new THREE.PointsMaterial({
       color: 0xaaaaaa,
-      size: 0.2,
+      size: 2,
       map: sprite,
       transparent: true,
       blending: THREE.AdditiveBlending,
@@ -55,14 +55,16 @@ class Starspace {
       transparent: true,
       blending: THREE.AdditiveBlending,
     });
+
     
 
-    // Crea un oggetto Points per le stelle e lo aggiunge alla scena
+    //Crea un oggetto Points per le stelle e lo aggiunge alla scena
     this.stars = new THREE.Points(this.starGeo, starMaterial);
     this.scene.add(this.stars);
 
     this.stars2 = new THREE.Points(this.starGeo, starMaterial2);
     this.scene.add(this.stars2);
+
 
     // Aggiunge un listener per la ridimensione della finestra
     window.addEventListener('resize', this.onWindowResize.bind(this), false);
@@ -94,6 +96,7 @@ class Starspace {
     positions.needsUpdate = true;
 
     this.stars.rotation.y += 0.002;
+    this.stars2.rotation.y += 0.004;
 
     this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(this.animate.bind(this));
