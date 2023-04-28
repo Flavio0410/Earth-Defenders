@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 body { 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
-  background: white;
+  background: black;
   overflow: hidden;
-  display: flex;
+  display:  flex;
   justify-content: center;
   align-items: center;
 }
+
 #mainContainer{
   width: 100%;
   height: 100%;
@@ -15,20 +17,26 @@ body {
   justify-content: center;
   align-items: center;
 }
-#cont{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+
+#mainContainer h1{
+  position: absolute;
+  display: block;
+  font-size: 60px;
+  color: white;
+  font-family: 'Bungee Shade', cursive;
 }
 
+
 #container3D {
-  position: relative;
+  position: fixed;
   width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  margin-left: -40%;
+  height: 100%;
+  top: 70%;
+  right: 50%;
+  /* padding-bottom: 100%;
+  margin-left: -40%; */
 }
 
 #container3D canvas {
