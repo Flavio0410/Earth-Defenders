@@ -1,5 +1,6 @@
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
+import Player from "./Player.js";
 
 export default class EnemyController {
   // enemyMap = [
@@ -20,6 +21,7 @@ export default class EnemyController {
     alien3Lives: 0
   }
 
+  points = 0;
   enemyMap = [];
   enemyRows = [];
   table = [];
@@ -231,6 +233,7 @@ export default class EnemyController {
             this.enemyDeathSound.currentTime = 0;
             this.enemyDeathSound.play();
             enemyRow.splice(enemyIndex, 1);
+            this.points += 100*this.level;
           }
         }
       });
@@ -239,8 +242,8 @@ export default class EnemyController {
     this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
   }
 
-  stampalo(a){
-    console.log(a);
+  getPoints(){
+    return this.points;
   }
-
+  
 }

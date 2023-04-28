@@ -8,7 +8,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-
 const background = new Image();
 background.src = "../public/assets/images/space.png";
 
@@ -27,6 +26,7 @@ let didWin = false;
 function game() {
   checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+  displayPoints();
   displayGameOver();
   if (!isGameOver) {
     enemyController.draw(ctx);
@@ -53,6 +53,14 @@ function displayGameOver() {
     reGame();
     isGameOver = false;
   }
+}
+
+function displayPoints() {
+    let text = "Punti: " + enemyController.getPoints();
+    
+    ctx.fillStyle = "white";
+    ctx.font = "40px Arial";
+    ctx.fillText(text, (canvas.width / 2) - 20, 35);
 }
 
 function checkGameOver() {

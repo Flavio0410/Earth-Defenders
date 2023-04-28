@@ -3,6 +3,7 @@ export default class Player {
     leftPressed = false;
     shootPressed = false;
     life = 3;
+    points = 0;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -93,6 +94,15 @@ export default class Player {
       if (this.life > 0){
         this.life -= 1;
       }
+    }
+
+    //forse si possono toglie ste due sotto
+    getPoints(){
+      return this.points;
+    }
+
+    addPoints(points){
+      this.points += points;
     }
 
   }
