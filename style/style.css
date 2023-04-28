@@ -32,13 +32,13 @@ body {
 }
 
 @keyframes cursor{
-  0%, 100%{border-color: transparent;}
-  50%{border-color: white;}
+  0%, 50%, 100%{border-color: transparent;}
+  25%, 75%{border-color: white;}
 }
 
 @keyframes typing{
   0%{ width: 5ch} /*Text is hidden*/
-  30%{ width: 14ch;} /*The enitre header will be typed out*/
+  20%{ width: 14ch;} /*The enitre header will be typed out*/
   80%{ width: 14ch;} /*Text stays visible*/
   90%{ width: 5ch;} /*Text is deleted*/
   100%{ width: 5ch;} /*Text stays hidden*/
@@ -51,8 +51,6 @@ body {
   height: 100%;
   top: 70%;
   right: 50%;
-  /* padding-bottom: 100%;
-  margin-left: -40%; */
 }
 
 #container3D canvas {

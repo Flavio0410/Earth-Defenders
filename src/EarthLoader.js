@@ -49,8 +49,10 @@ class EarthLoader
     this.container.appendChild(this.renderer.domElement); //aggiunge il canvas della scena Three.js al container HTML della pagina web
     
     this.animate(); //avvia la funzione di animazione della scena Three.js
+
     
   }
+
 
 
   onWindowResize() { //definisce una funzione onWindowResize()
