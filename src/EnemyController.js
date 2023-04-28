@@ -245,5 +245,9 @@ export default class EnemyController {
   getPoints(){
     return this.points;
   }
-  
+
+  getLevel(){
+    return this.level;
+  }
+
 }

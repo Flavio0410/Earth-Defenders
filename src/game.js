@@ -27,6 +27,8 @@ function game() {
   checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   displayPoints();
+  displayLevel();
+  displayRecord();
   displayGameOver();
   if (!isGameOver) {
     enemyController.draw(ctx);
@@ -61,6 +63,22 @@ function displayPoints() {
     ctx.fillStyle = "white";
     ctx.font = "40px Arial";
     ctx.fillText(text, (canvas.width / 2) - 20, 35);
+}
+
+function displayLevel() {
+  let text = "Livello: " + enemyController.getLevel();
+  
+  ctx.fillStyle = "white";
+  ctx.font = "40px Arial";
+  ctx.fillText(text, 20, 35);
+}
+
+function displayRecord() {
+  let text = "Record: " + enemyController.getLevel();
+  
+  ctx.fillStyle = "white";
+  ctx.font = "40px Arial";
+  ctx.fillText(text, canvas.width - 200, 35);
 }
 
 function checkGameOver() {
