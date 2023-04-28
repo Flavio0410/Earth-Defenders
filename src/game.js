@@ -62,7 +62,7 @@ function displayPoints() {
     
     ctx.fillStyle = "white";
     ctx.font = "40px Arial";
-    ctx.fillText(text, (canvas.width / 2) - 20, 35);
+    ctx.fillText(text, (canvas.width / 2) - 20, 45);
 }
 
 function displayLevel() {
@@ -70,7 +70,7 @@ function displayLevel() {
   
   ctx.fillStyle = "white";
   ctx.font = "40px Arial";
-  ctx.fillText(text, 20, 35);
+  ctx.fillText(text, 20, 45);
 }
 
 function displayRecord() {
@@ -78,7 +78,7 @@ function displayRecord() {
   
   ctx.fillStyle = "white";
   ctx.font = "40px Arial";
-  ctx.fillText(text, canvas.width - 200, 35);
+  ctx.fillText(text, canvas.width - 200, 45);
 }
 
 function checkGameOver() {
