@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
 body { 
   width: 100%;
   height: 100%;
@@ -18,14 +19,29 @@ body {
   align-items: center;
 }
 
-
-
 #mainContainer h1{
-  position: absolute;
+  position: fixed;
   display: block;
   font-size: 60px;
   color: white;
   font-family: 'Bungee Shade', cursive;
+  border-right: 4px solid white;
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(13);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes cursor{
+  0%, 100%{border-color: transparent;}
+  50%{border-color: white;}
+}
+
+@keyframes typing{
+  0%{ width: 5ch} /*Text is hidden*/
+  30%{ width: 14ch;} /*The enitre header will be typed out*/
+  80%{ width: 14ch;} /*Text stays visible*/
+  90%{ width: 5ch;} /*Text is deleted*/
+  100%{ width: 5ch;} /*Text stays hidden*/
 }
 
 
