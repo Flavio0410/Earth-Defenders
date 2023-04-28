@@ -2,8 +2,12 @@ import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
 
 
 class Starspace {
-  constructor() 
+  constructor(containerId) 
   {
+  {
+
+    this.container = document.getElementById(containerId); // Ottiene il contenitore per il canvas
+
     this.scene = new THREE.Scene(); // Crea una nuova scena Three.js
     this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000); // Crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 60 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 1 e 1000
     this.camera.position.z = 1; // Posiziona la camera a una distanza di 1 unità lungo l'asse z dalla scena
@@ -64,9 +68,12 @@ class Starspace {
     // Aggiunge un event listener per la finestra che chiama la funzione onWindowResize quando la finestra viene ridimensionata
     window.addEventListener('resize', this.onWindowResize.bind(this), false);
 
+    this.container.appendChild(this.renderer.domElement); //aggiunge il canvas della scena Three.js al container HTML della pagina web
+
     // Avvia l'animazione
     this.animate();
   }
+}
 
   // Funzione chiamata quando la finestra viene ridimensionata
   onWindowResize() {
@@ -97,6 +104,5 @@ class Starspace {
     requestAnimationFrame(this.animate.bind(this)); // Richiede una nuova animazione al browser
   }
 }
-
 // Crea un'isstanza della classe StarField e inizia l'animazione delle stelle
-const start = new Starspace();
+const start = new Starspace("mainContainer");
