@@ -50,6 +50,7 @@ class EarthLoader
     
     this.animate(); //avvia la funzione di animazione della scena Three.js
 
+
     
   }
 
