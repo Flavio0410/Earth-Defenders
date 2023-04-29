@@ -21,7 +21,7 @@ class Starspace {
 
 
 
-    this.starGeo = new THREE.BufferGeometry(); // Crea un nuovo BufferGeometry per le stelle con attributi per la posizione, la velocità e l'accelerazione
+    this.starGeometry = new THREE.BufferGeometry(); // Crea un nuovo BufferGeometry per le stelle con attributi per la posizione, la velocità e l'accelerazione
     const positions = []; // Crea un array per le posizioni delle stelle
     const velocities = []; // Crea un array per le velocità delle stelle
     const accelerations = []; // Crea un array per le accelerazioni delle stelle
@@ -36,9 +36,9 @@ class Starspace {
     }
 
 
-    this.starGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3)); // Aggiunge gli attributi di posizione, velocità e accelerazione alla geometria delle stelle come buffer di float a 32 bit con 3 valori per ogni elemento (x, y, z)
-    this.starGeo.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 1)); 
-    this.starGeo.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
+    this.starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3)); // Aggiunge gli attributi di posizione, velocità e accelerazione alla geometria delle stelle come buffer di float a 32 bit con 3 valori per ogni elemento (x, y, z)
+    this.starGeometry.setAttribute('velocity', new THREE.Float32BufferAttribute(velocities, 1)); 
+    this.starGeometry.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
 
     const sprite = new THREE.TextureLoader().load('../public/assets/images/whitestar.png'); // Carica la texture per le stelle da un'immagine 
@@ -59,10 +59,10 @@ class Starspace {
     });
 
     
-    this.stars = new THREE.Points(this.starGeo, starMaterial); // Crea un nuovo oggetto Points per le stelle con la geometria e il materiale creati in precedenza
+    this.stars = new THREE.Points(this.starGeometry, starMaterial); // Crea un nuovo oggetto Points per le stelle con la geometria e il materiale creati in precedenza
     this.scene.add(this.stars); // Aggiunge le stelle bianche alla scena
 
-    this.stars2 = new THREE.Points(this.starGeo, starMaterial2); // Crea un nuovo oggetto Points per le stelle con la geometria e il materiale creati in precedenza
+    this.stars2 = new THREE.Points(this.starGeometry, starMaterial2); // Crea un nuovo oggetto Points per le stelle con la geometria e il materiale creati in precedenza
     this.scene.add(this.stars2); // Aggiunge le stelle viola alla scena
 
     // Aggiunge un event listener per la finestra che chiama la funzione onWindowResize quando la finestra viene ridimensionata
@@ -84,9 +84,9 @@ class Starspace {
 
   // Funzione per l'animazione delle stelle
   animate() {
-    const positions = this.starGeo.getAttribute('position'); // Ottiene l'attributo di posizione dalla geometria delle stelle 
-    const velocities = this.starGeo.getAttribute('velocity'); // Ottiene l'attributo di velocità dalla geometria delle stelle
-    const accelerations = this.starGeo.getAttribute('acceleration'); // Ottiene l'attributo di accelerazione dalla geometria delle stelle
+    const positions = this.starGeometry.getAttribute('position'); // Ottiene l'attributo di posizione dalla geometria delle stelle 
+    const velocities = this.starGeometry.getAttribute('velocity'); // Ottiene l'attributo di velocità dalla geometria delle stelle
+    const accelerations = this.starGeometry.getAttribute('acceleration'); // Ottiene l'attributo di accelerazione dalla geometria delle stelle
     for (let i = 0; i < positions.count; i++) { 
       velocities.setX(i, velocities.getX(i) + accelerations.getX(i)); 
       positions.setY(i, positions.getY(i) - velocities.getX(i));
