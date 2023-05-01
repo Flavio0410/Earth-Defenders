@@ -46,14 +46,12 @@ function reGame(){
 
 function displayGameOver() {
   if (isGameOver) {
-    let text = didWin ? "You Win" : "Game Over";
-    let textOffset = didWin ? 3.5 : 5;
+    let text = "Game Over";
 
     ctx.fillStyle = "white";
     ctx.font = "70px Arial";
-    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
-    reGame();
-    isGameOver = false;
+    ctx.fillText(text, (canvas.width / 3) + 70, canvas.height / 2);
+    //isGameOver = false;
   }
 }
 
@@ -102,7 +100,8 @@ function checkGameOver() {
 
   if (enemyController.enemyRows.length === 0) {
     didWin = true;
-    isGameOver = true;
+    //isGameOver = true;
+    reGame();
   }
 }
 
