@@ -7,6 +7,8 @@ class EarthLoader
   constructor(containerId, modelUrl) 
   {
     this.container = document.getElementById(containerId); //seleziona l'elemento HTML per inserire la scena
+
+
     
     this.scene = new THREE.Scene(); //crea una nuova scena Three.js
     
@@ -18,6 +20,7 @@ class EarthLoader
     this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta le dimensioni del renderer per adattarsi alle dimensioni della finestra corrente
     this.renderer.setPixelRatio(window.devicePixelRatio); //imposta il rapporto tra i pixel del renderer e i pixel del dispositivo per garantire la massima definizione visiva su tutti i dispositivi
     
+
 
     this.loader = new GLTFLoader(); //crea un nuovo oggetto loader per caricare modelli 3D in formato glTF
     this.loader.load(
@@ -57,9 +60,9 @@ class EarthLoader
 
 
   onWindowResize() { //definisce una funzione onWindowResize()
-    this.camera.aspect = window.innerWidth / window.innerHeight; //aggiorna il rapporto di aspetto della telecamera in base alla larghezza e all'altezza della finestra del browser
+    this.camera.aspect = containerId.innerWidth / containerId.innerHeight; //aggiorna il rapporto di aspetto della telecamera in base alla larghezza e all'altezza della finestra del browser
     this.camera.updateProjectionMatrix(); //aggiorna la matrice di proiezione della telecamera
-    this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta la nuova dimensione del canvas del renderer in base alla larghezza e all'altezza della finestra del browser
+    this.renderer.setSize(containerId.innerWidth, containerId.innerHeight); //imposta la nuova dimensione del canvas del renderer in base alla larghezza e all'altezza della finestra del browser
 }
 
 
