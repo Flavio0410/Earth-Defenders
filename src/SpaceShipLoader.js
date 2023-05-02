@@ -56,9 +56,9 @@ class SpaceShipLoader
 
 
   onWindowResize() { //funzione per il ridimensionamento della finestra
-    this.camera.aspect = window.innerWidth / window.innerHeight; //imposta il rapporto d'aspetto della camera in base al rapporto d'aspetto della finestra 
+    this.camera.aspect = containerId.innerWidth / containerId.innerHeight; //imposta il rapporto d'aspetto della camera in base al rapporto d'aspetto della finestra 
     this.camera.updateProjectionMatrix(); //aggiorna la matrice di proiezione della camera
-    this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta la dimensione del renderer alla dimensione della finestra
+    this.renderer.setSize(containerId.innerWidth, containerId.innerHeight); //imposta la dimensione del renderer alla dimensione della finestra
   }
 
   animate() { //funzione per l'animazione della scena

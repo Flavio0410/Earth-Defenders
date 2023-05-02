@@ -8,19 +8,16 @@ class EarthLoader
   {
     this.container = document.getElementById(containerId); //seleziona l'elemento HTML per inserire la scena
 
-
-    
     this.scene = new THREE.Scene(); //crea una nuova scena Three.js
     
     this.camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 15 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
-    this.camera.position.z = 550; //posiziona la camera a una distanza di 520 unità lungo l'asse z dalla scena
+    this.camera.position.z = 520; //posiziona la camera a una distanza di 520 unità lungo l'asse z dalla scena
 
     
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //crea un nuovo renderer Three.js basato sulla tecnologia WebGL, abilita l'antialiasing e l'alpha per la trasparenza
     this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta le dimensioni del renderer per adattarsi alle dimensioni della finestra corrente
     this.renderer.setPixelRatio(window.devicePixelRatio); //imposta il rapporto tra i pixel del renderer e i pixel del dispositivo per garantire la massima definizione visiva su tutti i dispositivi
     
-
 
     this.loader = new GLTFLoader(); //crea un nuovo oggetto loader per caricare modelli 3D in formato glTF
     this.loader.load(
