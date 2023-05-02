@@ -66,9 +66,10 @@ body {
 
 #spaceShipContainer {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  bottom: 75%;
+  width: 25%;
+  height: 25%;
+  top: 45%;
+
 }
 
 #spaceShipContainer canvas 
@@ -117,6 +118,7 @@ body {
   .playbutton {
     min-width: 180px;
     padding: 0 25px;
+    z-index: 100;
   }
 }
 

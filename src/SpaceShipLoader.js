@@ -11,7 +11,7 @@ class SpaceShipLoader
 
     this.scene = new THREE.Scene();//crea una nuova scena Three.js
 
-    this.camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 10 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
+    this.camera = new THREE.PerspectiveCamera(8, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 10 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
     this.camera.position.z = 200; //posiziona la camera a una distanza di 200 unità lungo l'asse z dalla scena
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //crea un nuovo renderer WebGL con antialiasing e un canale alfa
