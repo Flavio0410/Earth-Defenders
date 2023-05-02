@@ -47,7 +47,7 @@ export default class EnemyController {
 
     let params = this.setEnemiesForLevel(this.level);
     this.buildFormation(params.columns, params.rows);
-    this.createEnemies();
+    this.createEnemies(0,0,0);
   }
 
   draw(ctx) {
@@ -154,15 +154,15 @@ export default class EnemyController {
         if (enemyNumber > 0) {
           if (enemyNumber == 1){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, a)
             );
           } else if (enemyNumber == 2){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, b)
             );
           } else if (enemyNumber == 3){
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, 0)
+              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, c)
             );
           }
         }
@@ -221,6 +221,7 @@ export default class EnemyController {
     this.enemyMap = [];
     let params = this.setEnemiesForLevel(this.level += 1);
     this.buildFormation(params.columns, params.rows);
+    console.log("params"+ params.alien3Lives);
     this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
   }
 
