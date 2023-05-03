@@ -21,7 +21,7 @@ body {
   align-items: center;
 }
 
-#mainContainer h1{
+.centeredTitle{
   position: fixed;
   display: block;
   font-size: 60px;
@@ -51,7 +51,7 @@ body {
 }
 
 
-#container3D {
+.earthcont {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -59,12 +59,7 @@ body {
   right: 30%;
 }
 
-#container3D canvas {
-  width: 100%;
-  height: 100%;
-}
-
-#spaceShipContainer {
+.spaceshipcont {
   position: fixed;
   width: 15%;
   height: 25%;
@@ -72,15 +67,7 @@ body {
 
 }
 
-#spaceShipContainer canvas 
-{
-  width: 100%;
-  height: 100%;
-}
 
-
-
-/* CSS */
 .playbutton {
   background-color: #fbeee0;
   border: 2px solid #422800;
@@ -131,7 +118,7 @@ body {
   .playbutton {
     min-width: 160px;
     padding: 0 25px;
-    z-index: 1;
+    z-index: 100;
   }
 }
 
@@ -148,5 +135,11 @@ body {
 }
 
 @media only screen and (min-width: 1200px) {
+  .playbutton {
+    min-width: 200px;
+    min-height: 60px;
+    padding: 0 25px;
+    z-index: 1;
+  }
 
 }
