@@ -44,7 +44,7 @@ class EarthLoader
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7); //crea una nuova luce ambientale bianca con una intensità del 70%
     this.scene.add(ambientLight); //aggiunge la luce alla scena Three.js
     
-    window.addEventListener("resize", () => this.onWindowResize()); //aggiunge un listener per l'evento "resize" della finestra del browser che richiama la funzione onWindowResize()
+    // window.addEventListener("resize", () => this.onWindowResize()); //aggiunge un listener per l'evento "resize" della finestra del browser che richiama la funzione onWindowResize()
     
     this.container.appendChild(this.renderer.domElement); //aggiunge il canvas della scena Three.js al container HTML della pagina web
     
@@ -55,18 +55,16 @@ class EarthLoader
   }
 
 
-
-  onWindowResize() { //definisce una funzione onWindowResize()
-    this.camera.aspect = containerId.innerWidth / containerId.innerHeight; //aggiorna il rapporto di aspetto della telecamera in base alla larghezza e all'altezza della finestra del browser
-    this.camera.updateProjectionMatrix(); //aggiorna la matrice di proiezione della telecamera
-    this.renderer.setSize(containerId.innerWidth, containerId.innerHeight); //imposta la nuova dimensione del canvas del renderer in base alla larghezza e all'altezza della finestra del browser
-}
+//   onWindowResize() { //definisce una funzione onWindowResize()
+//     this.camera.aspect = containerId.innerWidth / containerId.innerHeight; //aggiorna il rapporto di aspetto della telecamera in base alla larghezza e all'altezza della finestra del browser
+//     this.camera.updateProjectionMatrix(); //aggiorna la matrice di proiezione della telecamera
+//     this.renderer.setSize(containerId.innerWidth, containerId.innerHeight); //imposta la nuova dimensione del canvas del renderer in base alla larghezza e all'altezza della finestra del browser
+// }
 
 
 animate() { //definisce una funzione animate()
     requestAnimationFrame(() => this.animate()); //richiede l'animazione della funzione animate() usando requestAnimationFrame(), che viene richiamata ad ogni frame di animazione
     if (this.object) { //verifica se l'oggetto 3D è stato caricato
-      // Rimuovi la rotazione sull'asse Y e Z
       this.object.rotation.y += 0.0015; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
       //this.object.rotation.z += 0.0010; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Z
   
