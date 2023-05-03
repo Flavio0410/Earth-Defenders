@@ -78,7 +78,6 @@ rotatenormal(){
   requestAnimationFrame(() => this.rotatenormal()); //richiede l'animazione della funzione animate() usando requestAnimationFrame(), che viene richiamata ad ogni frame di animazione
   if (this.object) { //verifica se l'oggetto 3D è stato caricato
     this.object.rotation.y-=0.1; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
-    this.object.rotation.y += 0.0015; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
   }
   this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
 }
