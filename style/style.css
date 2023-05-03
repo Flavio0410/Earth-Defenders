@@ -116,9 +116,9 @@ body {
 
 @media (min-width: 768px) {
   .playbutton {
-    min-width: 180px;
+    min-width: 160px;
     padding: 0 25px;
-    z-index: 100;
+    z-index: 1;
   }
 }
 
