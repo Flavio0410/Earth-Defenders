@@ -25,6 +25,7 @@ body {
   position: fixed;
   display: block;
   font-size: 60px;
+  content: "defenders";
   color: white;
   font-family: 'Bungee Shade', cursive;
   border-right: 5px solid white;
@@ -57,14 +58,15 @@ body {
   height: 100%;
   top: 70%;
   right: 30%;
+  margin: 0%;
 }
+
 
 .spaceshipcont {
   position: fixed;
   width: 15%;
   height: 25%;
   top: 40%;
-
 }
 
 
@@ -116,34 +118,108 @@ body {
 
 @media only screen and (max-width: 600px) {
   .playbutton {
-    min-width: 160px;
-    padding: 0 25px;
-    z-index: 100;
+    min-width: 140px;
+    padding: 0 18px;
+    z-index: 1;
+  }
+
+  .spaceshipcont{
+    display: none;
+  }
+
+  .earthcont{
+    right: 90%;
+    top: 80%;
+  }
+  .centeredTitle{
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px){
+  .spaceshipcont
+  {
+    display: none;
+  }
+
+  .earthcont{
+    right: 80%;
+    top: 75%;
+
+  }
+
+  .playbutton{
+    min-width: 170px;
+    padding: 0 18px;
+    z-index: 1;
+  }
+
+  .centeredTitle{
+    font-size: 50px;
+  }
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+  .spaceshipcont{
+    display: none;
+  }
+
+  .earthcont{
+
+  }
+  .playbutton{
+
   }
 
 }
 
-@media only screen and (min-width: 600px) and (max-width: 768px){
-
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 992px){
-
-
-}
-
 @media only screen and (min-width: 992px) and (max-width: 1200px){
+  
+.earthcont {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 70%;
+  right: 30%;
+  margin: 0%;
+}
 
+
+.spaceshipcont {
+  position: fixed;
+  width: 15%;
+  height: 25%;
+  top: 40%;
+}
 
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1201px) {
   .playbutton {
     min-width: 200px;
     min-height: 60px;
     padding: 0 25px;
     z-index: 1;
+  }
+
+  .earthcont {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 70%;
+    right: 30%;
+    margin: 0%;
+  }
+  
+  
+  .spaceshipcont {
+    position: fixed;
+    width: 15%;
+    height: 25%;
+    top: 40%;
   }
 
 }

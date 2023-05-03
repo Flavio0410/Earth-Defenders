@@ -71,7 +71,6 @@ rotatefast(){
     this.object.rotation.y += 0.1; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
   }
   this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
-  console.log("rotate");
 }
 
 rotatenormal(){

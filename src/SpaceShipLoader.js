@@ -45,21 +45,12 @@ class SpaceShipLoader
     const ambientLight = new THREE.AmbientLight(0xffffff, 1); //crea una nuova luce ambientale bianca
     this.scene.add(ambientLight); //aggiungi la luce alla scena
 
-    // window.addEventListener("resize", () => this.onWindowResize()); //aggiungi un listener per il ridimensionamento della finestra
-
     this.container.appendChild(this.renderer.domElement); //aggiungi il renderer alla pagina HTML come un elemento figlio del contenitore HTML
 
 
     this.animate(); //avvia l'animazione della scena 
     
   }
-
-
-  // onWindowResize() { //funzione per il ridimensionamento della finestra
-  //   this.camera.aspect = containerId.innerWidth / containerId.innerHeight; //imposta il rapporto d'aspetto della camera in base al rapporto d'aspetto della finestra 
-  //   this.camera.updateProjectionMatrix(); //aggiorna la matrice di proiezione della camera
-  //   this.renderer.setSize(containerId.innerWidth, containerId.innerHeight); //imposta la dimensione del renderer alla dimensione della finestra
-  // }
 
   animate() { //funzione per l'animazione della scena
     requestAnimationFrame(() => this.animate()); //richiede l'animazione del frame
