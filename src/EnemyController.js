@@ -226,7 +226,6 @@ export default class EnemyController {
     this.enemyMap = [];
     let params = this.setEnemiesForLevel(this.level += 1);
     this.buildFormation(params.columns, params.rows);
-    console.log("params"+ params.alien3Lives);
     this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
   }
 
