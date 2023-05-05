@@ -39,7 +39,6 @@ export default class BulletController {
   }
 
   shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
-    console.log("shoot: "+this.maxBulletsAtATime);
     if (
       this.timeTillNextBulletAllowed <= 0 &&
       this.bullets.length < this.maxBulletsAtATime
@@ -56,6 +55,5 @@ export default class BulletController {
 
   setMaxBulletsAtATime(bullets){
     this.maxBulletsAtATime = bullets;
-    console.log("funzione: "+this.maxBulletsAtATime);
   }
 }
