@@ -11,7 +11,7 @@ export default class Player {
       this.bulletController = bulletController;
   
       this.x = this.canvas.width / 2;
-      this.y = this.canvas.height - 115;
+      this.y = this.canvas.height - this.canvas.height/6;
       this.width = 100;
       this.height = 100;
       this.image = new Image();
@@ -19,6 +19,7 @@ export default class Player {
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
+      window.addEventListener("resize", () => this.onWindowResize());
     }
   
     draw(ctx) {
@@ -103,6 +104,11 @@ export default class Player {
 
     addPoints(points){
       this.points += points;
+    }
+
+    onWindowResize(){
+      this.x = this.canvas.width / 2;
+      this.y = this.canvas.height - this.canvas.height/6;
     }
 
   }
