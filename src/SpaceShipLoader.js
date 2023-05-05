@@ -49,6 +49,8 @@ class SpaceShipLoader
 
 
     this.animate(); //avvia l'animazione della scena 
+    //add windowsresize listener
+    window.addEventListener("resize", () => this.onWindowResize()); //aggiunge un listener per il ridimensionamento della finestra
     
   }
 
