@@ -47,7 +47,7 @@ export default class EnemyController {
 
     let params = this.setEnemiesForLevel(this.level);
     this.buildFormation(params.columns, params.rows);
-    this.createEnemies(0,0,0);
+    this.createEnemies(0, 0, 0);
   }
 
   draw(ctx) {
@@ -212,16 +212,20 @@ export default class EnemyController {
       if (levelParams.alien2Lives > maxAlienLives) levelParams.alien2Lives = maxAlienLives;
     }
 
+    const minFireRate = 50;
+
+    levelParams.fireRate = levelParams.fireRate * 0.9;
+    if (levelParams.fireRate < minFireRate) levelParams.fireRate = minFireRate;
+
     return levelParams;
 
   }
 
   levelUp(){
-    this.fireBulletTimerDefault = this.fireBulletTimerDefault*0.8;
+    this.fireBulletTimerDefault = this.fireBulletTimerDefault*1.2;
     this.enemyMap = [];
     let params = this.setEnemiesForLevel(this.level += 1);
     this.buildFormation(params.columns, params.rows);
-    console.log("params"+ params.alien3Lives);
     this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
   }
 
