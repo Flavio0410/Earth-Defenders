@@ -11,7 +11,8 @@ canvas.height = document.body.clientHeight;
 const background = new Image();
 background.src = "../public/assets/images/space.png";
 
-const playerBulletController = new BulletController(canvas, 20, "white", true);
+let playerBullets = 5;
+const playerBulletController = new BulletController(canvas, playerBullets, "white", true);
 const enemyBulletController = new BulletController(canvas, 10, "red", false);
 const enemyController = new EnemyController(
   canvas,
@@ -21,7 +22,6 @@ const enemyController = new EnemyController(
 const player = new Player(canvas, 3, playerBulletController);
 
 let isGameOver = false;
-let didWin = false;
 
 function game() {
   checkGameOver();
@@ -40,6 +40,10 @@ function game() {
 
 function reGame(){
   enemyController.levelUp();
+  if(playerBullets < 15){
+    playerBullets += 1;
+    playerBulletController.setMaxBulletsAtATime(playerBullets);
+  }
 }
 
 function displayGameOver() {
@@ -97,7 +101,6 @@ function checkGameOver() {
   }
 
   if (enemyController.enemyRows.length === 0) {
-    didWin = true;
     //isGameOver = true;
     reGame();
   }

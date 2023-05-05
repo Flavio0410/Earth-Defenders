@@ -1,6 +1,5 @@
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
-import Player from "./Player.js";
 
 export default class EnemyController {
   // enemyMap = [
@@ -218,13 +217,13 @@ export default class EnemyController {
     if (levelParams.fireRate < minFireRate) levelParams.fireRate = minFireRate;
 
     return levelParams;
-
   }
 
   levelUp(){
-    this.fireBulletTimerDefault = this.fireBulletTimerDefault*1.2;
+    this.currentDirection = MovingDirection.right;
     this.enemyMap = [];
     let params = this.setEnemiesForLevel(this.level += 1);
+    this.fireBulletTimerDefault = params.fireRate;
     this.buildFormation(params.columns, params.rows);
     this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
   }
