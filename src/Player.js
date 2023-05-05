@@ -97,21 +97,4 @@ export default class Player {
       }
     }
 
-<<<<<<< HEAD
-=======
-    //forse si possono toglie ste due sotto
-    getPoints(){
-      return this.points;
-    }
-
-    addPoints(points){
-      this.points += points;
-    }
-
-    onWindowResize(){
-      this.x = this.canvas.width / 2;
-      this.y = this.canvas.height - this.canvas.height/6;
-    }
-
->>>>>>> dcaa3879d0e0e3a5ffdee4829099d594c929b1c1
   }
