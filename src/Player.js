@@ -96,13 +96,4 @@ export default class Player {
       }
     }
 
-    //forse si possono toglie ste due sotto
-    getPoints(){
-      return this.points;
-    }
-
-    addPoints(points){
-      this.points += points;
-    }
-
   }
