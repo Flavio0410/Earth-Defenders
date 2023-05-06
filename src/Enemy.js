@@ -8,7 +8,7 @@ export default class Enemy {
     this.life = life;
 
     this.image = new Image();
-    this.image.src = `../public/assets/images/enemy${imageNumber}.png`;
+    this.image.src = `../public/assets/images/penemy${imageNumber}.png`;
   }
 
   draw(ctx) {

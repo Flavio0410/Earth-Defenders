@@ -13,9 +13,9 @@ export default class Player {
       this.x = this.canvas.width / 2;
       this.y = this.canvas.height - this.canvas.height/6;
       this.width = 100;
-      this.height = 100;
+      this.height = 80;
       this.image = new Image();
-      this.image.src = "../public/assets/images/navicella1.png";
+      this.image.src = "../public/assets/images/pspaceship.png";
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
