@@ -7,9 +7,9 @@ body {
   margin: 0;
   background: black;
   overflow: hidden;
-  display:  flex;
-  justify-content: center;
-  align-items: center;
+  /* display:  flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 #mainContainer{
@@ -104,17 +104,27 @@ body {
 }
 
 
-
-#preloader {
+.spiner-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: white url(../public/assets/images/preloader.gif) no-repeat center center;
-  background-size: 20%;
   z-index: 100;
+  background-color: #010c19;
+  transition: all 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.spinner-border {
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+
+
 
 @media only screen and (max-width: 600px) {
   .playbutton {
