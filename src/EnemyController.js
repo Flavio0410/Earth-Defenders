@@ -20,6 +20,12 @@ export default class EnemyController {
     alien3Lives: 0
   }
 
+  buffParams  = {
+    x: 0,
+    y: 0,
+    spawned: false
+  }
+
   points = 0;
   enemyMap = [];
   enemyRows = [];
@@ -236,6 +242,12 @@ export default class EnemyController {
           if (enemyRow[enemyIndex].getLife() < 0){
             this.enemyDeathSound.currentTime = 0;
             this.enemyDeathSound.play();
+            if (this.calculateProbability() && this.buffParams.spawned == false){
+              this.buffParams.x = enemyRow[enemyIndex].getX();
+              this.buffParams.y = enemyRow[enemyIndex].getY();
+              this.buffParams.spawned = true;
+              console.log("Buff spawnato");
+            }
             enemyRow.splice(enemyIndex, 1);
             this.points += 100*this.level;
           }
@@ -246,12 +258,32 @@ export default class EnemyController {
     this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
   }
 
+  calculateProbability() {
+    // Genera un numero casuale tra 1 e 10
+    const randomNum = Math.floor(Math.random() * 10) + 1;
+    
+    // Restituisce true se il numero casuale è uguale o inferiore a 1
+    return randomNum <= 1;
+  }
+
   getPoints(){
     return this.points;
   }
 
   getLevel(){
     return this.level;
+  }
+
+  buffSpawned(){
+    return this.buffParams.spawned;
+  }
+
+  buffX(){
+    return this.buffParams.x;
+  }
+
+  buffY(){
+    return this.buffParams.y;
   }
 
 }

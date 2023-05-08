@@ -1,6 +1,7 @@
 import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
+import Buffs from "./Buffs.js";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -20,8 +21,11 @@ const enemyController = new EnemyController(
   playerBulletController
 );
 const player = new Player(canvas, 3, playerBulletController);
+const buffs = new Buffs(0,0);
+buffs.setImage();
 
 let isGameOver = false;
+let newBuff = false;
 
 function game() {
   checkGameOver();
@@ -35,6 +39,14 @@ function game() {
     player.draw(ctx);
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
+    if(enemyController.buffSpawned()){
+      if(!this.newBuff){
+        buffs.setX(enemyController.buffX());
+        buffs.setY(enemyController.buffY());
+        this.newBuff = true;
+      }
+      buffs.draw(ctx);
+    }
   }
 }
 
