@@ -15,7 +15,7 @@ export default class Enemy {
       if (randomNum < 0.5) {
         this.image.src = "../public/assets/images/pshield.png";
       } else if (randomNum < 0.75) {
-        this.image.src = "../public/assets/images/enemy1.png";
+        this.image.src = "../public/assets/images/pspeed.png";
       } else {
         this.image.src = "../public/assets/images/enemy2.png";
       }
@@ -42,6 +42,7 @@ export default class Enemy {
         this.y + this.height > sprite.y &&
         this.y < sprite.y + sprite.height
       ) {
+        console.log("colliso");
         return true;
       } else {
         return false;
