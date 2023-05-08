@@ -4,6 +4,7 @@ export default class Player {
     shootPressed = false;
     life = 3;
     points = 0;
+    shield = false;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -92,9 +93,17 @@ export default class Player {
     }
 
     hit(){
-      if (this.life > 0){
+      if (this.shield){
+        console.log("SCUDOOOO");
+        this.shield = false;
+      }
+      else{
         this.life -= 1;
       }
+    }
+
+    setShield(){
+      this.shield = true;
     }
 
   }

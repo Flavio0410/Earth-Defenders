@@ -21,8 +21,10 @@ const enemyController = new EnemyController(
   playerBulletController
 );
 const player = new Player(canvas, 3, playerBulletController);
-const buffs = new Buffs(0,0);
-buffs.setImage();
+const buffsController = new BulletController(canvas, player);
+
+let buffs = new Buffs(0,0);
+
 
 let isGameOver = false;
 let newBuff = false;
@@ -40,12 +42,15 @@ function game() {
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
     if(enemyController.buffSpawned()){
+      // buffsController.draw(player, 50,50);
       if(!this.newBuff){
+        buffs.setType();
+        buffs.setImage();
         buffs.setX(enemyController.buffX());
         buffs.setY(enemyController.buffY());
         this.newBuff = true;
       }
-      buffs.draw(ctx);
+      buffs.draw(ctx, player);
     }
   }
 }
