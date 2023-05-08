@@ -40,4 +40,12 @@ export default class Enemy {
   hit(){
     this.life -= 1;
   }
+
+  getX(){
+    return this.x;
+  }
+
+  getY(){
+    return this.y;
+  }
 }
