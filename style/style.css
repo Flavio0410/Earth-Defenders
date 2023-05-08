@@ -67,6 +67,14 @@ body {
   margin: 0%;
 }
 
+.earthcont canvas{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 
 .spaceshipcont {
   position: fixed;
@@ -75,9 +83,16 @@ body {
   top: 40%;
 }
 
+.spaceshipcont canvas{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .playbutton {
-  background-color: ivory;
+  background-color: white;
   border: 2px solid var(--main-color);
   border-radius: 30px;
   box-shadow: var(--main-color) 4px 4px 0 0;
