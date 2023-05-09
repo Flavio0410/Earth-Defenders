@@ -2,6 +2,7 @@ import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 import Buffs from "./Buffs.js";
+import BuffsController from "./BuffsController.js";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -21,7 +22,7 @@ const enemyController = new EnemyController(
   playerBulletController
 );
 const player = new Player(canvas, 3, playerBulletController);
-const buffsController = new BulletController(canvas, player);
+const buffsController = new BuffsController(canvas, player, enemyController);
 
 let buffs = new Buffs(0,0);
 
@@ -42,15 +43,15 @@ function game() {
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
     if(enemyController.buffSpawned()){
-      // buffsController.draw(player, 50,50);
-      if(!this.newBuff){
-        buffs.setType();
-        buffs.setImage();
-        buffs.setX(enemyController.buffX());
-        buffs.setY(enemyController.buffY());
-        this.newBuff = true;
-      }
-      buffs.draw(ctx, player);
+      buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
+      // if(!this.newBuff){
+      //   buffs.setType();
+      //   buffs.setImage();
+      //   buffs.setX(enemyController.buffX());
+      //   buffs.setY(enemyController.buffY());
+      //   this.newBuff = true;
+      // }
+      // buffs.draw(ctx, player);
     }
   }
 }

@@ -286,4 +286,8 @@ export default class EnemyController {
     return this.buffParams.y;
   }
 
+  resetBuffSpawn(){
+    this.buffParams.spawned = false;
+  }
+
 }

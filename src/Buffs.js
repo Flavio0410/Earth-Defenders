@@ -38,10 +38,10 @@ export default class Buffs {
       }
     }
 
-    draw(ctx, player) {
+    draw(ctx) {
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       this.moveDown();
-      this.collisionDetection(player);
+      // this.collisionDetection(player);
     }
   
     move(xVelocity, yVelocity) {
