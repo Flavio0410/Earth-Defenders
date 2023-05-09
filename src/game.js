@@ -1,7 +1,6 @@
 import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
-import Buffs from "./Buffs.js";
 import BuffsController from "./BuffsController.js";
 
 const canvas = document.getElementById("game");
@@ -23,12 +22,9 @@ const enemyController = new EnemyController(
 );
 const player = new Player(canvas, 3, playerBulletController);
 const buffsController = new BuffsController(canvas, player, enemyController);
-
-let buffs = new Buffs(0,0);
-
+let timer = 1000;
 
 let isGameOver = false;
-let newBuff = false;
 
 function game() {
   checkGameOver();
@@ -44,14 +40,14 @@ function game() {
     enemyBulletController.draw(ctx);
     if(enemyController.buffSpawned()){
       buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
-      // if(!this.newBuff){
-      //   buffs.setType();
-      //   buffs.setImage();
-      //   buffs.setX(enemyController.buffX());
-      //   buffs.setY(enemyController.buffY());
-      //   this.newBuff = true;
-      // }
-      // buffs.draw(ctx, player);
+    }
+    if(player.speedUp && timer >= 0){
+      playerBulletController.setMaxBulletsAtATime(20);
+      timer -= 1;
+    } else {
+      player.speedUp = false;
+      playerBulletController.setMaxBulletsAtATime(playerBullets);
+      timer = 1000;
     }
   }
 }
@@ -71,7 +67,6 @@ function displayGameOver() {
     ctx.fillStyle = "white";
     ctx.font = "70px Arial";
     ctx.fillText(text, (canvas.width / 3) + 70, canvas.height / 2);
-    //isGameOver = false;
   }
 }
 
@@ -119,7 +114,6 @@ function checkGameOver() {
   }
 
   if (enemyController.enemyRows.length === 0) {
-    //isGameOver = true;
     reGame();
   }
 }

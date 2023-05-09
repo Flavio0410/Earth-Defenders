@@ -43,6 +43,8 @@ export default class BuffsController {
             this.enemyController.resetBuffSpawn();
             if(this.buff.type == "pshield"){
                 this.player.setShield();
+            } else if (this.buff.type == "pspeed"){
+                this.player.setSpeedUp();
             }
         }
     }

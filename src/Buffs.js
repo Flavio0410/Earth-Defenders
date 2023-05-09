@@ -41,7 +41,6 @@ export default class Buffs {
     draw(ctx) {
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       this.moveDown();
-      // this.collisionDetection(player);
     }
   
     move(xVelocity, yVelocity) {
@@ -63,14 +62,6 @@ export default class Buffs {
         return true;
       } else {
         return false;
-      }
-    }
-
-    collisionDetection(player){
-      if (this.collideWith(player)){
-        this.enemyDeathSound.currentTime = 0;
-        this.enemyDeathSound.play();
-        this.image.src = '';
       }
     }
   

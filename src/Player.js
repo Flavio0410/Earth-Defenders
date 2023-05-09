@@ -5,6 +5,7 @@ export default class Player {
     life = 3;
     points = 0;
     shield = false;
+    speedUp = false;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -16,11 +17,12 @@ export default class Player {
       this.width = 100;
       this.height = 80;
       this.image = new Image();
-      this.image.src = "../public/assets/images/pspaceship.png";
+      // this.image.src = "../public/assets/images/pspaceship.png";
+      this.setImage();
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
-      window.addEventListener("resize", () => this.onWindowResize());
+      // window.addEventListener("resize", () => this.onWindowResize());
     }
   
     draw(ctx) {
@@ -29,6 +31,7 @@ export default class Player {
       }
       this.move();
       this.collideWithWalls();
+      this.setImage();
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
   
@@ -88,13 +91,25 @@ export default class Player {
       }
     };
 
+    setImage(){
+      if(this.shield && this.speedUp){
+        this.image.src = "../public/assets/images/shieldspeedspaceship.png";
+      } else if(this.shield){
+        // this.image.src = "../public/assets/images/shieldspaceship.png";
+        this.image.src = "../public/assets/images/shieldstarship.png";
+      } else if(this.speedUp){
+        this.image.src = "../public/assets/images/speedstarship.png";
+      } else {
+        this.image.src = "../public/assets/images/pspaceship.png";
+      }
+    }
+
     getLife(){
       return this.life;
     }
 
     hit(){
       if (this.shield){
-        console.log("SCUDOOOO");
         this.shield = false;
       }
       else{
@@ -104,6 +119,10 @@ export default class Player {
 
     setShield(){
       this.shield = true;
+    }
+
+    setSpeedUp(){
+      this.speedUp = true;
     }
 
   }
