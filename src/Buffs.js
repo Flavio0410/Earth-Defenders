@@ -30,11 +30,11 @@ export default class Buffs {
       var randomNum = Math.random();
 
       if (randomNum < 0.5) {
-        this.type = "pshield";
+        this.type = "shieldbuff";
       } else if (randomNum < 0.75) {
         this.type = "pspeed";
       } else {
-        this.type = "enemy2";
+        this.type = "2xbuff";
       }
     }
 
@@ -49,7 +49,7 @@ export default class Buffs {
     }
 
     moveDown(){
-      this.y += 1;
+      this.y += 2;
     }
   
     collideWith(sprite) {

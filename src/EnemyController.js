@@ -23,6 +23,7 @@ export default class EnemyController {
   buffParams  = {
     x: 0,
     y: 0,
+    multiplier: 1,
     spawned: false
   }
 
@@ -249,7 +250,7 @@ export default class EnemyController {
               console.log("Buff spawnato");
             }
             enemyRow.splice(enemyIndex, 1);
-            this.points += 100*this.level;
+            this.points += 100*this.level*this.buffParams.multiplier;
           }
         }
       });
@@ -284,6 +285,14 @@ export default class EnemyController {
 
   buffY(){
     return this.buffParams.y;
+  }
+
+  buffMultiplier(bool){
+    if(bool){
+      this.buffParams.multiplier = 2;
+    } else {
+      this.buffParams.multiplier = 1;
+    }
   }
 
   resetBuffSpawn(){
