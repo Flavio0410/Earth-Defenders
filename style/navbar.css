@@ -1,5 +1,19 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
+:root {
+    --main-color: #831DE8;
+    --main-color-lighter: #9C38FF;
+    --main-color-darker: #52099C;
+    --complementary-color: #9A9C00;
+    --complementary-color-lighter: #E6E81C;
+    --logourl: "../public/assets/images/logo.svg";
+  }
+
 .bi-list{
     color: white;
+}
+
+#registeranchor{
+    color: blue;
+    cursor: pointer;
 }
