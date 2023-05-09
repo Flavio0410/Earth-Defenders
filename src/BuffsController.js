@@ -10,11 +10,10 @@ export default class BuffsController {
         this.player = player;
         this.enemyController = enemyController;
 
-        this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
-        this.enemyDeathSound.volume = 0.1;
+        this.powerUpSound = new Audio("../public/assets/sounds/powerUp.mp3");
+        this.powerUpSound.volume = 0.1;
 
         this.buff = new Buffs(0,0);
-
     }
 
     draw(ctx, player, x, y) {
@@ -36,15 +35,17 @@ export default class BuffsController {
 
     collisionDetection(player){
         if(this.buff.collideWith(player) && this.isSpawned){
-            this.enemyDeathSound.currentTime = 0;
-            this.enemyDeathSound.play();
+            this.powerUpSound.currentTime = 0;
+            this.powerUpSound.play();
             this.isSpawned = false;
             this.newBuff = false;
             this.enemyController.resetBuffSpawn();
-            if(this.buff.type == "pshield"){
+            if(this.buff.type == "shieldbuff"){
                 this.player.setShield();
             } else if (this.buff.type == "pspeed"){
                 this.player.setSpeedUp();
+            } else {
+                this.enemyController.buffMultiplier(true);
             }
         }
     }

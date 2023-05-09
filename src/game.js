@@ -22,9 +22,12 @@ const enemyController = new EnemyController(
 );
 const player = new Player(canvas, 3, playerBulletController);
 const buffsController = new BuffsController(canvas, player, enemyController);
-let timer = 1000;
+let timerSpeed = 1000;
+let timer2X = 500;
 
 let isGameOver = false;
+
+let is2X = false;
 
 function game() {
   checkGameOver();
@@ -41,13 +44,21 @@ function game() {
     if(enemyController.buffSpawned()){
       buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
     }
-    if(player.speedUp && timer >= 0){
+    if(player.speedUp && timerSpeed >= 0){
       playerBulletController.setMaxBulletsAtATime(20);
-      timer -= 1;
+      timerSpeed -= 1;
     } else {
       player.speedUp = false;
       playerBulletController.setMaxBulletsAtATime(playerBullets);
-      timer = 1000;
+      timerSpeed = 1000;
+    }
+    if (enemyController.buffParams.multiplier == 2 && timer2X >= 0){
+      is2X = true;
+      timer2X -= 1;
+    } else {
+      is2X = false;
+      enemyController.buffMultiplier(false);
+      timer2X = 500;
     }
   }
 }
@@ -73,7 +84,11 @@ function displayGameOver() {
 function displayPoints() {
     let text = "Punti: " + enemyController.getPoints();
     
-    ctx.fillStyle = "white";
+    if(is2X){
+      ctx.fillStyle = "red";
+    } else {
+      ctx.fillStyle = "white";
+    }
     ctx.font = "40px Arial";
     ctx.fillText(text, (canvas.width / 2) - 20, 45);
 }
