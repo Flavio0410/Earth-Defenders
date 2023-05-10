@@ -1,3 +1,4 @@
+
 export default class Player {
     rightPressed = false;
     leftPressed = false;
@@ -6,6 +7,8 @@ export default class Player {
     points = 0;
     shield = false;
     speedUp = false;
+    startPosX;
+    mobileMovement;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -22,6 +25,9 @@ export default class Player {
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
+      document.addEventListener("touchstart", this.handleTouchMove);
+      document.addEventListener("touchend", this.handleTouchMove);
+      document.addEventListener("touchmove", this.handleTouchMove);
       // window.addEventListener("resize", () => this.onWindowResize());
     }
   
@@ -125,4 +131,25 @@ export default class Player {
       this.speedUp = true;
     }
 
+    // Comandi mobile
+    handleTouchMove = (event) => {
+      const touch = event.touches[0];
+      
+       if (event.type === 'touchstart') {
+          this.startPosX = touch.pageX;
+        } else if (event.type === 'touchmove') {
+          const currentPosX = touch.pageX;
+          
+          if (currentPosX > this.startPosX) {
+            this.rightPressed = true;
+            this.leftPressed = false;
+          } else {
+            this.leftPressed = true;
+            this.rightPressed = false;
+          }
+        } else if (event.type === 'touchend') {
+          this.rightPressed = false;
+          this.leftPressed = false;
+        }
+      }
   }

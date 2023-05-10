@@ -22,8 +22,6 @@ const enemyController = new EnemyController(
 );
 const player = new Player(canvas, 3, playerBulletController);
 const buffsController = new BuffsController(canvas, player, enemyController);
-let timerSpeed = 1000;
-let timer2X = 500;
 
 let isGameOver = false;
 
@@ -44,21 +42,19 @@ function game() {
     if(enemyController.buffSpawned()){
       buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
     }
-    if(player.speedUp && timerSpeed >= 0){
+    if(player.speedUp){
       playerBulletController.setMaxBulletsAtATime(20);
-      timerSpeed -= 1;
-    } else {
-      player.speedUp = false;
-      playerBulletController.setMaxBulletsAtATime(playerBullets);
-      timerSpeed = 1000;
+      setTimeout(() => {
+        player.speedUp = false;
+        playerBulletController.setMaxBulletsAtATime(playerBullets);
+      }, 10000);
     }
-    if (enemyController.buffParams.multiplier == 2 && timer2X >= 0){
+    if (enemyController.buffParams.multiplier == 2){
       is2X = true;
-      timer2X -= 1;
-    } else {
-      is2X = false;
-      enemyController.buffMultiplier(false);
-      timer2X = 500;
+      setTimeout(() => {
+        is2X = false;
+        enemyController.buffMultiplier(false);
+      }, 5000);
     }
   }
 }
