@@ -27,18 +27,17 @@
     <nav class="navbar navbar-inverse navbar-dark navbar-expand-lg fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-          <img src="public/assets/images/logo.svg" alt="Logo" width="120" height="" class="d-inline-block align-text-top">
+          <img src="public/assets/images/logo.svg" alt="Logo" width="130" height="" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </button>
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+          <div class="offcanvas-header justify-content-end">
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
@@ -52,6 +51,8 @@
 
 
               <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#exampleModal"">Accedi</button>
+
+              <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#exampleModalToggle2"">Registrati</button>
               
             </ul>
           </div>
@@ -70,22 +71,22 @@
           <div class="modal-body justify-content-center">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Email</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              <input type="email" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Password</label>
               <input type="email" class="form-control" id="exampleFormControlInput1">
-            </div>
-            <div class="mb-3 form-check">
+            </div>    
+            <button type="button" class="btn btn-accedi">Accedi</button>
+            <!-- <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Ricordami</label>
-            </div>
-            <div class="text-center">
-              <p>Non sei ancora registrato? <a id="registeranchor" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Registati</a></p>
-            </div>
+            </div> -->
           </div>
           <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-outline-success">Accedi</button>
+            <div class="text-center">
+              <p>Non hai un account? <a id="registeranchor" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Registati</a></p>
+            </div>
           </div>
         </div>
       </div>

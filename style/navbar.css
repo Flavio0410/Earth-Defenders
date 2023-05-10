@@ -14,6 +14,55 @@
 }
 
 #registeranchor{
-    color: blue;
+    color: var(--main-color-darker);
     cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav-item{
+    margin-left: 10px;
+}
+.modal-dialog-centered{
+    max-width: 400px;
+    min-width: auto;
+}
+
+.modal-content{
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.modal-header{
+    border-radius: 20px 20px 0px 0px;
+}
+
+.nav-item{
+    text-align: center;
+}
+
+.btn-outline-light{
+    margin-left: 15px;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+
+.off-canvas{
+    background-color: #831DE8;
+}
+
+.btn-accedi{
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #831DE8;
+    color: #E6E81C;
+    height: 45px;
+}
+
+.btn-accedi:hover{
+    background: #9C38FF;
+    color: #E6E81C;
 }
