@@ -24,7 +24,7 @@
 }
 .modal-dialog-centered{
     max-width: 400px;
-    min-width: auto;
+    max-height: 600px;
 }
 
 .modal-content{
@@ -52,17 +52,45 @@
     background-color: #831DE8;
 }
 
-.btn-accedi{
-    border-radius: 10px;
+.btn-login{
+    border-radius: 20px;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    background: #831DE8;
-    color: #E6E81C;
+    background: var(--main-color);
+    color: var(--complementary-color-lighter);
     height: 45px;
 }
 
-.btn-accedi:hover{
-    background: #9C38FF;
-    color: #E6E81C;
+.btn-login:hover{
+    background: var(--main-color-lighter);
+    color: white;
+}
+
+.btn-register{
+    border-radius: 20px;
+    width: 100%;
+    background: var(--main-color);
+    color: var(--complementary-color-lighter);
+    height: 45px;
+}
+
+.btn-register:hover{
+    background: var(--main-color-lighter);
+    color: white;
+}
+
+.off-canvas-{
+    border-radius: 20px;
+}
+
+.offcanvas.show{
+    border-radius: 20px;
+}
+
+
+.navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active{
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
