@@ -22,7 +22,7 @@ class newloader3d
         (gltf) => {
             this.object = gltf.scene; //salva l'oggetto della scena
             this.scene.add(this.object); //aggiungi l'oggetto alla scena
-            this.object.position.set(0, 0, 0); //posiziona l'oggetto a 0, 0, 0
+            this.object.position.set(0, -80, 0); //posiziona l'oggetto a 0, 0, 0
             this.object.scale.set(1, 1, 1); //scala l'oggetto a 1, 1, 1
         }
     );
@@ -44,9 +44,12 @@ class newloader3d
 
     this.rotate(); //avvia la funzione di animazione della scena Three.js
 
-    document.getElementsByClassName("playbutton")[0].addEventListener("mouseover", () => this.rotatefast()); //aggiunge un listener per l'evento "click" del bottone play che richiama la funzione play()
+    //document.getElementsByClassName("playbutton")[0].addEventListener("mouseover", () => this.rotatefast()); //aggiunge un listener per l'evento "click" del bottone play che richiama la funzione play()
 
-    document.getElementsByClassName("playbutton")[0].addEventListener("mouseout", () => this.rotatenormal()); //aggiunge un listener per l'evento "click" del bottone play che richiama la funzione play()
+    //document.getElementsByClassName("playbutton")[0].addEventListener("mouseout", () => this.rotatenormal()); //aggiunge un listener per l'evento "click" del bottone play che richiama la funzione play()
+
+    //add on containerresize
+    window.addEventListener("resize", () => this.onWindowResize()); //aggiunge un listener per l'evento "resize" della finestra che richiama la funzione resize()
 
     }
 
@@ -74,6 +77,12 @@ rotatenormal(){
   this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
 }
 
+onWindowResize() {
+    // Aggiorna le dimensioni del renderer e della camera
+    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+    this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+    this.camera.updateProjectionMatrix();
+  }
 
 
 }
