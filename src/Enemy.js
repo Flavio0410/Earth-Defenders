@@ -3,12 +3,24 @@ export default class Enemy {
   constructor(x, y, imageNumber, life) {
     this.x = x + 70;
     this.y = y + 70;
-    this.width = 44;
-    this.height = 32;
+    this.width = 44*(window.innerWidth/1920);
+    this.height = 32*(window.innerHeight/1080);
     this.life = life;
 
     this.image = new Image();
     this.image.src = `../public/assets/images/penemy${imageNumber}.png`;
+    
+    window.addEventListener("resize", () => {
+      this.x = x + 70;
+      this.y = y + 70;
+      if(window.innerWidth > 900)
+      {
+        this.width = 44*(window.innerWidth/1920);
+        this.height = 32*(window.innerHeight/1080);
+      }
+    });
+    
+
   }
 
   draw(ctx) {
@@ -48,4 +60,5 @@ export default class Enemy {
   getY(){
     return this.y;
   }
+
 }
