@@ -9,6 +9,7 @@ export default class Player {
     speedUp = false;
     startPosX;
     mobileMovement;
+    isMobile;
   
     constructor(canvas, velocity, bulletController) {
       this.canvas = canvas;
@@ -22,6 +23,8 @@ export default class Player {
       this.image = new Image();
       // this.image.src = "../public/assets/images/pspaceship.png";
       this.setImage();
+      this.isMobileDevice();
+      console.log("isMobile: " + this.isMobile)
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
@@ -131,6 +134,23 @@ export default class Player {
       this.speedUp = true;
     }
 
+    isMobileDevice(){
+      if (navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i) ||
+        window.innerWidth < 768) {
+        // si sta utilizzando un browser mobile
+        return this.isMobile = true;
+      } else {
+        // si sta utilizzando un browser desktop
+        return this.isMobile = false;
+      }
+    }
+
     // Comandi mobile
     handleTouchMove = (event) => {
       const touch = event.touches[0];
@@ -152,4 +172,13 @@ export default class Player {
           this.leftPressed = false;
         }
       }
+
+      handleTouchShoot = (event) => {
+        if (event.type === 'touchstart'){
+          this.shootPressed = true;
+        } else if (event.type === 'touchend'){
+          this.shootPressed = false;
+        }
+      }
+    
   }
