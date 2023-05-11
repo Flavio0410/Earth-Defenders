@@ -17,12 +17,13 @@ class newloader3d
     this.renderer.setSize(this.container.clientWidth, this.container.clientHeight); //imposta la dimensione del renderer alla dimensione della finestra
     this.renderer.setPixelRatio(window.devicePixelRatio); //imposta il rapporto pixel del renderer in base al rapporto pixel del dispositivo
 
+
     this.loader = new GLTFLoader(); //crea un nuovo loader GLTF
     this.loader.load(modelUrl,
         (gltf) => {
             this.object = gltf.scene; //salva l'oggetto della scena
             this.scene.add(this.object); //aggiungi l'oggetto alla scena
-            this.object.position.set(0, -80, 0); //posiziona l'oggetto a 0, 0, 0
+            this.object.position.set(0, 0, 0); //posiziona l'oggetto a 0, 0, 0
             this.object.scale.set(1, 1, 1); //scala l'oggetto a 1, 1, 1
         }
     );
@@ -79,9 +80,11 @@ rotatenormal(){
 
 onWindowResize() {
     // Aggiorna le dimensioni del renderer e della camera
-    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+
     this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
     this.camera.updateProjectionMatrix();
+    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+    console.log(this.camera.aspect);
   }
 
 

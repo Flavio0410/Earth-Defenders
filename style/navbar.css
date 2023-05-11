@@ -94,3 +94,9 @@
     outline: none;
     box-shadow: none;
 }
+
+.active{
+    background: var(--main-color);
+    color: var(--complementary-color-lighter);
+    border-radius: 30px;
+}
