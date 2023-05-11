@@ -10,7 +10,7 @@ canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
 const background = new Image();
-background.src = "../public/assets/images/space.png";
+background.src = "../public/assets/images/spacebg.jpg";
 
 let playerBullets = 5;
 const playerBulletController = new BulletController(canvas, playerBullets, "white", true);
@@ -32,7 +32,6 @@ function game() {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   displayPoints();
   displayLevel();
-  displayRecord();
   displayGameOver();
   if (!isGameOver) {
     enemyController.draw(ctx);
@@ -78,32 +77,32 @@ function displayGameOver() {
 }
 
 function displayPoints() {
-    let text = "Punti: " + enemyController.getPoints();
-    
-    if(is2X){
-      ctx.fillStyle = "red";
-    } else {
-      ctx.fillStyle = "white";
+    var score = document.getElementById('scoreSpanID');
+
+    while( score.firstChild ) {
+        score.removeChild( score.firstChild );
     }
-    ctx.font = "40px Arial";
-    ctx.fillText(text, (canvas.width / 2) - 20, 45);
+    score.appendChild( document.createTextNode(enemyController.getPoints()));
+
+    if(is2X){
+      score.style.color = "red";
+    }
+    else {
+      score.style.color = "white";
+    }
+    
+    
 }
 
 function displayLevel() {
-  let text = "Livello: " + enemyController.getLevel();
-  
-  ctx.fillStyle = "white";
-  ctx.font = "40px Arial";
-  ctx.fillText(text, 20, 45);
+  var level = document.getElementById('levelSpanID');
+
+  while( level.firstChild ) {
+      level.removeChild( level.firstChild );
+  }
+  level.appendChild( document.createTextNode(enemyController.getLevel()));
 }
 
-function displayRecord() {
-  let text = "Record: " + enemyController.getLevel();
-  
-  ctx.fillStyle = "white";
-  ctx.font = "40px Arial";
-  ctx.fillText(text, canvas.width - 200, 45);
-}
 
 function checkGameOver() {
   if (isGameOver) {
@@ -128,6 +127,7 @@ function checkGameOver() {
     reGame();
   }
 }
+
 
 function onwindowresize() {
   canvas.width = document.body.clientWidth;

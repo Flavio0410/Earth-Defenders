@@ -3,8 +3,8 @@ export default class Enemy {
   constructor(x, y, imageNumber, life) {
     this.x = x + 70;
     this.y = y + 70;
-    this.width = 44*(window.innerWidth/1920);
-    this.height = 32*(window.innerHeight/1080);
+    this.width = this.calculateWidhtEnemy(42);
+    this.height = this.calculateHeightEnemy(42);
     this.life = life;
 
     this.image = new Image();
@@ -15,8 +15,9 @@ export default class Enemy {
       this.y = y + 70;
       if(window.innerWidth > 900)
       {
-        this.width = 44*(window.innerWidth/1920);
-        this.height = 32*(window.innerHeight/1080);
+        this.width = 42*(window.innerWidth/1920);
+        this.height = 42*(window.innerHeight/1080);
+        console.log(this.width, this.height);
       }
     });
     
@@ -59,6 +60,32 @@ export default class Enemy {
 
   getY(){
     return this.y;
+  }
+
+  calculateWidhtEnemy(initWidth){
+    
+    if(window.innerWidth > 900)
+    {
+      return initWidth*(window.innerWidth/1920);
+    }
+    else
+    {
+      return 26;
+    }
+  }
+
+
+
+  calculateHeightEnemy(initHeight){
+    if(window.innerWidth > 900)
+    {
+      return initHeight*(window.innerHeight/1080);
+    }
+    else
+    {
+      return 26;
+    }
+
   }
 
 }
