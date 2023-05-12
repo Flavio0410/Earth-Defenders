@@ -2,7 +2,7 @@ export default class Enemy {
 
   constructor(x, y, imageNumber, life) {
     this.x = x;
-    this.y = y;
+    this.y = y + 10;
     this.width = this.calculateWidhtEnemy(42);
     this.height = this.calculateHeightEnemy(42);
     this.life = life;
@@ -12,7 +12,7 @@ export default class Enemy {
     
     window.addEventListener("resize", () => {
       this.x = x;
-      this.y = y;
+      this.y = y + 10;
       if(window.innerWidth > 900)
       {
         this.width = 42*(window.innerWidth/1920);
