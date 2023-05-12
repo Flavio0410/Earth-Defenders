@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <link rel="stylesheet" type="text/css" href="style/navbar.css" /> 
+    <script type="module" src="src/Starspace.js"></script>
 
   </head>
 
@@ -42,11 +43,11 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Record</a>
+                <a class="nav-link" href="/src/html/record.html">Record</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Contatti</a>
+                <a class="nav-link" href="#">Regole</a>
               </li>
 
 
@@ -61,7 +62,7 @@
     </nav>
 
     <!--Modal Login-->
-    <form class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -69,21 +70,20 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body justify-content-center">
-            <div class="input-group mb-4 mt-3">
-              <span class="input-group-text" id="usernameLoginAO">@</span>
-              <input type="text" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO">
-            </div>
+            <form id="loginForm" action="">
+              
+              <div class="input-group mb-4 mt-3">
+                <span class="input-group-text" id="usernameLoginAO">@</span>
+                <input type="text" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO" required>
+              </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="passwordLoginAO"><i class="bi bi-key"></i></span>
-              <input type="password" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO">
-            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="passwordLoginAO"><i class="bi bi-key"></i></span>
+                <input type="password" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO" required>
+              </div>
 
-            <button type="submit" class="btn btn-login">Accedi</button>
-            <!-- <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Ricordami</label>
-            </div> -->
+              <button type="submit" class="btn btn-login">Accedi</button>
+            </form>
           </div>
           <div class="modal-footer justify-content-center">
             <div class="text-center">
@@ -92,10 +92,10 @@
           </div>
         </div>
       </div>
-    </form>
+    </div>
   
     <!--Modal Sign up-->
-    <form class="modal fade" id="signUpModal" aria-hidden="true" aria-labelledby="signUpModalLabel" tabindex="-1">
+    <div class="modal fade" id="signUpModal" aria-hidden="true" aria-labelledby="signUpModalLabel" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -103,37 +103,40 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="row mb-3 mt-2">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
+            <form action="">
+              <div class="row mb-3 mt-2">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
 
-              <div class="col-sm-6 mb-3">
-                <input type="text" class="form-control" id="nameSignUpForm" placeholder="Nome">
-              </div>
-              
-              <div class="col-sm-6 mb-3">
-                <input type="text" class="form-control" id="surnameSignUpForm" placeholder="Cognome">
-              </div>
+                <div class="col-sm-6 mb-3">
+                  <input type="text" class="form-control" id="nameSignUpForm" placeholder="Nome" required>
+                </div>
+                
+                <div class="col-sm-6 mb-3">
+                  <input type="text" class="form-control" id="surnameSignUpForm" placeholder="Cognome" required>
+                </div>
 
-              <div class="mb-3">
-                <input type="email" class="form-control" id="emailSignUpForm" placeholder="Email">
-              </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="emailSignUpForm" placeholder="Email" required>
+                </div>
 
-              <div class="mb-3">
-                <input type="password" class="form-control" id="passwordSignUpForm" placeholder="Password">
-              </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="passwordSignUpForm" placeholder="Password" required>
+                </div>
 
-              <div class="mb-3">
-                <input type="password" class="form-control" id="confirmPasswordSignUpForm" placeholder="Conferma Password">
-              </div>
-              <div class="mb-2 mt-1">
-                <button type="submit" class="btn btn-register">Registati</button>
-              </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="confirmPasswordSignUpForm" placeholder="Conferma Password" required>
+                </div>
+                
+                <div class="mb-2 mt-1">
+                  <button type="submit" class="btn btn-register">Registati</button>
+                </div>
 
               </div>
-              </div>
+            </form>
+          </div>
           <div class="modal-footer justify-content-center">
             <div class="text-center">
               <p>Sei già registrato? <a id="registeranchor" data-bs-target="#loginModal" data-bs-toggle="modal">Accedi</a></p>
@@ -141,8 +144,7 @@
           </div>
         </div>
       </div>
-    </form>
-
+    </div>
 
 
     <audio autoplay loop muted> //per far funzionare l'audio rimuovi muted
@@ -160,8 +162,6 @@
 
 
     <div id="mainContain">
-
-      <script type="module" src="src/Starspace.js"></script>
 
       <div class="spaceshipContainer" id="spaceshipContainerID"></div>
 
