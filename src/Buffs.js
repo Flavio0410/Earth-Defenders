@@ -10,7 +10,7 @@ export default class Buffs {
       this.enemyDeathSound.volume = 0.1;
 
       this.image = new Image();
-      this.type = '';
+      this.type;
     }
 
     setImage(){
