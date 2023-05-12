@@ -4,25 +4,26 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
 
 class Loader3d
 {
-    constructor(containerId, modelUrl, angleview, cameraposition_z) 
+    constructor(containerId, modelUrl, angleview, cameraposition_z, x_axis_object, y_axis_object, z_axis_object) 
     {
     this.container = document.getElementById(containerId); //seleziona l'elemento HTML per inserire la scena
 
     this.scene = new THREE.Scene(); //crea una nuova scena Three.js
     
-    this.camera = new THREE.PerspectiveCamera(angleview, window.innerWidth / window.innerHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 10 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
+    this.camera = new THREE.PerspectiveCamera(angleview, this.container.clientWidth / this.container.clientHeight, 0.1, 1000); //crea una nuova camera prospettica Three.js con un angolo di visualizzazione di 10 gradi, un rapporto d'aspetto di finestra e una distanza di visualizzazione minima e massima di 0.1 e 1000 rispettivamente.
     this.camera.position.z = cameraposition_z; //posiziona la camera a una distanza di 200 unità lungo l'asse z dalla scena
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //crea un nuovo renderer WebGL con antialiasing e un canale alfa
-    this.renderer.setSize(window.innerWidth, window.innerHeight); //imposta la dimensione del renderer alla dimensione della finestra
+    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight); //imposta la dimensione del renderer alla dimensione della finestra
     this.renderer.setPixelRatio(window.devicePixelRatio); //imposta il rapporto pixel del renderer in base al rapporto pixel del dispositivo
+
 
     this.loader = new GLTFLoader(); //crea un nuovo loader GLTF
     this.loader.load(modelUrl,
         (gltf) => {
             this.object = gltf.scene; //salva l'oggetto della scena
             this.scene.add(this.object); //aggiungi l'oggetto alla scena
-            this.object.position.set(0, 0, 0); //posiziona l'oggetto a 0, 0, 0
+            this.object.position.set(y_axis_object, x_axis_object, z_axis_object); //posizione l'oggetto sulla scena in base ai parametri passati
             this.object.scale.set(1, 1, 1); //scala l'oggetto a 1, 1, 1
         }
     );
@@ -48,15 +49,18 @@ class Loader3d
 
     document.getElementsByClassName("playbutton")[0].addEventListener("mouseout", () => this.rotatenormal()); //aggiunge un listener per l'evento "click" del bottone play che richiama la funzione play()
 
+    //add on containerresize
+    window.addEventListener("resize", () => this.onWindowResize()); //aggiunge un listener per l'evento "resize" della finestra che richiama la funzione resize()
+
     }
 
-    rotate() { //definisce una funzione rotate che avvia l'animazione della terra attorno al proprio asse
-        requestAnimationFrame(() => this.rotate()); //richiede l'animazione della funzione animate() usando requestAnimationFrame(), che viene richiamata ad ogni frame di animazione
-        if (this.object) { //verifica se l'oggetto 3D è stato caricato
-            this.object.rotation.y += 0.0015; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
-        }
-        this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
-    }
+  rotate() { //definisce una funzione rotate che avvia l'animazione della terra attorno al proprio asse
+      requestAnimationFrame(() => this.rotate()); //richiede l'animazione della funzione animate() usando requestAnimationFrame(), che viene richiamata ad ogni frame di animazione
+      if (this.object) { //verifica se l'oggetto 3D è stato caricato
+          this.object.rotation.y += 0.0015; //aggiorna la rotazione dell'oggetto 3D lungo l'asse Y
+      }
+      this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
+  }
 
 rotatefast(){
   requestAnimationFrame(() => this.rotatefast()); //richiede l'animazione della funzione animate() usando requestAnimationFrame(), che viene richiamata ad ogni frame di animazione
@@ -74,9 +78,16 @@ rotatenormal(){
   this.renderer.render(this.scene, this.camera); //renderizza la scena Three.js utilizzando il renderer
 }
 
+onWindowResize() {
+    // Aggiorna le dimensioni del renderer e della camera
+
+    this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+  }
 
 
 }
 
-const earth3d = new Loader3d("EarthContainer", "../public/assets/models/earth/scene.gltf", 15, 520);
-const spaceship3d = new Loader3d("spaceShipContainer", "../public/assets/models/spaceship/scene.gltf", 10, 200); //crea un nuovo oggetto SpaceShipLoader con il contenitore HTML e l'URL del modello come parametri
+const earth3d = new Loader3d("earthContainerID", "../public/assets/models/earth/scene.gltf", 4, 550, -50, 0, 0);
+const spaceship3d = new Loader3d("spaceshipContainerID", "../public/assets/models/spaceship/scene.gltf", 10, 100, 0, 0, 0);
