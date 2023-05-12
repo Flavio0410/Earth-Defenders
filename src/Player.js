@@ -17,21 +17,34 @@ export default class Player {
       this.bulletController = bulletController;
   
       this.x = this.canvas.width / 2;
-      this.y = this.canvas.height - this.canvas.height/6;
-      this.width = 100;
-      this.height = 80;
+      this.y = this.canvas.height - this.canvas.height/3;
+      // this.width = 100;
+      // this.height = 80;
+      this.width = this.calculateWidhtPlayer(100);
+      this.height = this.calculateHeightPlayer(80);
       this.image = new Image();
       // this.image.src = "../public/assets/images/pspaceship.png";
       this.setImage();
       this.isMobileDevice();
-      console.log("isMobile: " + this.isMobile)
+
+      this.buttonWidth = 50;
+      this.buttonHeight = 50;
+      this.buttonX = this.canvas.width / 2 - this.buttonWidth / 2;
+      this.buttonY = this.canvas.height / 2 - this.buttonHeight / 2;
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
       document.addEventListener("touchstart", this.handleTouchMove);
       document.addEventListener("touchend", this.handleTouchMove);
       document.addEventListener("touchmove", this.handleTouchMove);
-      // window.addEventListener("resize", () => this.onWindowResize());
+
+      window.addEventListener("resize", () => {
+        if(window.innerWidth > 900)
+        {
+          this.width = 100*(window.innerWidth/1920);
+          this.height = 80*(window.innerHeight/1080);
+        }
+      });
     }
   
     draw(ctx) {
@@ -104,7 +117,6 @@ export default class Player {
       if(this.shield && this.speedUp){
         this.image.src = "../public/assets/images/shieldspeedspaceship.png";
       } else if(this.shield){
-        // this.image.src = "../public/assets/images/shieldspaceship.png";
         this.image.src = "../public/assets/images/shieldstarship.png";
       } else if(this.speedUp){
         this.image.src = "../public/assets/images/speedstarship.png";
@@ -179,6 +191,32 @@ export default class Player {
         } else if (event.type === 'touchend'){
           this.shootPressed = false;
         }
+      }
+
+      calculateWidhtPlayer(initWidth){
+    
+        if(window.innerWidth > 900)
+        {
+          return initWidth*(window.innerWidth/1920);
+        }
+        else
+        {
+          return 50;
+        }
+      }
+    
+    
+    
+      calculateHeightPlayer(initHeight){
+        if(window.innerWidth > 900)
+        {
+          return initHeight*(window.innerHeight/1080);
+        }
+        else
+        {
+          return 40;
+        }
+    
       }
     
   }

@@ -15,9 +15,18 @@ export default class EnemyController {
     columns: 5,
     rows: 5,
     fireRate: 100,
-    alien1Lives: 0,
-    alien2Lives: 0,
-    alien3Lives: 0
+    alien1Lives: 1,
+    alien2Lives: 1,
+    alien3Lives: 1
+  }
+
+  actualParams = {
+    columns: 5,
+    rows: 5,
+    fireRate: 100,
+    alien1Lives: 1,
+    alien2Lives: 1,
+    alien3Lives: 1
   }
 
   buffParams  = {
@@ -51,9 +60,9 @@ export default class EnemyController {
     this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
     this.enemyDeathSound.volume = 0.1;
 
-    let params = this.setEnemiesForLevel(this.level);
-    this.buildFormation(params.columns, params.rows);
-    this.createEnemies(0, 0, 0);
+    this.setEnemiesForLevel(this.level);
+    this.buildFormation(this.actualParams.columns, this.actualParams.rows);
+    this.createEnemies(1, 1, 1);
   }
 
   draw(ctx) {
@@ -198,41 +207,38 @@ export default class EnemyController {
   }
 
   setEnemiesForLevel(level){
-    let levelParams = this.defaultParams;
     const maxColumns = 10;
     const maxRows = 6;
 
-    levelParams.columns = this.defaultParams.columns + level - 1; 
-    levelParams.rows = this.defaultParams.rows + this.level;
+    this.actualParams.columns = this.defaultParams.columns + level - 1; 
+    this.actualParams.rows = this.defaultParams.rows + this.level;
 
-    if (levelParams.columns > maxColumns) levelParams.columns = maxColumns;
-    if (levelParams.rows > maxRows) levelParams.rows = maxRows;
+    if (this.actualParams.columns > maxColumns) this.actualParams.columns = maxColumns;
+    if (this.actualParams.rows > maxRows) this.actualParams.rows = maxRows;
 
     const maxAlienLives = 3;
     if (this.level > 3) {
-      levelParams.alien3Lives = 1 + Math.floor((this.level / 3) - 1);
-      if (levelParams.alien3Lives > maxAlienLives) levelParams.alien3Lives = maxAlienLives;
+      this.actualParams.alien3Lives = 1 + Math.floor((this.level / 3) - 1);
+      if (this.actualParams.alien3Lives > maxAlienLives) this.actualParams.alien3Lives = maxAlienLives;
     }
     if (this.level > 5) {
-      levelParams.alien2Lives = 1 + Math.floor((this.level / 3) - 2);
-      if (levelParams.alien2Lives > maxAlienLives) levelParams.alien2Lives = maxAlienLives;
+      this.actualParams.alien2Lives = 1 + Math.floor((this.level / 3) - 2);
+      if (this.actualParams.alien2Lives > maxAlienLives) this.actualParams.alien2Lives = maxAlienLives;
     }
 
     const minFireRate = 50;
 
-    levelParams.fireRate = levelParams.fireRate * 0.9;
-    if (levelParams.fireRate < minFireRate) levelParams.fireRate = minFireRate;
-
-    return levelParams;
+    this.actualParams.fireRate = this.actualParams.fireRate * 0.9;
+    if (this.actualParams.fireRate < minFireRate) this.actualParams.fireRate = minFireRate;
   }
 
   levelUp(){
     this.currentDirection = MovingDirection.right;
     this.enemyMap = [];
-    let params = this.setEnemiesForLevel(this.level += 1);
-    this.fireBulletTimerDefault = params.fireRate;
-    this.buildFormation(params.columns, params.rows);
-    this.createEnemies(params.alien1Lives, params.alien2Lives, params.alien3Lives);
+    this.setEnemiesForLevel(this.level += 1);
+    this.fireBulletTimerDefault = this.actualParams.fireRate;
+    this.buildFormation(this.actualParams.columns, this.actualParams.rows);
+    this.createEnemies(this.actualParams.alien1Lives, this.actualParams.alien2Lives, this.actualParams.alien3Lives);
   }
 
   collisionDetectionMine() {
@@ -240,7 +246,7 @@ export default class EnemyController {
       enemyRow.forEach((enemy, enemyIndex) => {
         if (this.playerBulletController.collideWith(enemy)) {
           enemyRow[enemyIndex].hit();
-          if (enemyRow[enemyIndex].getLife() < 0){
+          if (enemyRow[enemyIndex].getLife() <= 0){
             this.enemyDeathSound.currentTime = 0;
             this.enemyDeathSound.play();
             if (this.calculateProbability() && this.buffParams.spawned == false){
@@ -297,6 +303,18 @@ export default class EnemyController {
 
   resetBuffSpawn(){
     this.buffParams.spawned = false;
+  }
+
+  getEnemy1Lives(){
+    return this.actualParams.alien1Lives;
+  }
+
+  getEnemy2Lives(){
+    return this.actualParams.alien2Lives;
+  }
+
+  getEnemy3Lives(){
+    return this.actualParams.alien3Lives;
   }
 
 }
