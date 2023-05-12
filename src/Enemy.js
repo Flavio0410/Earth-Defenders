@@ -1,8 +1,8 @@
 export default class Enemy {
 
   constructor(x, y, imageNumber, life) {
-    this.x = x + 70;
-    this.y = y + 70;
+    this.x = x;
+    this.y = y;
     this.width = this.calculateWidhtEnemy(42);
     this.height = this.calculateHeightEnemy(42);
     this.life = life;
@@ -11,13 +11,12 @@ export default class Enemy {
     this.image.src = `../public/assets/images/penemy${imageNumber}.png`;
     
     window.addEventListener("resize", () => {
-      this.x = x + 70;
-      this.y = y + 70;
+      this.x = x;
+      this.y = y;
       if(window.innerWidth > 900)
       {
         this.width = 42*(window.innerWidth/1920);
         this.height = 42*(window.innerHeight/1080);
-        console.log(this.width, this.height);
       }
     });
     
