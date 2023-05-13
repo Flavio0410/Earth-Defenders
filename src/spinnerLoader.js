@@ -1,8 +1,8 @@
-var loader = document.querySelector('.spiner-wrapper');
+var loader = document.querySelector('.spiner-wrapper'); 
 
 
 
-window.addEventListener("load", function()
+window.addEventListener("load", function() //Dopo che la pagina è stata caricata completamente rimuovo il loader e faccio apparire il contenuto della pagina
     {
         setTimeout(function()
             {
