@@ -9,9 +9,6 @@ body {
     overflow: hidden;
   }
 
-  #game{
-    padding-right: 0px;
-  }
   .infoGame{
     margin-top: 0px;
     margin-left: 0px;
@@ -19,3 +16,40 @@ body {
     background: black;
     color: white;
   }
+
+  .mirino {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    cursor: crosshair;
+    position: relative;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .mirino::before {
+    content: "";
+    width: 10px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .mirino::after {
+    content: "";
+    width: 2px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  
+  

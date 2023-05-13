@@ -15,15 +15,6 @@ export default class Buffs {
 
     setImage(){
       this.image.src = "../public/assets/images/" + this.type + ".png";
-      // var randomNum = Math.random();
-
-      // if (randomNum < 0.5) {
-      //   this.image.src = "../public/assets/images/pshield.png";
-      // } else if (randomNum < 0.75) {
-      //   this.image.src = "../public/assets/images/pspeed.png";
-      // } else {
-      //   this.image.src = "../public/assets/images/enemy2.png";
-      // }
     }
 
     setType(){
@@ -64,14 +55,6 @@ export default class Buffs {
         return false;
       }
     }
-  
-    getX(){
-      return this.x;
-    }
-  
-    getY(){
-      return this.y;
-    }
 
     setX(newX){
       this.x = newX;
@@ -81,7 +64,4 @@ export default class Buffs {
       this.y = newY;
     }
 
-    setIsVisible(boolean){
-      this.isVisible = boolean;
-    }
   }
