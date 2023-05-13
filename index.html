@@ -21,9 +21,15 @@
     <link rel="stylesheet" type="text/css" href="style/navbar.css" /> 
     <script type="module" src="src/Starspace.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+
   </head>
 
   <body>
+
+
     <!--Navbar-->
     <nav class="navbar navbar-inverse navbar-dark navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -74,12 +80,13 @@
               
               <div class="input-group mb-4 mt-3">
                 <span class="input-group-text" id="usernameLoginAO">@</span>
-                <input type="text" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO" required>
+                <input type="text" name="usernamelogin" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO" required>
               </div>
+
 
               <div class="input-group mb-3">
                 <span class="input-group-text" id="passwordLoginAO"><i class="bi bi-key"></i></span>
-                <input type="password" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO" required>
+                <input type="password" name="passwordlogin" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO" required>
               </div>
 
               <button type="submit" class="btn btn-login">Accedi</button>
@@ -145,6 +152,10 @@
         </div>
       </div>
     </div>
+
+
+    <script src="src/formValidation.js"></script>
+
 
 
     <audio autoplay loop muted> //per far funzionare l'audio rimuovi muted

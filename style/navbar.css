@@ -109,3 +109,28 @@
 
 }
 
+.error{
+    color: red;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 88%;
+    min-width: 88%;
+    border-radius: 5.2px;
+
+}
+
+.input-group{
+    border-radius: 5.2px;
+    border-color: inherit;
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: calc(var(--bs-border-width) * -1);
+    border-top-right-radius: 5.2px;
+    border-bottom-right-radius: 5.2px;
+}
