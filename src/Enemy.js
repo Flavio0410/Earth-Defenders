@@ -73,8 +73,6 @@ export default class Enemy {
     }
   }
 
-
-
   calculateHeightEnemy(initHeight){
     if(window.innerWidth > 900)
     {
