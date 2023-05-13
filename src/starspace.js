@@ -39,7 +39,7 @@ class Starspace {
     this.starGeometry.setAttribute('acceleration', new THREE.Float32BufferAttribute(accelerations, 1));
 
 
-    const sprite = new THREE.TextureLoader().load('../public/assets/images/whitestar.png'); // Carica la texture per le stelle da un'immagine 
+    const sprite = new THREE.TextureLoader().load('../../public/assets/images/whitestar.png'); // Carica la texture per le stelle da un'immagine 
     const starMaterial = new THREE.PointsMaterial({ // Crea un nuovo materiale Points per le stelle 
       size: 2, // Imposta la dimensione delle stelle su 2
       map: sprite, // Imposta la texture delle stelle sulla texture caricata
@@ -48,7 +48,7 @@ class Starspace {
     });
 
     
-    const sprite2 = new THREE.TextureLoader().load('../public/assets/images/purplestar.png'); // Carica la texture per le stelle da un'immagine
+    const sprite2 = new THREE.TextureLoader().load('../../public/assets/images/purplestar.png'); // Carica la texture per le stelle da un'immagine
     const starMaterial2 = new THREE.PointsMaterial({ // Crea un nuovo materiale Points per le stelle
       size: 2,  // Imposta la dimensione delle stelle su 2
       map: sprite2, // Imposta la texture delle stelle sulla texture caricata
@@ -101,5 +101,5 @@ class Starspace {
     requestAnimationFrame(this.animate.bind(this)); // Richiede una nuova animazione al browser
   }
 }
-// Crea un'isstanza della classe Starspace e inizia l'animazione delle stelle
+// Crea un'istanza della classe Starspace e inizia l'animazione delle stelle
 const starspace = new Starspace("mainContain");
