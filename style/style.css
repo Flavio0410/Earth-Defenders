@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
   --main-color: #831DE8;
@@ -14,6 +15,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0;
   background: black;
   overflow: hidden;
 }
@@ -121,27 +123,38 @@ body {
 }
 
 
-.spiner-wrapper {
-  position: fixed;
+.containAll{
+  height: 100vh;
+  width: 100vw;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  background-color: #010c19;
-  transition: all 0.6s;
+  z-index: 1;
   display: flex;
   justify-content: center;
+}
+
+.recordtablecontainer{
+  z-index: 1;
+  width: 70%;
+  height: auto;
+  position: fixed;
   align-items: center;
+  top: 30%;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
 }
 
-.spinner-border {
-  width: 50px;
-  height: 50px;
+.pagetitle{
+  font-size: 90px;
+  font-weight: bold;
+  position: fixed;
+  font-family: 'Bebas Neue', sans-serif;
+  text-shadow: 2px 2px 4px var(--complementary-color);
   color: white;
+  display: block;
+  top: 140px;
 }
-
-
 
 
 
@@ -162,6 +175,10 @@ body {
   }
   .centeredTitle{
     font-size: 35px;
+  }
+
+  .pagetitle{
+    font-size: 50px;
   }
 }
 
@@ -185,6 +202,10 @@ body {
 
   .centeredTitle{
     font-size: 50px;
+  }
+
+  .pagetitle{
+    font-size: 60px;
   }
 
 
