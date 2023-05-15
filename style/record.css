@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+    --main-color: #831DE8;
+    --main-color-lighter: #9C38FF;
+    --main-color-darker: #52099C;
+    --complementary-color: #9A9C00;
+    --complementary-color-lighter: #E6E81C;
+    --logourl: "../public/assets/images/logo.svg";
+  }
+
+
 body{
     background-color: #000000;
     overflow: hidden;
@@ -10,22 +22,32 @@ body{
 .containAll{
     height: 100vh;
     width: 100vw;
-    position: relative;
     top: 0;
     left: 0;
     z-index: 1;
+    display: flex;
+    justify-content: center;
   }
 
 .recordtablecontainer{
-    display: flex;
     z-index: 100;
     width: 70%;
     height: auto;
     position: fixed;
     align-items: center;
-    left: 15%;
     top: 30%;
     border-radius: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
+}
+
+.pagetitle{
+    font-size: 100px;
+    font-weight: bold;
+    position: fixed;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 2px 2px 4px var(--complementary-color);
+    color: white;
+    display: block;
+    top: 130px;
 }
