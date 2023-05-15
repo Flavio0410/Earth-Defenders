@@ -1,0 +1,31 @@
+body{
+    background-color: #000000;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.containAll{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+.recordtablecontainer{
+    display: flex;
+    z-index: 100;
+    width: 70%;
+    height: auto;
+    position: fixed;
+    align-items: center;
+    left: 15%;
+    top: 30%;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+}
