@@ -10,7 +10,7 @@ canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
 const background = new Image();
-background.src = "../public/assets/images/space.png";
+background.src = "../public/assets/images/spacebg.jpg";
 
 let playerBullets = 5;
 const playerBulletController = new BulletController(canvas, playerBullets, "white", true);
