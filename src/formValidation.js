@@ -21,6 +21,10 @@ $(function(){
         },
         submitHandler:function(form){
             form.submit();
+        },
+
+        success: function(label, element) {
+            $(element).addClass('is-valid');
         }
     })
 })
@@ -87,6 +91,10 @@ $(function(){
         },
         submitHandler:function(form){
             form.submit();
+        },
+
+        success: function(label, element) {
+            $(element).addClass('is-valid');
         }
     })
 })
