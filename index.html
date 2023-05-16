@@ -36,9 +36,13 @@
     </script> 
 
 
-    <audio autoplay loop muted>
+    <audio id="songID" autoplay loop>
       <source src="public/assets/sounds/Dreamcatcher.mp3" type="audio/mp3">
     </audio>
+    <script>
+      var audio = document.getElementById("songID");
+      audio.volume = 0.01;
+    </script>
 
 
     <div class="spiner-wrapper">
