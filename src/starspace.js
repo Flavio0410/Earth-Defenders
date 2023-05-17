@@ -70,6 +70,14 @@ class Starspace {
 
     // Avvia l'animazione
     this.animate();
+
+    if(document.getElementsByClassName("playbutton")[0] != null) //se il bottone play esiste
+    {
+
+    document.getElementsByClassName("playbutton")[0].addEventListener("mouseover", () => this.animatefast()); //aggiunge un listener per l'evento "mouseover" del bottone play che richiama la funzione animatefast()
+
+    document.getElementsByClassName("playbutton")[0].addEventListener("mouseout", () => this.animatenormal()); //aggiunge un listener per l'evento "mouseout" del bottone play che richiama la funzione animatenormal()
+    }
   }
 
   // Funzione chiamata quando la finestra viene ridimensionata
@@ -100,6 +108,25 @@ class Starspace {
     this.renderer.render(this.scene, this.camera); // Renderizza la scena e la camera
     requestAnimationFrame(this.animate.bind(this)); // Richiede una nuova animazione al browser
   }
+
+
+  animatefast() {
+    this.stars.rotation.y += 0.02; // Ruota le stelle bianche lungo l'asse y
+    this.stars2.rotation.y += 0.04; // Ruota le stelle viola lungo l'asse y
+
+    this.renderer.render(this.scene, this.camera); // Renderizza la scena e la camera
+    requestAnimationFrame(this.animatefast.bind(this)); // Richiede una nuova animazione al browser
+
+  }
+
+  animatenormal() {
+    this.stars.rotation.y -= 0.02; // Ruota le stelle bianche lungo l'asse y
+    this.stars2.rotation.y -= 0.04; // Ruota le stelle viola lungo l'asse y
+
+    this.renderer.render(this.scene, this.camera); // Renderizza la scena e la camera
+    requestAnimationFrame(this.animatenormal.bind(this)); // Richiede una nuova animazione al browser
+  }
+
 }
 // Crea un'istanza della classe Starspace e inizia l'animazione delle stelle
 const starspace = new Starspace("mainContain");
