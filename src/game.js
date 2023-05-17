@@ -12,7 +12,7 @@ canvas.height = document.body.clientHeight;
 const background = new Image();
 background.src = "../public/assets/images/black.jpg";
 
-let playerBullets = 20;
+let playerBullets = 5;
 const playerBulletController = new BulletController(canvas, playerBullets, true, "player");
 const enemyBulletController = new BulletController(canvas, 10, false, "enemy");
 const enemyController = new EnemyController(
