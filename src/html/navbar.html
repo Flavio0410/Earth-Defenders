@@ -79,27 +79,27 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <form action="" id="registerForm">
+        <form id="registerForm" method="POST" action="">
         <div class="row mb-3 mt-2">
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" name="usernamesignup" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+            <input type="text" id="usernamesignup" name="usernamesignup" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="col-sm-6 mb-3">
-            <input type="text" name="namesignup" class="form-control" id="nameSignUpForm" placeholder="Nome" required>
+            <input type="text" id="namesignup" name="namesignup" class="form-control" id="nameSignUpForm" placeholder="Nome" required>
             </div>
             
             <div class="col-sm-6 mb-3">
-            <input type="text" name="surnamesignup" class="form-control" id="surnameSignUpForm" placeholder="Cognome" required>
+            <input type="text" id="surnamesignup" name="surnamesignup" class="form-control" id="surnameSignUpForm" placeholder="Cognome" required>
             </div>
 
             <div class="mb-3">
-            <input type="email" name="emailsignup" class="form-control" id="emailSignUpForm" placeholder="Email" required>
+            <input type="email" id="emailsignup" name="emailsignup" class="form-control" id="emailSignUpForm" placeholder="Email" required>
             </div>
 
             <div class="mb-3">
-            <input type="password" name="passwordsignup" class="form-control" id="passwordsignup" placeholder="Password" required>
+            <input type="password" id="passwordsignup" name="passwordsignup" class="form-control" id="passwordsignup" placeholder="Password" required>
             </div>
 
             <div class="mb-3">
