@@ -1,18 +1,16 @@
 export default class Bullet {
-  playerBullet = false;
-  enemyBullet = false;
 
-    constructor(canvas, x, y, velocity, bulletColor) {
+    constructor(canvas, x, y, velocity, type) {
       this.canvas = canvas;
       this.x = x;
       this.y = y;
       this.velocity = velocity;
-      this.bulletColor = bulletColor;
+      this.type = type;
       this.img = new Image();
-      this.img.src = "../public/assets/images/bullet.png";
+      this.setImage();
   
-      this.width = 5;
-      this.height = 20;
+      this.width = 10;
+      this.height = 25;
     }
   
     draw(ctx) {
@@ -36,9 +34,9 @@ export default class Bullet {
     }
 
     setImage(){
-      if (this.playerBullet){
+      if (this.type == "player"){
         this.img.src = "../public/assets/images/bullet.png";
-      } else if (this.enemyBullet){
+      } else if (this.type == "enemy"){
         this.img.src = "../public/assets/images/enemybullet.png";
       }
     }

@@ -4,11 +4,11 @@ export default class BulletController {
   bullets = [];
   timeTillNextBulletAllowed = 0;
 
-  constructor(canvas, maxBulletsAtATime, bulletColor, soundEnabled) {
+  constructor(canvas, maxBulletsAtATime, soundEnabled, type) {
     this.canvas = canvas;
     this.maxBulletsAtATime = maxBulletsAtATime;
-    this.bulletColor = bulletColor;
     this.soundEnabled = soundEnabled;
+    this.type = type;
 
     this.shootSound = new Audio("../public/assets/sounds/shoot.wav");
     this.shootSound.volume = 0.1;
@@ -43,7 +43,7 @@ export default class BulletController {
       this.timeTillNextBulletAllowed <= 0 &&
       this.bullets.length < this.maxBulletsAtATime
     ) {
-      const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
+      const bullet = new Bullet(this.canvas, x, y, velocity, this.type);
       this.bullets.push(bullet);
       if (this.soundEnabled) {
         this.shootSound.currentTime = 0;

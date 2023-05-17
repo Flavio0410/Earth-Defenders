@@ -2,14 +2,6 @@ import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
 
 export default class EnemyController {
-  // enemyMap = [
-  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  //   [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-  //   [2, 2, 2, 3, 3, 3, 3, 2, 2, 2],
-  //   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  //   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-  // ];
 
   defaultParams = {
     columns: 5,
@@ -77,21 +69,6 @@ export default class EnemyController {
     this.resetMoveDownTimer(); // Resetta il timer di movimento verso il basso
     this.fireBullet(); // Fa sparare i nemici
   }
-
-  // // Funzione che controlla le collisioni tra i nemici e i proiettili del giocatore
-  // collisionDetection() {
-  //   this.enemyRows.forEach((enemyRow) => {
-  //     enemyRow.forEach((enemy, enemyIndex) => {
-  //       if (this.playerBulletController.collideWith(enemy)) {
-  //         this.enemyDeathSound.currentTime = 0;
-  //         this.enemyDeathSound.play();
-  //         enemyRow.splice(enemyIndex, 1);
-  //       }
-  //     });
-  //   }); 
-
-  //   this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
-  // }
 
   // Funzione che fa sparare i nemici
   fireBullet() {
@@ -180,15 +157,15 @@ export default class EnemyController {
         if (enemyNumber > 0) { // Se il nemico esiste
           if (enemyNumber == 1){ // Se il nemico è di tipo 1
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, a)
+              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, a)
             ); // Crea un nemico di tipo 1
           } else if (enemyNumber == 2){ // Se il nemico è di tipo 2
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, b)
+              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, b)
             ); // Crea un nemico di tipo 2
           } else if (enemyNumber == 3){ // Se il nemico è di tipo 3
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber, c)
+              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, c)
             ); // Crea un nemico di tipo 3
           }
         }
@@ -221,8 +198,11 @@ export default class EnemyController {
 
   // Funzione che imposta i parametri per il livello successivo
   setEnemiesForLevel(level){
-    const maxColumns = 10; // Numero massimo di colonne
+    // impostare il numero massimo di colonne e di righe in base alla dimensione dello schermo
+    const maxColumns = Math.floor(this.canvas.width / 40) - 1; // Numero massimo di colonne
     const maxRows = 6; // Numero massimo di righe
+    console.log("maxColumns: " + maxColumns);
+    console.log("maxRows: " + maxRows);
 
     this.actualParams.columns = this.defaultParams.columns + level - 1; // Imposta il numero di colonne
     this.actualParams.rows = this.defaultParams.rows + this.level; // Imposta il numero di righe

@@ -10,11 +10,11 @@ canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
 const background = new Image();
-background.src = "../public/assets/images/spacebg.jpg";
+background.src = "../public/assets/images/black.jpg";
 
-let playerBullets = 5;
-const playerBulletController = new BulletController(canvas, playerBullets, "white", true);
-const enemyBulletController = new BulletController(canvas, 10, "red", false);
+let playerBullets = 20;
+const playerBulletController = new BulletController(canvas, playerBullets, true, "player");
+const enemyBulletController = new BulletController(canvas, 10, false, "enemy");
 const enemyController = new EnemyController(
   canvas,
   enemyBulletController,
@@ -29,39 +29,82 @@ let is2X = false;
 
 let music = false;
 
-function game() {
-  if(!music){
-    playSound();
-    music = true;
+let gamePaused = false;
+let pauseButton = document.getElementById("pauseButton");
+pauseButton.addEventListener("click", () => {
+  if(!gamePaused){
+    gamePaused = true;
+    pauseButton.innerHTML = "Resume";
   }
-  checkGameOver();
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  displayPoints();
-  displayLevel();
-  displayGameOver();
-  displayEnemyLife();
-  displayHearts();
-  if (!isGameOver) {
-    enemyController.draw(ctx);
-    player.draw(ctx);
-    playerBulletController.draw(ctx);
-    enemyBulletController.draw(ctx);
-    if (enemyController.buffSpawned()) {
-      buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
-    }
-    if (player.speedUp) {
-      playerBulletController.setMaxBulletsAtATime(20);
-      setTimeout(() => {
-        player.speedUp = false;
-        playerBulletController.setMaxBulletsAtATime(playerBullets);
-      }, 10000);
-    }
-    if (enemyController.buffParams.multiplier == 2) {
-      is2X = true;
-      setTimeout(() => {
-        is2X = false;
-        enemyController.buffMultiplier(false);
-      }, 5000);
+  else{
+    gamePaused = false;
+    pauseButton.innerHTML = "Pause";
+  }
+});
+
+let backButton = document.getElementById("backButton");
+backButton.addEventListener("click", () => {
+  window.location.href = "../index.html";
+});
+
+let restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", () => {
+  window.location.href = "../public/game.html";
+});
+
+// pause the game when the tab loses focus
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    gamePaused = true;
+    pauseButton.innerHTML = "Resume";
+  } else {
+    gamePaused = false;
+    pauseButton.innerHTML = "Pause";
+  }
+});
+
+//Game Over
+let gameOver = document.getElementById("gameOverID");
+
+
+
+
+
+function game() {
+  // if(!music){
+  //   playSound();
+  //   music = true;
+  // }
+  if(!gamePaused){
+    checkGameOver();
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    displayPoints();
+    displayLevel();
+    displayGameOver();
+    displayEnemyLife();
+    displayHearts();
+    if (!isGameOver) {
+      enemyController.draw(ctx);
+      player.draw(ctx);
+      playerBulletController.draw(ctx);
+      enemyBulletController.draw(ctx);
+      if (enemyController.buffSpawned()) {
+        buffsController.draw(ctx, player, enemyController.buffX(), enemyController.buffY());
+      }
+      if (player.speedUp) {
+        playerBulletController.setMaxBulletsAtATime(20);
+        setTimeout(() => {
+          player.speedUp = false;
+          playerBulletController.setMaxBulletsAtATime(playerBullets);
+        }, 10000);
+      }
+      if (enemyController.buffParams.multiplier == 2) {
+        is2X = true;
+        setTimeout(() => {
+          is2X = false;
+          enemyController.buffMultiplier(false);
+        }, 5000);
+      }
     }
   }
 }
@@ -69,19 +112,16 @@ function game() {
 function reGame() {
   playerBulletController.clearBullets();
   enemyController.levelUp();
-  if (playerBullets < 15) {
-    playerBullets += 1;
-    playerBulletController.setMaxBulletsAtATime(playerBullets);
-  }
+  // if (playerBullets < 15) {
+  //   playerBullets += 1;
+  //   playerBulletController.setMaxBulletsAtATime(playerBullets);
+  // }
 }
 
 function displayGameOver() {
   if (isGameOver) {
-    let text = "Game Over";
-
-    ctx.fillStyle = "white";
-    ctx.font = "70px Arial";
-    ctx.fillText(text, (canvas.width / 3) + 70, canvas.height / 2);
+    gameOver.style.visibility = "visible";
+    restartButton.style.visibility = "visible";
   }
 }
 

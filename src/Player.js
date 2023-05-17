@@ -17,7 +17,18 @@ export default class Player {
       this.bulletController = bulletController;
   
       this.x = this.canvas.width / 2;
-      this.y = this.canvas.height - this.canvas.height/3;
+      // this.y = this.canvas.height - this.canvas.height/3;
+      
+      //imposta la posizione del giocatore in base alla dimensione dello schermo
+      if(window.innerWidth > 900)
+      {
+        this.y = this.canvas.height - this.canvas.height/3;
+      }
+      else
+      {
+        this.y = this.canvas.height - this.canvas.height/4;
+      }
+
       // this.width = 100;
       // this.height = 80;
       this.width = this.calculateWidhtPlayer(100);
@@ -35,11 +46,6 @@ export default class Player {
 
       this.shieldLoseSound = new Audio("../public/assets/sounds/shield-break.wav");
       this.shieldLoseSound.volume = 0.1;
-
-      this.buttonWidth = 50;
-      this.buttonHeight = 50;
-      this.buttonX = this.canvas.width / 2 - this.buttonWidth / 2;
-      this.buttonY = this.canvas.height / 2 - this.buttonHeight / 2;
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
