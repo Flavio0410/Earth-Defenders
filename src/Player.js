@@ -27,6 +27,15 @@ export default class Player {
       this.setImage();
       this.isMobileDevice();
 
+      this.lifeLoseSound = new Audio("../public/assets/sounds/life-lose.wav");
+      this.lifeLoseSound.volume = 0.1;
+
+      this.lastLiveSound = new Audio("../public/assets/sounds/player-death-sound.wav");
+      this.lastLiveSound.volume = 0.1;
+
+      this.shieldLoseSound = new Audio("../public/assets/sounds/shield-break.wav");
+      this.shieldLoseSound.volume = 0.1;
+
       this.buttonWidth = 50;
       this.buttonHeight = 50;
       this.buttonX = this.canvas.width / 2 - this.buttonWidth / 2;
@@ -129,12 +138,23 @@ export default class Player {
       return this.life;
     }
 
-    hit(){
-      if (this.shield){
-        this.shield = false;
+    hit(){ 
+      if (this.shield){ // Se lo scudo è attivo
+        this.shieldLoseSound.currentTime = 0; // Imposta il suono al tempo 0
+        this.shieldLoseSound.play(); // Riproduce il suono
+        this.shield = false; // Disattiva lo scudo
       }
-      else{
-        this.life -= 1;
+      else{ // Altrimenti
+        if(this.life == 1){ // Se la vita del giocatore è 1
+          this.lastLiveSound.currentTime = 0; // Imposta il suono al tempo 0
+          this.lastLiveSound.play(); // Riproduce il suono
+          this.life -= 1; // Diminuisce la vita del giocatore
+        }
+        else{ // Altrimenti
+        this.lifeLoseSound.currentTime = 0; // Imposta il suono al tempo 0
+        this.lifeLoseSound.play(); // Riproduce il suono
+        this.life -= 1; // Diminuisce la vita del giocatore
+        }
       }
     }
 

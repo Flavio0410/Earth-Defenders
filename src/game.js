@@ -27,7 +27,13 @@ let isGameOver = false;
 
 let is2X = false;
 
+let music = false;
+
 function game() {
+  if(!music){
+    playSound();
+    music = true;
+  }
   checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   displayPoints();
@@ -61,6 +67,7 @@ function game() {
 }
 
 function reGame() {
+  playerBulletController.clearBullets();
   enemyController.levelUp();
   if (playerBullets < 15) {
     playerBullets += 1;
@@ -173,5 +180,11 @@ function onwindowresize() {
 }
 
 window.addEventListener("resize", onwindowresize);
+
+function playSound() {
+  var audio = new Audio("../public/assets/sounds/bgmusic.mp3");
+  audio.volume = 0.1;
+  audio.play();
+}
 
 setInterval(game, 1000 / 60);

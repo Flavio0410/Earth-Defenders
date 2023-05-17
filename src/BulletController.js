@@ -56,4 +56,8 @@ export default class BulletController {
   setMaxBulletsAtATime(bullets){
     this.maxBulletsAtATime = bullets;
   }
+
+  clearBullets(){
+    this.bullets = [];
+  }
 }
