@@ -149,22 +149,22 @@ export default class EnemyController {
   }
 
   // Funzione che crea i nemici
-  createEnemies(a, b, c) {
+  createEnemies(live1, live2, live3) {
     this.enemyMap.forEach((row, rowIndex) => { // Per ogni riga di nemici
       this.enemyRows[rowIndex] = []; // Crea un array vuoto
       row.forEach((enemyNumber, enemyIndex) => { // Per ogni nemico
         if (enemyNumber > 0) { // Se il nemico esiste
           if (enemyNumber == 1){ // Se il nemico è di tipo 1
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, a)
+              new Enemy(enemyIndex * 35, rowIndex * 30, enemyNumber, live1)
             ); // Crea un nemico di tipo 1
           } else if (enemyNumber == 2){ // Se il nemico è di tipo 2
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, b)
+              new Enemy(enemyIndex * 35, rowIndex * 30, enemyNumber, live2)
             ); // Crea un nemico di tipo 2
           } else if (enemyNumber == 3){ // Se il nemico è di tipo 3
             this.enemyRows[rowIndex].push(
-              new Enemy(enemyIndex * 40, rowIndex * 30, enemyNumber, c)
+              new Enemy(enemyIndex * 35, rowIndex * 30, enemyNumber, live3)
             ); // Crea un nemico di tipo 3
           }
         }
@@ -318,6 +318,32 @@ export default class EnemyController {
 
   getEnemy3Lives(){
     return this.actualParams.alien3Lives; // Restituisce il numero di vite dei nemici di tipo 3
+  }
+
+  // calcolare la posizione dei nemici in base alla dimensione dello schermo partendo da 50 e riducendola
+  // in base alla dimensione dello schermo
+  calculateWidhtEnemy(width){
+    if(window.innerWidth > 900)
+    {
+      return width*(window.innerWidth/1920);
+    }
+    else
+    {
+      return width;
+    }
+  }
+
+  // calcolare la posizione dei nemici in base alla dimensione dello schermo partendo da 35 e riducendola
+  // in base alla dimensione dello schermo
+  calculateHeightEnemy(height){
+    if(window.innerWidth > 900)
+    {
+      return height*(window.innerHeight/1080);
+    }
+    else
+    {
+      return height;
+    }
   }
 
 }
