@@ -41,30 +41,29 @@ export default class EnemyController {
   defaultYVelocity = 1;
   moveDownTimerDefault = 30;
   moveDownTimer = this.moveDownTimerDefault;
-  fireBulletTimerDefault = 100;
-  fireBulletTimer = this.fireBulletTimerDefault;
+  fireBulletTimerDefault = this.defaultParams.fireRate;
+  fireBulletTimer = this.actualParams.fireRate;
 
   // Funzione che viene chiamata quando il gioco viene avviato
   constructor(canvas, enemyBulletController, playerBulletController) {
-    this.canvas = canvas;
-    this.enemyBulletController = enemyBulletController;
-    this.playerBulletController = playerBulletController;
+    this.canvas = canvas; // Prende il canvas
+    this.enemyBulletController = enemyBulletController; // Prende il controller dei proiettili del nemico
+    this.playerBulletController = playerBulletController; // Prende il controller dei proiettili del giocatore
 
     // Suono della morte del nemico
-    this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
-    this.enemyDeathSound.volume = 0.1;
+    this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav"); // Carica il suono della morte del nemico
+    this.enemyDeathSound.volume = 0.1; // Imposta il volume del suono
 
-    this.setEnemiesForLevel(this.level);
-    this.buildFormation(this.actualParams.columns, this.actualParams.rows);
-    this.createEnemies(1, 1, 1);
+    this.setEnemiesForLevel(this.level); // Imposta i parametri per il livello
+    this.buildFormation(this.actualParams.columns, this.actualParams.rows); // Costruisce la formazione
+    this.createEnemies(1, 1, 1); // Crea i nemici
   }
 
  // Funzione che viene chiamata ad ogni frame
   draw(ctx) {
     this.decrementMoveDownTimer(); // Decrementa il timer di movimento verso il basso
     this.updateVelocityAndDirection(); // Aggiorna la velocità e la direzione
-    this.collisionDetectionMine(); // Controlla le collisioni
-    //this.collisionDetection(); 
+    this.collisionDetectionMine(); // Controlla le collisioni 
     this.drawEnemies(ctx); // Disegna i nemici
     this.resetMoveDownTimer(); // Resetta il timer di movimento verso il basso
     this.fireBullet(); // Fa sparare i nemici
@@ -210,17 +209,17 @@ export default class EnemyController {
     if (this.actualParams.columns > maxColumns) this.actualParams.columns = maxColumns; // Se il numero di colonne supera il massimo, imposta il massimo
     if (this.actualParams.rows > maxRows) this.actualParams.rows = maxRows; // Se il numero di righe supera il massimo, imposta il massimo
 
-    const maxAlienLives = 3; // Numero massimo di vite dei nemici
     if (this.level > 3) { // Se il livello è superiore a 3
       this.actualParams.alien3Lives = 1 + Math.floor((this.level / 3) - 1); // Imposta il numero di vite dei nemici di tipo 3
-      if (this.actualParams.alien3Lives > maxAlienLives) this.actualParams.alien3Lives = maxAlienLives; // Se il numero di vite supera il massimo, imposta il massimo
     }
     if (this.level > 5) { // Se il livello è superiore a 5
       this.actualParams.alien2Lives = 1 + Math.floor((this.level / 3) - 2); // Imposta il numero di vite dei nemici di tipo 2
-      if (this.actualParams.alien2Lives > maxAlienLives) this.actualParams.alien2Lives = maxAlienLives; // Se il numero di vite supera il massimo, imposta il massimo
+    }
+    if (this.level > 7) { // Se il livello è superiore a 7
+      this.actualParams.alien1Lives = 1 + Math.floor((this.level / 3) - 3); // Imposta il numero di vite dei nemici di tipo 1
     }
 
-    const minFireRate = 50; // Numero minimo di millisecondi tra un proiettile e l'altro
+    const minFireRate = 30; // Numero minimo di millisecondi tra un proiettile e l'altro
 
     this.actualParams.fireRate = this.actualParams.fireRate * 0.9; // Imposta il tempo di sparo
     if (this.actualParams.fireRate < minFireRate) this.actualParams.fireRate = minFireRate; // Se il tempo di sparo è inferiore al minimo, imposta il minimo
