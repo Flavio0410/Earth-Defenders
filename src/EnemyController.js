@@ -200,8 +200,6 @@ export default class EnemyController {
     // impostare il numero massimo di colonne e di righe in base alla dimensione dello schermo
     const maxColumns = Math.floor(this.canvas.width / 40) - 1; // Numero massimo di colonne
     const maxRows = 6; // Numero massimo di righe
-    console.log("maxColumns: " + maxColumns);
-    console.log("maxRows: " + maxRows);
 
     this.actualParams.columns = this.defaultParams.columns + level - 1; // Imposta il numero di colonne
     this.actualParams.rows = this.defaultParams.rows + this.level; // Imposta il numero di righe
