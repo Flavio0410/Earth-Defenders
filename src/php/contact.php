@@ -13,7 +13,7 @@
     $host = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "earthdefenders";
+    $dbname = "earthdefendersdb";
 
     // creating a connection
     $con = new mysqli($host, $username, $password, $dbname, 3307);
