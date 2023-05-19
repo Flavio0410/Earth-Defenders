@@ -251,7 +251,7 @@ export default class EnemyController {
               this.buffParams.x = enemyRow[enemyIndex].getX(); // Imposta la posizione del buff
               this.buffParams.y = enemyRow[enemyIndex].getY(); // Imposta la posizione del buff
               this.buffParams.spawned = true; // Imposta il buff come spawnato
-              console.log("Buff spawnato"); 
+              console.log("Buff spawnato");
             }
             enemyRow.splice(enemyIndex, 1); // Rimuove il nemico
             this.points += 100*this.level*this.buffParams.multiplier; // Aumenta i punti in base al livello e al moltiplicatore del buff
