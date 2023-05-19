@@ -89,5 +89,5 @@ onWindowResize() {
 
 }
 
-const earth3d = new Loader3d("earthContainerID", "../public/assets/models/earth/scene.gltf", 4, 550, -50, 0, 0);
-const spaceship3d = new Loader3d("spaceshipContainerID", "localhost/LTW_Project/public/assets/models/spaceship/scene.gltf", 10, 100, 0, 0, 0);
+const earth3d = new Loader3d("earthContainerID", "../../public/assets/models/earth/scene.gltf", 4, 550, -50, 0, 0);
+const spaceship3d = new Loader3d("spaceshipContainerID", "../../public/assets/models/spaceship/scene.gltf", 10, 100, 0, 0, 0);

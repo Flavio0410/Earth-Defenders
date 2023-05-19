@@ -10,7 +10,7 @@ canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
 const background = new Image();
-background.src = "../public/assets/images/bg.jpg";
+background.src = "../../public/assets/images/bg.jpg";
 
 let playerBullets = 5;
 const playerBulletController = new BulletController(canvas, playerBullets, true, "player");
@@ -44,12 +44,12 @@ pauseButton.addEventListener("click", () => {
 
 let backButton = document.getElementById("backButton");
 backButton.addEventListener("click", () => {
-  window.location.href = "../index.html";
+  window.location.href = "../html/index.html";
 });
 
 let restartButton = document.getElementById("restartButton");
 restartButton.addEventListener("click", () => {
-  window.location.href = "game.html";
+  window.location.href = "../html/game.html";
 });
 
 // pause the game when the tab loses focus
@@ -170,11 +170,11 @@ function displayHearts() {
   var hearth3 = document.getElementById('heart3');
 
   if (player.getLife() == 2) {
-    hearth3.src = "../public/assets/images/pixel_emptyheart.png";
+    hearth3.src = "../../public/assets/images/pixel_emptyheart.png";
   } else if (player.getLife() == 1) {
-    hearth2.src = "../public/assets/images/pixel_emptyheart.png";
+    hearth2.src = "../../public/assets/images/pixel_emptyheart.png";
   } else if (player.getLife() == 0) {
-    hearth1.src = "../public/assets/images/pixel_emptyheart.png";
+    hearth1.src = "../../public/assets/images/pixel_emptyheart.png";
   }
 
 }
@@ -222,7 +222,7 @@ function onwindowresize() {
 window.addEventListener("resize", onwindowresize);
 
 function playSound() {
-  var audio = new Audio("../public/assets/sounds/bgmusic.mp3");
+  var audio = new Audio("../../public/assets/sounds/bgmusic.mp3");
   audio.volume = 0.1;
   audio.play();
 }
