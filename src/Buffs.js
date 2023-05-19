@@ -70,4 +70,8 @@ export default class Buffs {
       this.y = newY; // Imposta la nuova coordinata y del buff
     }
 
+    getY(){
+      return this.y; // Restituisce la coordinata y del buff
+    }
+
   }

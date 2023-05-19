@@ -47,6 +47,11 @@ export default class BuffsController {
             } else {
                 this.enemyController.buffMultiplier(true);
             }
+        } else if (this.buff.getY() > this.canvas.height && this.isSpawned){
+            console.log("buff non preso");
+            this.isSpawned = false;
+            this.newBuff = false;
+            this.enemyController.resetBuffSpawn();
         }
     }
 

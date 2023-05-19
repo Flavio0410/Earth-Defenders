@@ -66,10 +66,6 @@ document.addEventListener("visibilitychange", () => {
 //Game Over
 let gameOver = document.getElementById("gameOverID");
 
-
-
-
-
 function game() {
   // if(!music){
   //   playSound();
@@ -96,6 +92,7 @@ function game() {
         setTimeout(() => {
           player.speedUp = false;
           playerBulletController.setMaxBulletsAtATime(playerBullets);
+          clearTimeout();
         }, 10000);
       }
       if (enemyController.buffParams.multiplier == 2) {
@@ -103,6 +100,7 @@ function game() {
         setTimeout(() => {
           is2X = false;
           enemyController.buffMultiplier(false);
+          clearTimeout();
         }, 5000);
       }
     }
