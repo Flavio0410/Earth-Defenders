@@ -10,7 +10,7 @@ export default class BuffsController {
         this.player = player;
         this.enemyController = enemyController;
 
-        this.powerUpSound = new Audio("../public/assets/sounds/powerUp.mp3");
+        this.powerUpSound = new Audio("../../public/assets/sounds/powerUp.mp3");
         this.powerUpSound.volume = 0.1;
 
         this.buff = new Buffs(0,0);

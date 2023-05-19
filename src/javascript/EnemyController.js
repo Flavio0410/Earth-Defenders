@@ -51,7 +51,7 @@ export default class EnemyController {
     this.playerBulletController = playerBulletController; // Prende il controller dei proiettili del giocatore
 
     // Suono della morte del nemico
-    this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav"); // Carica il suono della morte del nemico
+    this.enemyDeathSound = new Audio("../../public/assets/sounds/enemy-death.wav"); // Carica il suono della morte del nemico
     this.enemyDeathSound.volume = 0.1; // Imposta il volume del suono
 
     this.setEnemiesForLevel(this.level); // Imposta i parametri per il livello

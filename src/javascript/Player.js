@@ -38,13 +38,13 @@ export default class Player {
       this.setImage();
       this.isMobileDevice();
 
-      this.lifeLoseSound = new Audio("../public/assets/sounds/life-lose.wav");
+      this.lifeLoseSound = new Audio("../../public/assets/sounds/life-lose.wav");
       this.lifeLoseSound.volume = 0.1;
 
-      this.lastLiveSound = new Audio("../public/assets/sounds/player-death-sound.wav");
+      this.lastLiveSound = new Audio("../../public/assets/sounds/player-death-sound.wav");
       this.lastLiveSound.volume = 0.1;
 
-      this.shieldLoseSound = new Audio("../public/assets/sounds/shield-break.wav");
+      this.shieldLoseSound = new Audio("../../public/assets/sounds/shield-break.wav");
       this.shieldLoseSound.volume = 0.1;
   
       document.addEventListener("keydown", this.keydown);
@@ -130,13 +130,13 @@ export default class Player {
 
     setImage(){
       if(this.shield && this.speedUp){
-        this.image.src = "../public/assets/images/shieldspeedspaceship.png";
+        this.image.src = "../../public/assets/images/shieldspeedspaceship.png";
       } else if(this.shield){
-        this.image.src = "../public/assets/images/shieldstarship.png";
+        this.image.src = "../../public/assets/images/shieldstarship.png";
       } else if(this.speedUp){
-        this.image.src = "../public/assets/images/speedstarship.png";
+        this.image.src = "../../public/assets/images/speedstarship.png";
       } else {
-        this.image.src = "../public/assets/images/pspaceship.png";
+        this.image.src = "../../public/assets/images/pspaceship.png";
       }
     }
 

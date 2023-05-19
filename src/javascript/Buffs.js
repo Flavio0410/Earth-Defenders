@@ -6,7 +6,7 @@ export default class Buffs {
       this.width = 40;
       this.height = 44;
       
-      this.enemyDeathSound = new Audio("../public/assets/sounds/enemy-death.wav");
+      this.enemyDeathSound = new Audio("../../public/assets/sounds/enemy-death.wav");
       this.enemyDeathSound.volume = 0.1;
 
       this.image = new Image();
@@ -14,7 +14,7 @@ export default class Buffs {
     }
 
     setImage(){
-      this.image.src = "../public/assets/images/" + this.type + ".png";
+      this.image.src = "../../public/assets/images/" + this.type + ".png";
     }
 
     // Imposta il tipo di buff

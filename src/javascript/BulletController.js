@@ -10,7 +10,7 @@ export default class BulletController {
     this.soundEnabled = soundEnabled;
     this.type = type;
 
-    this.shootSound = new Audio("../public/assets/sounds/shoot.wav");
+    this.shootSound = new Audio("../../public/assets/sounds/shoot.wav");
     this.shootSound.volume = 0.1;
   }
 

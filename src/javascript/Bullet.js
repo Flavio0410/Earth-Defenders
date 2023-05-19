@@ -35,9 +35,9 @@ export default class Bullet {
 
     setImage(){
       if (this.type == "player"){
-        this.img.src = "../public/assets/images/bullet.png";
+        this.img.src = "../../public/assets/images/bullet.png";
       } else if (this.type == "enemy"){
-        this.img.src = "../public/assets/images/enemybullet.png";
+        this.img.src = "../../public/assets/images/enemybullet.png";
       }
     }
   }
