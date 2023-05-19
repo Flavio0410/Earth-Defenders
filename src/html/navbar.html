@@ -78,7 +78,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <form id="registerForm" method="POST" action="../php/contact.php">
+        <form id="registerForm" method="post" action="../php/connect.php">
         <div class="row mb-3 mt-2">
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
@@ -90,7 +90,7 @@
             </div>
             
             <div class="col-sm-6 mb-3">
-            <input type="text" name="surnamesignup" class="form-control" id="surnameSignUpForm" placeholder="Cognome" required>
+            <input type="text" id="surnamesignup" name="surnamesignup" class="form-control" placeholder="Cognome" required>
             </div>
 
             <div class="mb-3">
