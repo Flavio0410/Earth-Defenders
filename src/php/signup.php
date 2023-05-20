@@ -5,6 +5,9 @@
     $surnamesignup = $_POST['surnamesignup'];
     $emailsignup = $_POST['emailsignup'];
     $passwordsignup = $_POST['passwordsignup'];
+    $dateRecord = date("Y-m-d");
+    echo $dateRecord;
+    $score = 0;
 
     // database details
     $host = "localhost";
@@ -24,6 +27,11 @@
         $stmt = $con->prepare("INSERT INTO user (username, name, surname, email, password) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $usernamesignup, $namesignup, $surnamesignup, $emailsignup, $passwordsignup);
         $stmt->execute();
+        $stmt->close();
+        $stmt = $con->prepare("INSERT INTO record (username, record_date, score) VALUES (?, ?, ?)");
+        $stmt->bind_param("ssd", $usernamesignup, $dateRecord, $score);
+        $stmt->execute();
+        echo "Record inserito.";
         $stmt->close();
         $con->close();
     }

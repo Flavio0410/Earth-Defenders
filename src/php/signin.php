@@ -18,10 +18,16 @@
     {
         die("Connection failed!" . mysqli_connect_error());
     } else {
+        // query per verificare che l'utente esista
         $stmt = $con->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
         $stmt->bind_param("ss", $usernamesignin, $passwordsignin);
         $stmt->execute();
-        echo "Utente loggato!";
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            echo "Username e password corretti.";
+        } else {
+            echo "Username o password errati.";
+        }
         $stmt->close();
         $con->close();
     }
