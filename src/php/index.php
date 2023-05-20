@@ -1,4 +1,4 @@
-
+<?php include 'config.php';?>
 <!DOCTYPE html>
 <html>
 
@@ -16,9 +16,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../public/icon/favicon-16x16.png">
     <link rel="manifest" href="../../public/icon/site.webmanifest">
 
-    <link rel="stylesheet" type="text/css" href="../../style/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../style/navbar.css" /> 
-    <link rel="stylesheet" type="text/css" href="../../style/spinner.css" />
+    <link rel="stylesheet" type="text/css" href="../../style/style.css?v=<?=$version?>" />
+    <link rel="stylesheet" type="text/css" href="../../style/navbar.css?v=<?=$version?>" /> 
+    <link rel="stylesheet" type="text/css" href="../../style/spinner.css?v=<?=$version?>" />
     <script type="module" src="../javascript/Starspace.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
     <div id="navigationbar"></div>
     <script> 
       $(function(){
-        $("#navigationbar").load("navbar.html"); 
+        $("#navigationbar").load("navbar.php"); 
       });
     </script> 
 
@@ -52,12 +52,12 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <script src="../javascript/spinnerLoader.js"></script>
+    <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
 
 
     <div class="cursor">
     </div>
-    <script src="../javascript/cursor.js"></script>
+    <script src="../javascript/cursor.js?v=<?=$version?>"></script>
 
     <div id="mainContain" class="homecontainer">
 
@@ -72,7 +72,7 @@
 
       <div class = "earthContainer" id="earthContainerID"></div>
 
-      <script type="module" src="../javascript/Loader3d.js"></script>
+      <script type="module" src="../javascript/Loader3d.js?v=<?=$version?>"></script>
 
     </div>
   </body>
