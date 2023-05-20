@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="../../style/style.css?v=<?=$version?>" />
     <link rel="stylesheet" type="text/css" href="../../style/navbar.css?v=<?=$version?>" /> 
     <link rel="stylesheet" type="text/css" href="../../style/spinner.css?v=<?=$version?>" />
-    <script type="module" src="../javascript/Starspace.js"></script>
+    <script type="module" src="../javascript/Starspace.js?v=<?=$version?>"></script>
 
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>

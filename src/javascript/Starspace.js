@@ -111,8 +111,8 @@ class Starspace {
 
 
   animatefast() {
-    this.stars.rotation.y += 0.02; // Ruota le stelle bianche lungo l'asse y
-    this.stars2.rotation.y += 0.04; // Ruota le stelle viola lungo l'asse y
+    this.stars.rotation.y += 0.05; // Ruota le stelle bianche lungo l'asse y
+    this.stars2.rotation.y += 0.05; // Ruota le stelle viola lungo l'asse y
 
     this.renderer.render(this.scene, this.camera); // Renderizza la scena e la camera
     requestAnimationFrame(this.animatefast.bind(this)); // Richiede una nuova animazione al browser
@@ -120,8 +120,8 @@ class Starspace {
   }
 
   animatenormal() {
-    this.stars.rotation.y -= 0.02; // Ruota le stelle bianche lungo l'asse y
-    this.stars2.rotation.y -= 0.04; // Ruota le stelle viola lungo l'asse y
+    this.stars.rotation.y -= 0.05; // Ruota le stelle bianche lungo l'asse y
+    this.stars2.rotation.y -= 0.05; // Ruota le stelle viola lungo l'asse y
 
     this.renderer.render(this.scene, this.camera); // Renderizza la scena e la camera
     requestAnimationFrame(this.animatenormal.bind(this)); // Richiede una nuova animazione al browser

@@ -44,12 +44,12 @@ pauseButton.addEventListener("click", () => {
 
 let backButton = document.getElementById("backButton");
 backButton.addEventListener("click", () => {
-  window.location.href = "../html/index.html";
+  window.location.href = "../php/index.php";
 });
 
 let restartButton = document.getElementById("restartButton");
 restartButton.addEventListener("click", () => {
-  window.location.href = "../html/game.html";
+  window.location.href = "../php/game.html";
 });
 
 // pause the game when the tab loses focus
