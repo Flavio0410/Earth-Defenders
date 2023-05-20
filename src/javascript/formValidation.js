@@ -95,6 +95,7 @@ $(function(){
 
         success: function(label, element) {
             $(element).addClass('is-valid');
-        }
+        },
+
     })
 })
