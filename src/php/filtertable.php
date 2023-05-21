@@ -31,9 +31,9 @@ if (!$result) {
         <?php
         $rank = 1;
         while ($row = mysqli_fetch_assoc($result)) {
-            $username = $row['Username'];
-            $record = $row['Record'];
-            $data = $row['Data'];
+            $username = $row['username'];
+            $record = $row['score'];
+            $data = $row['data'];
 
             echo "<tr>";
             echo "<th scope='row'>$rank</th>";
