@@ -113,6 +113,7 @@
     color: red;
     font-size: 14px;
     padding-top: 5px;
+
 }
 
 .input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
@@ -133,4 +134,10 @@
     margin-left: calc(var(--bs-border-width) * -1);
     border-top-right-radius: 5.2px;
     border-bottom-right-radius: 5.2px;
+}
+
+.invalid-feedback{
+    font-size: 14px;
+    padding-top: 5px;
+
 }

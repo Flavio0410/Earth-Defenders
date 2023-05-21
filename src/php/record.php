@@ -56,71 +56,64 @@
             <h1 class="pagetitle">Record</h1>
 
             <div class="recordtablecontainer" id="tablecontainerID">
-                <table class="table">
+            <table class="table">
                 <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Record</th>
-                    <th scope="col">Data</th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Record</th>
+                        <th scope="col">Data</th>
+                    </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">4</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">5</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">6</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">7</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">8</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">9</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <th scope="row">10</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <?php
+                    $host = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "earthdefendersdb";
+                    
+                    $con = new mysqli($host, $username, $password, $dbname);
+                    
+                    if (!$con) {
+                        die('Errore di connessione al database: ' . mysqli_connect_error());
+                    }
+                    
+                    $query = "SELECT * FROM record ORDER BY score DESC LIMIT 10";
+                    $result = mysqli_query($con, $query);
+                    
+                    if (!$result) {
+                        die('Errore query: ' . mysqli_error($con));
+                    }
+                    $rank = 1;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $username = $row['username'];
+                        $record = $row['score'];
+                        $data = $row['data'];
+
+                        echo "<tr>";
+                        echo "<th scope='row'>$rank</th>";
+                        echo "<td>$username</td>";
+                        echo "<td>$record</td>";
+                        echo "<td>$data</td>";
+                        echo "</tr>";
+
+                        $rank++;
+                    }
+                    
+                    // Fill remaining rows with empty data
+                    while ($rank <= 10) {
+                        echo "<tr>";
+                        echo "<th scope='row'>$rank</th>";
+                        echo "<td></td>";
+                        echo "<td></td>";
+                        echo "<td></td>";
+                        echo "</tr>";
+                        
+                        $rank++;
+                    }
+                    ?>
                 </tbody>
-                </table>
+            </table>
             </div>
         </div>
     </body>

@@ -25,6 +25,16 @@ $(function(){
 
         success: function(label, element) {
             $(element).addClass('is-valid');
+        },
+
+        highlight: function(element, errorClass, validClass) {
+            $(element).removeClass(validClass).addClass(errorClass);
+            $(element).closest('.form-control').removeClass('is-valid').addClass('is-invalid');
+        },
+
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass(errorClass).addClass(validClass);
+            $(element).closest('.form-control').removeClass('is-invalid').addClass('is-valid');
         }
     })
 })
@@ -33,7 +43,7 @@ $(function(){
     $("#registerForm").validate({
         rules:{
             usernamesignup:{
-                required:true
+                required:true,
             },
 
             namesignup:{
@@ -96,6 +106,16 @@ $(function(){
         success: function(label, element) {
             $(element).addClass('is-valid');
         },
+
+        highlight: function(element, errorClass, validClass) {
+            $(element).removeClass(validClass).addClass(errorClass);
+            $(element).closest('.form-control').removeClass('is-valid').addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass(errorClass).addClass(validClass);
+            $(element).closest('.form-control').removeClass('is-invalid').addClass('is-valid');
+        }
+
 
     })
 })

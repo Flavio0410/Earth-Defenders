@@ -1,4 +1,5 @@
 <!--Navbar-->
+<?php include 'config.php';?>
 <nav class="navbar navbar-inverse navbar-dark navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
