@@ -29,13 +29,14 @@
     </div>
   </div>
   <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
-
   <div id="navigationbar"></div>
-  <script> 
-    $(function(){
-      $("#navigationbar").load("navbar.php"); 
-    });
-  </script>
+    <script> 
+      $(function(){
+        $("#navigationbar").load("navbar.php"); 
+      });
+    </script>
+
+
 
   <audio id="songID" autoplay loop>
     <source src="../../public/assets/sounds/Dreamcatcher.mp3" type="audio/mp3">
@@ -47,7 +48,43 @@
 
   <div id="mainContain" class="containAll">
     <script type="module" src="../javascript/Starspace.js?v=<?=$version?>"></script>
+  </div>
+
+  <div class="containeroverlaybg">
     <h1 class="pagetitle">Regolamento</h1>
+    <h3 class="descriptionrules">Earth Defenders è un coinvolgente gioco d'azione e strategia in cui i giocatori si trovano a difendere il pianeta Terra dall'invasione aliena. L'obiettivo principale del gioco è proteggere il nostro pianeta da ondate di nemici provenienti da diverse parti dello spazio.</h3>
+    <div class="container overflow-hidden text-center">
+      <div class="row gx-5">
+        <div class="col">
+        <div class="p-3">Potenziamenti</div>
+        </div>
+        <div class="col">
+          <div class="titlerulespage">Nemici</div>
+          
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/penemy1.png" class="img-fluid" alt="Enemy1">
+            </div>
+            <div class="col-sm-10">"Grindy" è una creatura aliena insidiosa e astuta che rappresenta una minaccia unica per la difesa della Terra. Il Grindy è caratterizzato da un aspetto sinistro e meccanico, con un corpo sottile e arti affusolati.</div>
+          </div>
+
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/penemy2.png" class="img-fluid" alt="Enemy2">
+            </div>
+            <div class="col-sm-10">"TrakTrak" si erge come una minaccia formidabile per la sopravvivenza del nostro pianeta. Il TrakTrak è una creatura aliena di dimensioni imponenti e dal design biomeccanico, che lo rende un avversario spaventoso da affrontare.</div>
+          </div>
+
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/penemy3.png" class="img-fluid" alt="Enemy3">
+            </div>
+            <div class="col-sm-10">"Bruto" è una formidabile creatura aliena che rappresenta una delle principali minacce per il pianeta Terra. Il Bruto è un'enorme e potente entità con un aspetto imponente e terrificante.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
     
 </body>

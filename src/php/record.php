@@ -51,8 +51,11 @@
         </script>
 
         <div id="mainContain" class="containAll">
-
             <script type="module" src="../javascript/Starspace.js?v=<?=$version?>"></script>
+        </div>
+
+        
+        <div class="containeroverlaybg">
 
             <h1 class="pagetitle">Record</h1>
 
