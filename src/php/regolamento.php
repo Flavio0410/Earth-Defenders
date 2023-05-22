@@ -53,11 +53,32 @@
   <div class="containeroverlaybg">
     <h1 class="pagetitle">Regolamento</h1>
     <h3 class="descriptionrules">Earth Defenders è un coinvolgente gioco d'azione e strategia in cui i giocatori si trovano a difendere il pianeta Terra dall'invasione aliena. L'obiettivo principale del gioco è proteggere il nostro pianeta da ondate di nemici provenienti da diverse parti dello spazio.</h3>
-    <div class="container overflow-hidden text-center">
+    <div class="container text-center">
       <div class="row gx-5">
         <div class="col">
-        <div class="p-3">Potenziamenti</div>
+          <div class="titlerulespage">Potenziamenti</div>
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/pspeed.png" class="img-fluid" alt="Power up Speed" style="max-width: 48px; max-height: 58px; margin-top: -3px">
+            </div>
+            <div class="col-sm-10">Punti doppi</div>
+          </div>
+
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/2xbuff.png" class="img-fluid" alt="Point Double" style="max-width: 48px; max-height: 58px; margin-top: -3px">
+            </div>
+            <div class="col-sm-10">Il potenziamento "Punti Doppi" è un'opzione entusiasmante che se raccolta ti offre l'opportunità di guadagnare il doppio dei punti ad ogni nemico eliminato. La durata del potenziamento è di 10 secondi</div>
+          </div>
+
+          <div class="row enemyrow">
+            <div class="col-sm-2">
+              <img src="../../public/assets/images/pshield.png" class="img-fluid" alt="Shield" style="max-width: 48px; max-height: 58px; margin-top: -3px">
+            </div>
+            <div class="col-sm-10">pspeed</div>
+          </div>
         </div>
+
         <div class="col">
           <div class="titlerulespage">Nemici</div>
           
