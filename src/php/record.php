@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="../../style/navbar.css?v=<?=$version?>" />
         <link rel="stylesheet" type="text/css" href="../../style/style.css?v=<?=$version?>" />
         <link rel="stylesheet" type="text/css" href="../../style/spinner.css?v=<?=$version?>" />
+        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     </head>
     <body>
         <div class="spiner-wrapper">
@@ -78,7 +79,7 @@
                         die('Errore di connessione al database: ' . mysqli_connect_error());
                     }
                     
-                    $query = "SELECT * FROM record ORDER BY score DESC LIMIT 10";
+                    $query = "SELECT * FROM record as R WHERE (SELECT count(distinct score) FROM record as RE where RE.score >= R.score) BETWEEN 0 AND 10 ORDER BY R.score DESC, R.data ASC LIMIT 10";
                     $result = mysqli_query($con, $query);
                     
                     if (!$result) {
