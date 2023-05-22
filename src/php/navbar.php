@@ -38,7 +38,7 @@
                     <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#signUpModal"">Registrati</button>';
                 }
                 else {
-                    echo '<button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#exit"">Esci</button>';
+                    echo '<button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="out.php"">Esci</button>';
                 }
             ?>
 
