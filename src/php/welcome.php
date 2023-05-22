@@ -37,12 +37,20 @@
 
   <body>
 
-    <div id="navigationbar"></div>
+    <!-- <div id="navigationbar"></div>
     <script> 
       $(function(){
         $("#navigationbar").load("navbarlogin.php"); 
       });
-    </script> 
+    </script>  -->
+    <?php
+      echo '<div id="navigationbar"></div>
+      <script> 
+        $(function(){
+          $("#navigationbar").load("navbarlogin.php"); 
+        });
+      </script>';
+    ?>
 
 
     <audio id="songID" autoplay loop>
