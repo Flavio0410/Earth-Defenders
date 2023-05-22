@@ -118,8 +118,7 @@ function reGame() {
 
 function displayGameOver() {
   if (isGameOver) {
-    gameOver.style.visibility = "visible";
-    restartButton.style.visibility = "visible";
+    gameOver.style.display = "visible";
   }
 }
 
