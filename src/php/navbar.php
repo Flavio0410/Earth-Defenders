@@ -26,10 +26,22 @@
             </li>
 
 
-            <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#loginModal"">Accedi</button>
+            <!-- <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#loginModal"">Accedi</button>
 
-            <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#signUpModal"">Registrati</button>
+            <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#signUpModal"">Registrati</button> -->
             
+            <?php
+            session_start();
+                if(!isset($_SESSION['username'])){
+                    echo '<button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#loginModal"">Accedi</button>
+
+                    <button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#signUpModal"">Registrati</button>';
+                }
+                else {
+                    echo '<button type="button" class="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#exit"">Esci</button>';
+                }
+            ?>
+
             </ul>
         </div>
         </div>

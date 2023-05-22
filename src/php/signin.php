@@ -27,14 +27,10 @@
             session_start();
             // $_SESSION['id'] = $result->fetch_assoc()['id'];
             $_SESSION['username'] = $usernamesignin;
-            header("Location: welcome.php");
-        } else {
             header("Location: index.php");
+            die();
         }
         $stmt->close();
         $con->close();
     }
-
-    // //ritorna alla pagina html index.html
-    // header("Location: ../html/index.html");
 ?>
