@@ -24,9 +24,12 @@
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
-            echo "Username e password corretti.";
+            session_start();
+            // $_SESSION['id'] = $result->fetch_assoc()['id'];
+            $_SESSION['username'] = $usernamesignin;
+            header("Location: welcome.php");
         } else {
-            echo "Username o password errati.";
+            header("Location: index.php");
         }
         $stmt->close();
         $con->close();
