@@ -44,24 +44,32 @@ $(function(){
         rules:{
             usernamesignup:{
                 required:true,
+                rangelength: [2, 20],
+                pattern: /^[a-zA-Z0-9_.]+$/
             },
 
             namesignup:{
                 required:true,
+                lettersonly:true,
+                rangelength: [2, 20]
             },
 
             surnamesignup:{
                 required:true,
+                lettersonly:true,
+                rangelength: [2, 20]
             },
 
             emailsignup:{
                 required:true,
-                email:true
+                email:true,
+                rangelength: [3, 50]
             },
 
             passwordsignup:{
                 required:true,
-                rangelength: [8, 20]
+                rangelength: [8, 20],
+                pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/
             },
 
             confirmpasswordsignup:{
@@ -73,25 +81,33 @@ $(function(){
         messages:{
             usernamesignup:{
                 required: "Inserisci il tuo username",
+                rangelength: "Lo username deve essere lungo minimo 2 e massimo 20 caratteri",
+                pattern: "Lo username deve contenere solo lettere, numeri, punti e underscore"
             },
 
 
             namesignup:{
                 required: "Inserisci il tuo nome",
+                lettersonly: "Il nome deve contenere solo lettere",
+                rangelength: "Il nome deve essere lungo minimo 2 e massimo 20 caratteri"
             },
 
             surnamesignup:{
                 required: "Inserisci il tuo cognome",
+                lettersonly: "Il cognome deve contenere solo lettere",
+                rangelength: "Il cognome deve essere lungo minimo 2 e massimo 20 caratteri"
             },
 
             emailsignup:{
                 required: "Inserisci la tua email",
-                email: "Inserisci una email valida"
+                email: "Inserisci una email valida",
+                rangelength: "L'email deve essere lunga massimo 50 caratteri"
             },
 
             passwordsignup:{
                 required: "Inserisci la tua password",
-                rangelength: "La password deve essere lunga minimo 8 e massimo 20 caratteri"
+                rangelength: "La password deve essere lunga minimo 8 e massimo 20 caratteri",
+                pattern: "La password deve contenere almeno una lettera maiuscola, una minuscola, un numero e un carattere speciale"
             },
             confirmpasswordsignup:{
                 required: "Inserisci la tua password",

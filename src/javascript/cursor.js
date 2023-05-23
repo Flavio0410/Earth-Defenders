@@ -1,5 +1,5 @@
 const cursor = document.querySelector('.cursor');
-const offset=10;
+const offset= 1;
 
 const isMobile = navigator.userAgentData.mobile; //controllo se l'utente sta usando un dispositivo mobile o un pc
 

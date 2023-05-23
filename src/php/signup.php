@@ -21,7 +21,6 @@
     // to ensure that the connection is made
     if ($con->connect_error)
     {
-        header("Location: index.php?error=100");
         die("Connection failed!" . mysqli_connect_error());
     }
     //altrimenti se lo username è già stato preso rimanda alla pagina di login con un errore
@@ -43,9 +42,11 @@
         $stmt = $con->prepare("INSERT INTO record (username, data, score) VALUES (?, ?, ?)");
         $stmt->bind_param("ssi", $usernamesignup, $dateRecord, $score);
         $stmt->execute();
+        $stmt->close();
+        $con->close();
 
     }
 
-    $stmt->close();
-    $con->close();
+    header("Location: index.php?newuser=1");
+
 ?>

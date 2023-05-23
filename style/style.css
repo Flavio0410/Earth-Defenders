@@ -180,7 +180,7 @@ body {
   border: 1px solid white;
   border-radius: 50%;
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   animation: animatePointer 1s infinite alternate;
