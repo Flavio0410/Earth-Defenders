@@ -47,21 +47,21 @@ backButton.addEventListener("click", () => {
   window.location.href = "../php/index.php";
 });
 
-let restartButton = document.getElementById("restartButton");
-restartButton.addEventListener("click", () => {
-  window.location.href = "../php/game.html";
-});
+// let restartButton = document.getElementById("restartButton");
+// restartButton.addEventListener("click", () => {
+//   window.location.href = "../php/game.php";
+// });
 
 // pause the game when the tab loses focus
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") {
-    gamePaused = true;
-    pauseButton.innerHTML = "Resume";
-  } else {
-    gamePaused = false;
-    pauseButton.innerHTML = "Pause";
-  }
-});
+// document.addEventListener("visibilitychange", () => {
+//   if (document.visibilityState === "hidden") {
+//     gamePaused = true;
+//     pauseButton.innerHTML = "Resume";
+//   } else {
+//     gamePaused = false;
+//     pauseButton.innerHTML = "Pause";
+//   }
+// });
 
 //Game Over
 let gameOver = document.getElementById("gameOverID");
@@ -118,7 +118,9 @@ function reGame() {
 
 function displayGameOver() {
   if (isGameOver) {
-    gameOver.style.display = "visible";
+    setRecord();
+    gamePaused = true;
+    // gameOver.style.display = "visible";
   }
 }
 
@@ -224,21 +226,47 @@ function playSound() {
   audio.play();
 }
 
-function setRecord(){
-  var xhr = new XMLHttpRequest();
-  var score = document.getElementById('scoreSpanID');
+// function setRecord(){
+//   var xhr = new XMLHttpRequest();
+//   var score = document.getElementById('scoreSpanID');
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var risposta = xhr.responseText;
-      // Gestisci la risposta qui
-      console.log(risposta); // Stampa la risposta nella console
+//   xhr.onreadystatechange = function() {
+//     if (xhr.readyState === 4 && xhr.status === 200) {
+//       var risposta = xhr.responseText;
+//       // Gestisci la risposta qui
+//       console.log(risposta); // Stampa la risposta nella console
+//     }
+//   };
+
+//   xhr.open("POST", "setRecord.php", true);
+//   xhr.send();
+//   xhr.send("score=" + encodeURIComponent(score));
+// }
+
+function setRecord(){
+  var score = enemyController.getPoints();
+  // Creazione di un oggetto FormData per inviare i dati
+  var formData = new FormData();
+  formData.append('score', score);
+
+  // Creazione di una richiesta XMLHTTP
+  var request = new XMLHttpRequest();
+  request.open('POST', 'setRecord.php', true);
+
+  // Gestione della risposta
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      // Successo
+      var response = request.responseText;
+      console.log(response);
+    } else {
+      // Errore
+      console.error('Errore nella richiesta.');
     }
   };
 
-  xhr.open("POST", "setRecord.php", true);
-  xhr.send();
-  xhr.send("score=" + encodeURIComponent(scoreValue));
+  // Invio dei dati
+  request.send(formData);
 }
 
 setInterval(game, 1000 / 60);

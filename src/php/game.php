@@ -26,7 +26,7 @@
       <div class="infoGame text-center">
         <div class="row">
           <div class="col-2">
-            <button type="button" class="btn btn-danger" id="backButton"> Back </button>
+            <button type="button" class="btn btn-outline-light" id="backButton"> Back </button>
           </div>
           <div class="col">
             <p>Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
@@ -35,7 +35,7 @@
             <p>Punteggio: <span class="scoreSpan" id="scoreSpanID">0</span></p>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-danger" id="pauseButton"> Pause </button>
+            <button type="button" class="btn btn-outline-light" id="pauseButton"> Pause </button>
           </div>
       </div>
 

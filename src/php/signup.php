@@ -6,7 +6,6 @@
     $emailsignup = $_POST['emailsignup'];
     $passwordsignup = $_POST['passwordsignup'];
     $dateRecord = date("Y-m-d");
-    echo $dateRecord;
     $score = 0;
 
     // database details
@@ -28,13 +27,13 @@
         $stmt->bind_param("sssss", $usernamesignup, $namesignup, $surnamesignup, $emailsignup, $passwordsignup);
         $stmt->execute();
         $stmt->close();
-        $stmt = $con->prepare("INSERT INTO record (username, record_date, score) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssd", $usernamesignup, $dateRecord, $score);
+        $stmt = $con->prepare("INSERT INTO record (username, data, score) VALUES (?, ?, ?)");
+        $stmt->bind_param("ssi", $usernamesignup, $dateRecord, $score);
         $stmt->execute();
         $stmt->close();
         $con->close();
     }
 
     //ritorna alla pagina html index.html
-    header("Location: ../html/index.html");
+    header("Location: ../html/index.php");
 ?>

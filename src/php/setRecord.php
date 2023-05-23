@@ -1,6 +1,12 @@
 <?php
     session_start();
     $sessionUsername = $_SESSION['username'];
+    if(isset($_POST['score'])){
+        $score = $_POST['score'];
+        echo "Dati ricevuti correttamente. Score: " . $score;
+    } else {
+        echo "Errore: Nessun dato ricevuto.";
+    }
 
     // database details
     $host = "localhost";
@@ -18,12 +24,9 @@
         die("Connection failed!" . mysqli_connect_error());
     } else {
         $stmt = $con->prepare("UPDATE `record` SET `score` = ? WHERE `username` = ?");
-        $stmt->$stmt->bind_param("ss", $score, $sessionUsername);
+        $stmt->bind_param("ss", $score, $sessionUsername);
         $stmt->execute();
         $stmt->close();
-
+        $con->close();
     }
-
-    //ritorna alla pagina html index.html
-    header("Location: ../html/index.html");
 ?>
