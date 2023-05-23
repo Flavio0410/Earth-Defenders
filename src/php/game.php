@@ -26,7 +26,30 @@
       <div class="infoGame text-center">
         <div class="row">
           <div class="col-2">
-            <button type="button" class="btn btn-danger" id="backButton"> Back </button>
+            <!-- <button type="button" class="btn btn-danger" id="backButton"> Back </button> -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="backButton" style="z-index: 20;">
+              Esci
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sei sicuro di voler uscire?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Uscendo ritornerai alla pagina iniziale e perderai tutti i progressi 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" id="resumegamebtn">Riprendi</button>
+                    <button type="button" class="btn btn-outline-danger" id="extgamebtn">Esci dal gioco</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col">
             <p>Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
@@ -62,10 +85,10 @@
         <script type="module" src="../javascript/game.js"></script>
       </div>
     </div>
-      <!-- Game Over
-      <div class="gameOver" id="gameOverID" style="visibility: visible; poisition: fixed; top: 0; left:0; width: 100vh; height: 100vh; z-index: 100; ">
-        <h1>Game Over</h1>
-        <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
-      </div> -->
+    <!-- Game Over -->
+    <div class="gameOver" id="gameOverID" style="visibility: visible; position: fixed; top: 100px; left:0; width: 100vh; height: 100vh; z-index: 10; ">
+      <h1>Game Over</h1>
+      <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
+    </div>
   </body>
 </html>
