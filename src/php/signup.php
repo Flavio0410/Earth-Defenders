@@ -31,7 +31,6 @@
         $stmt = $con->prepare("INSERT INTO record (username, record_date, score) VALUES (?, ?, ?)");
         $stmt->bind_param("ssd", $usernamesignup, $dateRecord, $score);
         $stmt->execute();
-        echo "Record inserito.";
         $stmt->close();
         $con->close();
     }
