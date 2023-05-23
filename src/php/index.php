@@ -69,7 +69,7 @@
         <?php
         session_start();
           if(isset($_SESSION['username'])){
-            echo '<a href="game.html" class="playbutton" role="button">Play</a>';
+            echo '<a href="game.php" class="playbutton" role="button">Play</a>';
           }
           else {
             echo '<a class="playbutton" role="button">Play</a>';

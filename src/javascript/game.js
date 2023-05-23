@@ -224,4 +224,19 @@ function playSound() {
   audio.play();
 }
 
+function setRecord(){
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var risposta = xhr.responseText;
+      // Gestisci la risposta qui
+      console.log(risposta); // Stampa la risposta nella console
+    }
+  };
+
+  xhr.open("POST", "setRecord.php", true);
+  xhr.send();
+}
+
 setInterval(game, 1000 / 60);
