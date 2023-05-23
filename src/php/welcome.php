@@ -37,20 +37,20 @@
 
   <body>
 
-    <!-- <div id="navigationbar"></div>
+    <div id="navigationbar"></div>
     <script> 
       $(function(){
         $("#navigationbar").load("navbarlogin.php"); 
       });
-    </script>  -->
-    <?php
+    </script> 
+    <!-- <?php
       echo '<div id="navigationbar"></div>
       <script> 
         $(function(){
           $("#navigationbar").load("navbarlogin.php"); 
         });
       </script>';
-    ?>
+    ?> -->
 
 
     <audio id="songID" autoplay loop>
@@ -82,7 +82,7 @@
       <div class = "titlebuttonContainer">
         <h1 class="centeredTitle">earth defenders</h1>
 
-        <a href="game.html" class="playbutton" role="button">Play</a>
+        <a href="game.php" class="playbutton" role="button">Play</a>
 
       </div>
 

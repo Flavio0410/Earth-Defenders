@@ -66,7 +66,7 @@
       <div class = "titlebuttonContainer">
         <h1 class="centeredTitle">earth defenders</h1>
 
-        <?php
+        <!-- <?php
         session_start();
           if(isset($_SESSION['username'])){
             echo '<a href="game.php" class="playbutton" role="button">Play</a>';
@@ -74,8 +74,8 @@
           else {
             echo '<a class="playbutton" role="button">Play</a>';
           }
-        ?>
-        <!-- <a href="game.html" class="playbutton" role="button">Play</a> -->
+        ?> -->
+        <a class="playbutton" role="button">Play</a>
 
       </div>
 
