@@ -30,7 +30,7 @@
             header("Location: welcome.php");
             die();
         } else {
-            header("Location: ../html/index.php");
+            header("Location: index.php");
             die();
         }
         $stmt->close();
