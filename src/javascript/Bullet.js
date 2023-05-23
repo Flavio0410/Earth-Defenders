@@ -13,31 +13,31 @@ export default class Bullet {
       this.height = 25;
     }
   
-    draw(ctx) {
-      this.y -= this.velocity;
+    draw(ctx) { // disegno il bullet
+      this.y -= this.velocity; // faccio muovere il bullet
       // ctx.fillStyle = this.bulletColor;
       // ctx.fillRect(this.x, this.y, this.width, this.height);
-      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height); // disegno il bullet
     }
   
-    collideWith(sprite) {
-      if (
-        this.x + this.width > sprite.x &&
+    collideWith(sprite) { // controllo se il bullet collide con un altro sprite
+      if ( // se collide
+        this.x + this.width > sprite.x && 
         this.x < sprite.x + sprite.width &&
         this.y + this.height > sprite.y &&
         this.y < sprite.y + sprite.height
-      ) {
-        return true;
+      ) { 
+        return true; // ritorno true
       } else {
-        return false;
+        return false; // ritorno false
       }
     }
 
-    setImage(){
-      if (this.type == "player"){
-        this.img.src = "../../public/assets/images/bullet.png";
-      } else if (this.type == "enemy"){
-        this.img.src = "../../public/assets/images/enemybullet.png";
+    setImage(){ // setto l'immagine del bullet
+      if (this.type == "player"){ // se è un bullet del player
+        this.img.src = "../../public/assets/images/bullet.png"; // setto l'immagine
+      } else if (this.type == "enemy"){ // se è un bullet del nemico
+        this.img.src = "../../public/assets/images/enemybullet.png"; // setto l'immagine
       }
     }
   }

@@ -23,64 +23,64 @@ export default class Enemy {
 
   }
 
-  draw(ctx) {
-    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+  draw(ctx) { // disegno il nemico
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height); 
   }
 
-  move(xVelocity, yVelocity) {
-    this.x += xVelocity;
+  move(xVelocity, yVelocity) { // muovo il nemico
+    this.x += xVelocity; 
     this.y += yVelocity;
   }
 
-  collideWith(sprite) {
+  collideWith(sprite) { // controllo se il nemico collide con un altro sprite
     if (
       this.x + this.width > sprite.x &&
       this.x < sprite.x + sprite.width &&
       this.y + this.height > sprite.y &&
       this.y < sprite.y + sprite.height
-    ) {
-      return true;
+    ) { // se collide
+      return true; // ritorno true
     } else {
-      return false;
+      return false; // ritorno false
     }
   }
 
-  getLife(){
+  getLife(){ // ritorno la vita del nemico
     return this.life;
   }
 
-  hit(){
-    this.life -= 1;
+  hit(){ // il nemico viene colpito
+    this.life -= 1; // decremento la vita
   }
 
-  getX(){
+  getX(){ // ritorno la x del nemico
     return this.x;
   }
 
-  getY(){
+  getY(){ // ritorno la y del nemico
     return this.y;
   }
 
-  calculateWidhtEnemy(initWidth){
+  calculateWidhtEnemy(initWidth){ // calcolo la larghezza del nemico
     
-    if(window.innerWidth > 900)
+    if(window.innerWidth > 900) // se la larghezza della finestra è maggiore di 900
     {
-      return initWidth*(window.innerWidth/1920);
+      return initWidth*(window.innerWidth/1920); // calcolo la larghezza del nemico
     }
     else
     {
-      return 26;
+      return 26; // altrimenti ritorno 26
     }
   }
 
-  calculateHeightEnemy(initHeight){
-    if(window.innerWidth > 900)
+  calculateHeightEnemy(initHeight){ // calcolo l'altezza del nemico
+    if(window.innerWidth > 900) // se la larghezza della finestra è maggiore di 900
     {
-      return initHeight*(window.innerHeight/1080);
+      return initHeight*(window.innerHeight/1080); // calcolo l'altezza del nemico
     }
     else
     {
-      return 26;
+      return 26; // altrimenti ritorno 26
     }
 
   }

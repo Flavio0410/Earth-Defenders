@@ -16,46 +16,46 @@ export default class BuffsController {
         this.buff = new Buffs(0,0);
     }
 
-    draw(ctx, player, x, y) {
-        if(!this.newBuff){
-            this.createBuff(x,y);
-            this.newBuff = true;
-            this.isSpawned = true;
+    draw(ctx, player, x, y) { //x e y sono le coordinate del nemico che ha spawnato il buff
+        if(!this.newBuff){ // se non è stato creato un nuovo buff
+            this.createBuff(x,y); // creo un nuovo buff
+            this.newBuff = true; // setto il flag a true
+            this.isSpawned = true; // setto il flag a true
         }
-        this.collisionDetection(player);
-        this.buff.draw(ctx);
+        this.collisionDetection(player); // controllo se il buff è stato preso
+        this.buff.draw(ctx); // disegno il buff
       }
 
-    createBuff(x,y){
-        this.buff.setX(x);
-        this.buff.setY(y);
-        this.buff.setType();
-        this.buff.setImage();
+    createBuff(x,y){ // creo un nuovo buff
+        this.buff.setX(x); // setto la x del buff
+        this.buff.setY(y); // setto la y del buff
+        this.buff.setType(); // setto il tipo del buff
+        this.buff.setImage(); // setto l'immagine del buff
     }
 
-    collisionDetection(player){
-        if(this.buff.collideWith(player) && this.isSpawned){
-            this.powerUpSound.currentTime = 0;
-            this.powerUpSound.play();
-            this.isSpawned = false;
-            this.newBuff = false;
-            this.enemyController.resetBuffSpawn();
-            if(this.buff.type == "shieldbuff"){
-                this.player.setShield();
-            } else if (this.buff.type == "pspeed"){
-                this.player.setSpeedUp();
+    collisionDetection(player){ // controllo se il buff è stato preso
+        if(this.buff.collideWith(player) && this.isSpawned){ // se il buff collide con il player e il buff è spawnato
+            this.powerUpSound.currentTime = 0; // resetto il tempo dell'audio
+            this.powerUpSound.play(); // faccio partire l'audio
+            this.isSpawned = false; // setto il flag a false
+            this.newBuff = false; // setto il flag a false
+            this.enemyController.resetBuffSpawn(); // resetto il timer per il prossimo spawn 
+            if(this.buff.type == "shieldbuff"){ // se il buff è uno shieldbuff
+                this.player.setShield(); // setto lo shield del player
+            } else if (this.buff.type == "pspeed"){ // se il buff è uno pspeed
+                this.player.setSpeedUp(); // setto la velocità del player
             } else {
-                this.enemyController.buffMultiplier(true);
+                this.enemyController.buffMultiplier(true); // setto il moltiplicatore dei nemici
             }
-        } else if (this.buff.getY() > this.canvas.height && this.isSpawned){
+        } else if (this.buff.getY() > this.canvas.height && this.isSpawned){ // se il buff è spawnato ma non è stato preso
             console.log("buff non preso");
-            this.isSpawned = false;
-            this.newBuff = false;
-            this.enemyController.resetBuffSpawn();
+            this.isSpawned = false; // setto il flag a false
+            this.newBuff = false; // setto il flag a false
+            this.enemyController.resetBuffSpawn(); // resetto il timer per il prossimo spawn
         }
     }
 
-    spawnBuff(){
-        this.isSpawned = true;
+    spawnBuff(){ // funzione che spawna il buff
+        this.isSpawned = true; // setto il flag a true
     }
 }

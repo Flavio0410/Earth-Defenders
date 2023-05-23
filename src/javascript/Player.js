@@ -62,86 +62,86 @@ export default class Player {
       });
     }
   
-    draw(ctx) {
-      if (this.shootPressed) {
-        this.bulletController.shoot(this.x + this.width / 2, this.y, 4, 10);
+    draw(ctx) { // disegno il giocatore
+      if (this.shootPressed) { // se il flag è true
+        this.bulletController.shoot(this.x + this.width / 2, this.y, 4, 10); // sparo
       }
-      this.move();
-      this.collideWithWalls();
-      this.setImage();
-      ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+      this.move(); // muovo il giocatore
+      this.collideWithWalls(); // controllo se il giocatore collide con i muri
+      this.setImage(); // setto l'immagine del giocatore
+      ctx.drawImage(this.image, this.x, this.y, this.width, this.height); // disegno il giocatore
     }
   
-    collideWithWalls() {
+    collideWithWalls() { // funzione che gestisce le collisioni con i muri
       //left
-      if (this.x < 0) {
-        this.x = 0;
+      if (this.x < 0) { // se la x è minore di 0
+        this.x = 0; // setto la x a 0
       }
   
       //right
-      if (this.x > this.canvas.width - this.width) {
-        this.x = this.canvas.width - this.width;
+      if (this.x > this.canvas.width - this.width) { // se la x è maggiore della larghezza del canvas - la larghezza del giocatore
+        this.x = this.canvas.width - this.width; // setto la x alla larghezza del canvas - la larghezza del giocatore
       }
     }
   
-    move() {
-      if (this.rightPressed) {
-        this.x += this.velocity;
-      } else if (this.leftPressed) {
-        this.x += -this.velocity;
+    move() { // funzione che muove il giocatore
+      if (this.rightPressed) { // se il flag è true
+        this.x += this.velocity; // muovo il giocatore a destra
+      } else if (this.leftPressed) {  // se il flag è true
+        this.x += -this.velocity; // muovo il giocatore a sinistra
       }
     }
-  
-    keydown = (event) => {
-      if (event.code == "ArrowRight") {
-        this.rightPressed = true;
+   
+    keydown = (event) => { // funzione che gestisce la pressione dei tasti
+      if (event.code == "ArrowRight") { // se il tasto premuto è la freccia destra
+        this.rightPressed = true; // setto il flag a true
       }
-      if (event.code == "ArrowLeft") {
-        this.leftPressed = true;
+      if (event.code == "ArrowLeft") { // se il tasto premuto è la freccia sinistra
+        this.leftPressed = true; // setto il flag a true
       }
-      if (event.code == "KeyD") {
-        this.rightPressed = true;
+      if (event.code == "KeyD") { // se il tasto premuto è la D
+        this.rightPressed = true; // setto il flag a true
       }
-      if (event.code == "KeyA") {
-        this.leftPressed = true;
+      if (event.code == "KeyA") { // se il tasto premuto è la A
+        this.leftPressed = true; // setto il flag a true
       }
-      if (event.code == "Space") {
-        this.shootPressed = true;
+      if (event.code == "Space") { // se il tasto premuto è la Space
+        this.shootPressed = true; // setto il flag a true
       }
     };
   
-    keyup = (event) => {
-      if (event.code == "ArrowRight") {
-        this.rightPressed = false;
+    keyup = (event) => { // funzione che gestisce il rilascio dei tasti
+      if (event.code == "ArrowRight") { // se il tasto rilasciato è la freccia destra
+        this.rightPressed = false; // setto il flag a false
       }
-      if (event.code == "ArrowLeft") {
-        this.leftPressed = false;
+      if (event.code == "ArrowLeft") { // se il tasto rilasciato è la freccia sinistra
+        this.leftPressed = false; // setto il flag a false
       }
-      if (event.code == "KeyD") {
-        this.rightPressed = false;
+      if (event.code == "KeyD") { // se il tasto rilasciato è la D
+        this.rightPressed = false; // setto il flag a false
       }
-      if (event.code == "KeyA") {
-        this.leftPressed = false;
+      if (event.code == "KeyA") { // se il tasto rilasciato è la A
+        this.leftPressed = false; // setto il flag a false
       }
-      if (event.code == "Space") {
-        this.shootPressed = false;
+      if (event.code == "Space") { // se il tasto rilasciato è la Space
+        this.shootPressed = false; // setto il flag a false
       }
     };
 
-    setImage(){
-      if(this.shield && this.speedUp){
-        this.image.src = "../../public/assets/images/shieldspeedspaceship.png";
-      } else if(this.shield){
-        this.image.src = "../../public/assets/images/shieldstarship.png";
-      } else if(this.speedUp){
-        this.image.src = "../../public/assets/images/speedstarship.png";
-      } else {
-        this.image.src = "../../public/assets/images/pspaceship.png";
+    setImage(){ // setto l'immagine del giocatore
+      if(this.shield && this.speedUp){ // se lo scudo e la velocità sono attivi
+        this.image.src = "../../public/assets/images/shieldspeedspaceship.png"; // setto l'immagine dello scudo e della velocità
+      } else if(this.shield){ // se lo scudo è attivo
+        this.image.src = "../../public/assets/images/shieldstarship.png"; // setto l'immagine dello scudo
+      } else if(this.speedUp){ // se la velocità è attiva
+        this.image.src = "../../public/assets/images/speedstarship.png"; // setto l'immagine della velocità
+      } else { // altrimenti
+        this.image.src = "../../public/assets/images/pspaceship.png"; // setto l'immagine di default
       }
     }
 
-    getLife(){
-      return this.life;
+    getLife(){ // ritorno la vita del giocatore
+      return this.life; 
     }
 
     hit(){ 
@@ -164,12 +164,12 @@ export default class Player {
       }
     }
 
-    setShield(){
-      this.shield = true;
+    setShield(){ // Attiva lo scudo
+      this.shield = true; // Attiva lo scudo
     }
-
-    setSpeedUp(){
-      this.speedUp = true;
+ 
+    setSpeedUp(){ // Attiva la velocità
+      this.speedUp = true; // Attiva la velocità
     }
 
     isMobileDevice(){
@@ -190,57 +190,57 @@ export default class Player {
     }
 
     // Comandi mobile
-    handleTouchMove = (event) => {
-      const touch = event.touches[0];
+    handleTouchMove = (event) => { // funzione che gestisce il touch per muoversi
+      const touch = event.touches[0]; // prendo il primo tocco
       
-       if (event.type === 'touchstart') {
-          this.startPosX = touch.pageX;
-        } else if (event.type === 'touchmove') {
-          const currentPosX = touch.pageX;
+       if (event.type === 'touchstart') { // se il touch è iniziato
+          this.startPosX = touch.pageX; // setto la posizione iniziale
+        } else if (event.type === 'touchmove') { // se il touch è in movimento
+          const currentPosX = touch.pageX; // prendo la posizione attuale
           
-          if (currentPosX > this.startPosX) {
-            this.rightPressed = true;
-            this.leftPressed = false;
+          if (currentPosX > this.startPosX) { // se la posizione attuale è maggiore di quella iniziale
+            this.rightPressed = true; // setto il flag a true
+            this.leftPressed = false; // setto il flag a false
           } else {
-            this.leftPressed = true;
-            this.rightPressed = false;
+            this.leftPressed = true; // setto il flag a true
+            this.rightPressed = false; // setto il flag a false
           }
-        } else if (event.type === 'touchend') {
-          this.rightPressed = false;
-          this.leftPressed = false;
+        } else if (event.type === 'touchend') { // se il touch è finito
+          this.rightPressed = false; // setto il flag a false
+          this.leftPressed = false; // setto il flag a false
         }
       }
 
-      handleTouchShoot = (event) => {
-        if (event.type === 'touchstart'){
-          this.shootPressed = true;
-        } else if (event.type === 'touchend'){
-          this.shootPressed = false;
+      handleTouchShoot = (event) => { // funzione che gestisce il touch per sparare
+        if (event.type === 'touchstart'){ // se il touch è iniziato
+          this.shootPressed = true; // setto il flag a true
+        } else if (event.type === 'touchend'){ // se il touch è finito
+          this.shootPressed = false;  // setto il flag a false
         }
       }
 
-      calculateWidhtPlayer(initWidth){
+      calculateWidhtPlayer(initWidth){ // calcolo la larghezza del player
     
-        if(window.innerWidth > 900)
+        if(window.innerWidth > 900) // se la larghezza dello schermo è maggiore di 900
         {
-          return initWidth*(window.innerWidth/1920);
+          return initWidth*(window.innerWidth/1920); // calcolo la larghezza
         }
         else
         {
-          return 50;
-        }
+          return 50; // altrimenti ritorno 50
+        } 
       }
     
     
     
-      calculateHeightPlayer(initHeight){
-        if(window.innerWidth > 900)
+      calculateHeightPlayer(initHeight){ // calcolo l'altezza del player
+        if(window.innerWidth > 900) // se la larghezza dello schermo è maggiore di 900
         {
-          return initHeight*(window.innerHeight/1080);
+          return initHeight*(window.innerHeight/1080); // calcolo l'altezza
         }
         else
         {
-          return 40;
+          return 40; // altrimenti ritorno 40
         }
     
       }
