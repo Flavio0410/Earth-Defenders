@@ -42,17 +42,15 @@
                 <!-- CSS inline per il bottone circolare -->
                 <style>
                 .btn-circle {
-                width: 50px;
-                height: 50px;
+                width: auto;
+                height: auto;
+                min-width: 40px;
                 border-radius: 50%;
-                font-size: 20px;
+                font-size: 15px;
                 text-align: center;
                 padding: 0;
                 }
 
-                .btn-circle span {
-                line-height: 50px;
-                }
                 </style>
 
                 <!-- Crea il bottone circolare -->
