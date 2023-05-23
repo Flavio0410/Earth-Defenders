@@ -26,6 +26,40 @@
             </li>
             
             <!-- <a href="out.php" class="btn btn-outline-light"  data-bs-toggle="modal" role="button">Esci</a> -->
+            <?php
+                session_start(); // Assicurati di avviare la sessione se non è già stata avviata
+
+                // Ottieni l'username dalla variabile di sessione PHP
+                $username = $_SESSION["username"];
+
+                // Genera un colore casuale per lo sfondo
+                $randomColor = '#' . dechex(rand(0x000000, 0xFFFFFF));
+
+                // Ottieni l'iniziale dell'username
+                $initial = strtoupper(substr($username, 0, 1));
+                ?>
+
+                <!-- CSS inline per il bottone circolare -->
+                <style>
+                .btn-circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                font-size: 20px;
+                text-align: center;
+                padding: 0;
+                }
+
+                .btn-circle span {
+                line-height: 50px;
+                }
+                </style>
+
+                <!-- Crea il bottone circolare -->
+                <button class="btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
+                <span><?php echo $initial; ?></span>
+                </button>
+
             <a href="out.php" class="btn btn-outline-light" role="button">Esci</a>
 
             </ul>
