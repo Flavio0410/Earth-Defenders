@@ -58,7 +58,7 @@ backButton.addEventListener("click", () => {
 
   let extbtn = document.getElementById("extgamebtn");
   extbtn.addEventListener("click", () => {
-    window.location.href = "../php/index.php";
+    window.location.href = "../php/welcome.php";
   });
 
 });

@@ -72,10 +72,10 @@
             echo '<a href="game.php" class="playbutton" role="button">Play</a>';
           }
           else {
-            echo '<a class="playbutton" role="button">Play</a>';
+            echo '<button class="playbutton" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Play</button>';
           }
         ?> -->
-        <a class="playbutton" role="button">Play</a>
+        <button class="playbutton" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Play</button>
 
       </div>
 

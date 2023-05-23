@@ -35,5 +35,5 @@
     }
 
     //ritorna alla pagina html index.html
-    header("Location: ../html/index.php");
+    header("Location: index.php");
 ?>
