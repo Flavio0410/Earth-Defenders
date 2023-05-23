@@ -39,20 +39,6 @@
                 $initial = strtoupper(substr($username, 0, 1));
                 ?>
 
-                <!-- CSS inline per il bottone circolare -->
-                <style>
-                .btn-circle {
-                width: auto;
-                height: auto;
-                min-width: 40px;
-                border-radius: 50%;
-                font-size: 15px;
-                text-align: center;
-                padding: 0;
-                }
-
-                </style>
-
                 <!-- Crea il bottone circolare -->
                 <button class="nav-item btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
                 <span><?php echo $initial; ?></span>

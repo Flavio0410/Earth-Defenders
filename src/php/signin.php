@@ -16,8 +16,15 @@
     // to ensure that the connection is made
     if ($con->connect_error)
     {
+        header("Location: index.php?error=100");
         die("Connection failed!" . mysqli_connect_error());
-    } else {
+    }
+    //altrimenti se lo username non esiste o la password è sbagliata rimanda alla pagina di login con un errore
+    else if ($con->query("SELECT * FROM user WHERE username = '$usernamesignin' AND password = '$passwordsignin'")->num_rows == 0) {
+        header("Location: index.php?error=1");
+        die();
+    }
+    else {
         // query per verificare che l'utente esista
         $stmt = $con->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
         $stmt->bind_param("ss", $usernamesignin, $passwordsignin);
@@ -29,11 +36,9 @@
             $_SESSION['username'] = $usernamesignin;
             header("Location: welcome.php");
             die();
-        } else {
-            header("Location: index.php");
-            die();
-        }
-        $stmt->close();
-        $con->close();
+    }
+
+    $stmt->close();
+    $con->close();
     }
 ?>

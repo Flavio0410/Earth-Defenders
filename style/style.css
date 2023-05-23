@@ -96,6 +96,7 @@ body {
   z-index: 1;
   width: 15%;
   min-width: 120px;
+  max-width: 200px;
 }
 
 .playbutton:hover {

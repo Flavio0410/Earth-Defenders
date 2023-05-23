@@ -91,6 +91,12 @@
 
       <script type="module" src="../javascript/Loader3d.js?v=<?=$version?>"></script>
 
+      <?php include 'validationFormBackend.php' ?>
+
+
     </div>
+
+
+
   </body>
 </html>
