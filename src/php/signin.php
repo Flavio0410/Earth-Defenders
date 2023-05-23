@@ -29,6 +29,9 @@
             $_SESSION['username'] = $usernamesignin;
             header("Location: welcome.php");
             die();
+        } else {
+            header("Location: ../html/index.php");
+            die();
         }
         $stmt->close();
         $con->close();
