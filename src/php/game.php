@@ -5,6 +5,7 @@
     die();
   }
 ?>
+<?php include 'config.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,21 +18,21 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <title>Earth Defender - Play</title>
     <link rel="shortcut icon" href="#" />
-    <link rel="stylesheet" href="../../style/game.css"/>
+    <link rel="stylesheet" href="../../style/game.css?v=<?=$version?>"/>
 
   </head>
   <body>
 
-    <div class="container-fluid" style="padding: 0;">
+  <div class="container-fluid" style="padding: 0;">
+
+    <div class="contall" style="padding: 0;">
       <div class="infoGame text-center">
         <div class="row">
-          <div class="col-2">
+          <div class="col-3">
 
-          
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="backButton" style="z-index: 20;">
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="backButton">
               Esci
             </button>
-
             <!-- Modal -->
             <div class="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
@@ -51,13 +52,13 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col-3">
             <p>Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
           </div>
-          <div class="col">
+          <div class="col-3">
             <p>Punteggio: <span class="scoreSpan" id="scoreSpanID">0</span></p>
           </div>
-          <div class="col">
+          <div class="col-3">
             <button type="button" class="btn btn-outline-light" id="pauseButton"> Pause </button>
           </div>
       </div>
@@ -82,13 +83,14 @@
       </div>
       </div>
         <canvas id="game"></canvas>
-        <script type="module" src="../javascript/game.js"></script>
+        <script type="module" src="../javascript/game.js?v=<?=$version?>"></script>
       </div>
     </div>
     <!-- Game Over -->
     <div class="gameOver" id="gameOverID" style="visibility: visible; position: fixed; top: 100px; left:0; width: 100vh; height: 100vh; z-index: 10; ">
       <h1>Game Over</h1>
       <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
+    </div>
     </div>
   </body>
 </html>

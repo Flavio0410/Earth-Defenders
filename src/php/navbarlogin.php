@@ -42,21 +42,19 @@
                 <!-- CSS inline per il bottone circolare -->
                 <style>
                 .btn-circle {
-                width: 50px;
-                height: 50px;
+                width: auto;
+                height: auto;
+                min-width: 40px;
                 border-radius: 50%;
-                font-size: 20px;
+                font-size: 15px;
                 text-align: center;
                 padding: 0;
                 }
 
-                .btn-circle span {
-                line-height: 50px;
-                }
                 </style>
 
                 <!-- Crea il bottone circolare -->
-                <button class="btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
+                <button class="nav-item btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
                 <span><?php echo $initial; ?></span>
                 </button>
 

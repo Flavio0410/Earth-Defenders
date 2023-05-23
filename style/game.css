@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --main-color: #831DE8;
+  --main-color-lighter: #9C38FF;
+  --main-color-darker: #52099C;
+  --complementary-color: #9A9C00;
+  --complementary-color-lighter: #E6E81C;
+  --logourl: "../public/assets/images/logo.svg";
+}
+
 body {
     display: flex;
     align-items: center;
@@ -7,8 +18,35 @@ body {
     overflow: hidden;
   }
 
+  .contall{
+    padding: 0px;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+
+
   .infoGame{
     width: 100%;
     background: black;
     color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    background: var(--main-color-darker);
   }
+
+  .row{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+
