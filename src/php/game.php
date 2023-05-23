@@ -26,7 +26,7 @@
       <div class="infoGame text-center">
         <div class="row">
           <div class="col-2">
-            <button type="button" class="btn btn-outline-light" id="backButton"> Back </button>
+            <button type="button" class="btn btn-danger" id="backButton"> Back </button>
           </div>
           <div class="col">
             <p>Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
@@ -62,10 +62,10 @@
         <script type="module" src="../javascript/game.js"></script>
       </div>
     </div>
-      <!-- Game Over
-      <div class="gameOver" id="gameOverID" style="visibility: visible; poisition: fixed; top: 0; left:0; width: 100vh; height: 100vh; z-index: 100; ">
-        <h1>Game Over</h1>
-        <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
-      </div> -->
+    <!-- Game Over -->
+    <div class="gameOver" id="gameOverID" style="visibility: visible; position: fixed; top: 100px; left:0; width: 100vh; height: 100vh; z-index: 10; ">
+      <h1>Game Over</h1>
+      <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
+    </div>
   </body>
 </html>

@@ -3,38 +3,41 @@ import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 import BuffsController from "./BuffsController.js";
 
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
 
-canvas.width = document.body.clientWidth;
-canvas.height = document.body.clientHeight;
+let isGameOver = false; // variabile che indica se il gioco è finito
 
-const background = new Image();
-background.src = "../../public/assets/images/bg.jpg";
+let is2X = false; // variabile che indica se il punteggio è moltiplicato per 2
 
-let playerBullets = 5;
-const playerBulletController = new BulletController(canvas, playerBullets, true, "player");
-const enemyBulletController = new BulletController(canvas, 10, false, "enemy");
+let music = false; // variabile che indica se la musica è già stata avviata
+
+let gamePaused = false; // variabile che indica se il gioco è in pausa
+
+const canvas = document.getElementById("game"); // prendo il canvas dal DOM
+const ctx = canvas.getContext("2d"); // prendo il contesto 2d del canvas
+
+canvas.width = document.body.clientWidth; // setto la larghezza del canvas
+canvas.height = document.body.clientHeight; // setto l'altezza del canvas
+
+const background = new Image(); // creo un'immagine
+background.src = "../../public/assets/images/bg.jpg"; // setto il path dell'immagine
+
+let playerBullets = 5; // numero di proiettili del player all'inizio del gioco (aumenta con il livello)
+const playerBulletController = new BulletController(canvas, playerBullets, true, "player"); // creo il controller dei proiettili del player (canvas, numero di proiettili, player, tipo di proiettile)
+const enemyBulletController = new BulletController(canvas, 10, false, "enemy"); // creo il controller dei proiettili dei nemici (canvas, numero di proiettili, nemico, tipo di proiettile) 
 const enemyController = new EnemyController(
   canvas,
   enemyBulletController,
   playerBulletController
 );
-const player = new Player(canvas, 3, playerBulletController);
-const buffsController = new BuffsController(canvas, player, enemyController);
+const player = new Player(canvas, 3, playerBulletController); // creo il player (canvas, vite, controller dei proiettili del player)
+const buffsController = new BuffsController(canvas, player, enemyController); // creo il controller dei buff (canvas, player, controller dei nemici)
 
-let isGameOver = false;
 
-let is2X = false;
-
-let music = false;
-
-let gamePaused = false;
-let pauseButton = document.getElementById("pauseButton");
-pauseButton.addEventListener("click", () => {
-  if(!gamePaused){
-    gamePaused = true;
-    pauseButton.innerHTML = "Resume";
+let pauseButton = document.getElementById("pauseButton"); // prendo il bottone di pausa dal DOM
+pauseButton.addEventListener("click", () => { // aggiungo un listener al bottone di pausa
+  if(!gamePaused){ // se il gioco non è in pausa
+    gamePaused = true; // metto il gioco in pausa
+    pauseButton.innerHTML = "Resume"; // cambio il testo del bottone
   }
   else{
     gamePaused = false;
@@ -42,9 +45,22 @@ pauseButton.addEventListener("click", () => {
   }
 });
 
+
+
 let backButton = document.getElementById("backButton");
 backButton.addEventListener("click", () => {
-  window.location.href = "../php/index.php";
+  gamePaused = true;
+  let rsmbtn = document.getElementById("resumegamebtn");
+  rsmbtn.addEventListener("click", () => {
+    gamePaused = false;
+  }
+  );
+
+  let extbtn = document.getElementById("extgamebtn");
+  extbtn.addEventListener("click", () => {
+    window.location.href = "../php/index.php";
+  });
+
 });
 
 // let restartButton = document.getElementById("restartButton");

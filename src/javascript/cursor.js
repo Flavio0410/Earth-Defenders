@@ -1,8 +1,18 @@
 const cursor = document.querySelector('.cursor');
 const offset=10;
 
-document.addEventListener('mousemove', e => {
+const isMobile = navigator.userAgentData.mobile; //controllo se l'utente sta usando un dispositivo mobile o un pc
 
-    cursor.setAttribute("style", "top: "+(e.pageY-offset)+"px; left: "+(e.pageX-offset)+"px;");
-});
+if(isMobile){ //se l'utente sta usando un dispositivo mobile
+    cursor.style.display = "none"; //nascondo il cursore
+}
+else{ //se l'utente sta usando un pc
+    document.addEventListener('mousemove', e => {
+
+        cursor.setAttribute("style", "top: "+(e.pageY-offset)+"px; left: "+(e.pageX-offset)+"px;"); //aggiorno la posizione del cursore in base alla posizione del mouse
+    });
+}
+
+
+
 

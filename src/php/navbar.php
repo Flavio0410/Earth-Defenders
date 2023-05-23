@@ -50,88 +50,88 @@
 
 <!--Modal Login-->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">Accedi</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body justify-content-center">
-        <form id="loginForm" method="post" action="../php/signin.php">
-        
-        <div class="input-group mb-4 mt-3">
-            <span class="input-group-text" id="usernameLoginAO">@</span>
-            <input type="text" name="usernamelogin" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO" required>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="loginModalLabel">Accedi</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body justify-content-center">
+            <form id="loginForm" method="post" action="../php/signin.php">
+            
+            <div class="input-group mb-4 mt-3">
+                <span class="input-group-text" id="usernameLoginAO">@</span>
+                <input type="text" name="usernamelogin" class="form-control" id="usernameLogIn" placeholder="Username" aria-label="Username" aria-describedby="usernameLoginAO" required>
+            </div>
 
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="passwordLoginAO"><i class="bi bi-key"></i></span>
-            <input type="password" name="passwordlogin" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO" required>
-        </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="passwordLoginAO"><i class="bi bi-key"></i></span>
+                <input type="password" name="passwordlogin" class="form-control" id="passwordLogIn" placeholder="Password" aria-label="Password" aria-describedby="passwordLoginAO" required>
+            </div>
 
-        <button type="submit" class="btn btn-login">Accedi</button>
-        </form>
-    </div>
-    <div class="modal-footer justify-content-center">
-        <div class="text-center">
-        <p>Non hai un account? <a id="registeranchor" data-bs-target="#signUpModal" data-bs-toggle="modal">Registati</a></p>
+            <button type="submit" class="btn btn-login">Accedi</button>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <div class="text-center">
+            <p>Non hai un account? <a id="registeranchor" data-bs-target="#signUpModal" data-bs-toggle="modal">Registati</a></p>
+            </div>
+        </div>
         </div>
     </div>
-    </div>
-</div>
 </div>
 
 <!--Modal Sign up-->
 <div class="modal fade" id="signUpModal" aria-hidden="true" aria-labelledby="signUpModalLabel" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h1 class="modal-title fs-5" id="signUpModalLabel">Registrati</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        <form id="registerForm" method="post" action="../php/signup.php">
-        <div class="row mb-3 mt-2">
-            <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" id="usernamesignup" name="usernamesignup" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
-            </div>
-
-            <div class="col-sm-6 mb-3">
-            <input type="text" id="namesignup" name="namesignup" class="form-control" id="nameSignUpForm" placeholder="Nome" required>
-            </div>
-            
-            <div class="col-sm-6 mb-3">
-            <input type="text" id="surnamesignup" name="surnamesignup" class="form-control" placeholder="Cognome" required>
-            </div>
-
-            <div class="mb-3">
-            <input type="email" id="emailsignup" name="emailsignup" class="form-control" id="emailSignUpForm" placeholder="Email" required>
-            </div>
-
-            <div class="mb-3">
-            <input type="password" id="passwordsignup" name="passwordsignup" class="form-control" id="passwordsignup" placeholder="Password" required>
-            </div>
-
-            <div class="mb-3">
-            <input type="password" name="confirmpasswordsignup" class="form-control" id="confirmpasswordsignup" placeholder="Conferma Password" required>
-            </div>
-            
-            <div class="mb-2 mt-1">
-            <button type="submit" class="btn btn-register" id="submit">Registati</button>
-            </div>
-
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="signUpModalLabel">Registrati</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        </form>
-    </div>
-    <div class="modal-footer justify-content-center">
-        <div class="text-center">
-        <p>Sei già registrato? <a id="registeranchor" data-bs-target="#loginModal" data-bs-toggle="modal">Accedi</a></p>
+        <div class="modal-body">
+            <form id="registerForm" method="post" action="../php/signup.php">
+            <div class="row mb-3 mt-2">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" id="usernamesignup" name="usernamesignup" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="col-sm-6 mb-3">
+                <input type="text" id="namesignup" name="namesignup" class="form-control" id="nameSignUpForm" placeholder="Nome" required>
+                </div>
+                
+                <div class="col-sm-6 mb-3">
+                <input type="text" id="surnamesignup" name="surnamesignup" class="form-control" placeholder="Cognome" required>
+                </div>
+
+                <div class="mb-3">
+                <input type="email" id="emailsignup" name="emailsignup" class="form-control" id="emailSignUpForm" placeholder="Email" required>
+                </div>
+
+                <div class="mb-3">
+                <input type="password" id="passwordsignup" name="passwordsignup" class="form-control" id="passwordsignup" placeholder="Password" required>
+                </div>
+
+                <div class="mb-3">
+                <input type="password" name="confirmpasswordsignup" class="form-control" id="confirmpasswordsignup" placeholder="Conferma Password" required>
+                </div>
+                
+                <div class="mb-2 mt-1">
+                <button type="submit" class="btn btn-register" id="submit">Registati</button>
+                </div>
+
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <div class="text-center">
+            <p>Sei già registrato? <a id="registeranchor" data-bs-target="#loginModal" data-bs-toggle="modal">Accedi</a></p>
+            </div>
+        </div>
         </div>
     </div>
-    </div>
-</div>
 </div>
 
 <script src="../javascript/formValidation.js?v=<?=$version?>"></script>
