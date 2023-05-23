@@ -61,21 +61,21 @@
             <div class="col-sm-2">
               <img src="../../public/assets/images/pspeed.png" class="img-fluid" alt="Power up Speed" style="max-width: 48px; max-height: 58px; margin-top: -3px">
             </div>
-            <div class="col-sm-10">Punti doppi</div>
+            <div class="col-sm-10">"Colpi Rapid" consente al giocatore di sparare proiettili ad alta velocità in rapida successione, aumentando significativamente la cadenza di fuoco della loro navicella spaziale. La durata del potenziamento è di 15 secondi</div>
           </div>
 
           <div class="row enemyrow">
             <div class="col-sm-2">
               <img src="../../public/assets/images/2xbuff.png" class="img-fluid" alt="Point Double" style="max-width: 48px; max-height: 58px; margin-top: -3px">
             </div>
-            <div class="col-sm-10">Il potenziamento "Punti Doppi" è un'opzione entusiasmante che se raccolta ti offre l'opportunità di guadagnare il doppio dei punti ad ogni nemico eliminato. La durata del potenziamento è di 10 secondi</div>
+            <div class="col-sm-10">Il potenziamento "Punti Doppi" è un'opzione entusiasmante che se raccolta ti offre l'opportunità di guadagnare il doppio dei punti ad ogni nemico eliminato. La durata del potenziamento è di 5 secondi</div>
           </div>
 
           <div class="row enemyrow">
             <div class="col-sm-2">
               <img src="../../public/assets/images/pshield.png" class="img-fluid" alt="Shield" style="max-width: 48px; max-height: 58px; margin-top: -3px">
             </div>
-            <div class="col-sm-10">pspeed</div>
+            <div class="col-sm-10">Attivando il potenziamento "Scudo", una barriera energetica protettiva circonda la navicella spaziale del giocatore, una volta colpiti lo scudo si distrugge. Non ha limiti di tempo e non sono cumulabili più scudi.</div>
           </div>
         </div>
 

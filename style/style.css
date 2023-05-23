@@ -43,7 +43,8 @@ body {
   width: 100%;
   height: 30%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .earthContainer{
@@ -55,7 +56,7 @@ body {
 }
 
 .centeredTitle{
-  position: fixed;
+  position: relative;
   display: block;
   font-size: 60px;
   content: "defenders";
@@ -66,6 +67,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   user-select: none;
+  max-height: 80px;
 
 }
 
@@ -79,18 +81,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 55%;
+  top: 20%;
   font-weight: 600;
   font-size: 18px;
   padding: 0 18px;
   line-height: 50px;
   text-align: center;
-  position: fixed;
+  position: relative;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   font-family: 'Press Start 2P', cursive;
+  z-index: 1;
 }
 
 .playbutton:hover {
@@ -310,11 +313,6 @@ body {
 
 
 @media only screen and (max-width: 600px) {
-  .playbutton {
-    min-width: 80px;
-    padding: 0 18px;
-    z-index: 1;
-  }
 
   .spaceshipcont{
     display: none;
@@ -355,12 +353,6 @@ body {
 
   }
 
-  .playbutton{
-    min-width: 140px;
-    padding: 0 18px;
-    z-index: 1;
-  }
-
   .centeredTitle{
     font-size: 50px;
   }
@@ -382,11 +374,6 @@ body {
     display: none;
   }
 
-  .playbutton{
-    min-width: 160px;
-    padding: 0 18px;
-    z-index: 1;
-  }
   .descriptionrules{
     font-size: 16px;
   }
@@ -413,11 +400,6 @@ body {
   top: 40%;
 }
 
-.playbutton{
-  min-width: 200px;
-  padding: 0 18px;
-  z-index: 1;
-}
 
 .descriptionrules{
   font-size: 18px;
@@ -426,12 +408,6 @@ body {
 }
 
 @media only screen and (min-width: 1201px) {
-  .playbutton {
-    min-width: 200px;
-    min-height: 60px;
-    padding: 0 25px;
-    z-index: 1;
-  }
 
   .earthcont {
     position: fixed;
@@ -450,4 +426,22 @@ body {
     top: 40%;
   }
 
+}
+
+@media screen and (max-height: 300px) and (orientation: landscape){
+
+  .earthContainer{
+    display: none;
+  }
+
+  .centeredTitle{
+    display: none;
+  }
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape){
+
+  .earthContainer{
+    display: none;
+  }
 }
