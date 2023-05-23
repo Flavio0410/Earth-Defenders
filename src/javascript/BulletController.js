@@ -14,50 +14,50 @@ export default class BulletController {
     this.shootSound.volume = 0.1;
   }
 
-  draw(ctx) {
-    this.bullets = this.bullets.filter(
-      (bullet) => bullet.y + bullet.width > 0 && bullet.y <= this.canvas.height
-    );
+  draw(ctx) { // disegno i bullet
+    this.bullets = this.bullets.filter( // filtro i bullet
+      (bullet) => bullet.y + bullet.width > 0 && bullet.y <= this.canvas.height // se il bullet è ancora nel canvas
+    ); 
 
-    this.bullets.forEach((bullet) => bullet.draw(ctx));
-    if (this.timeTillNextBulletAllowed > 0) {
-      this.timeTillNextBulletAllowed--;
+    this.bullets.forEach((bullet) => bullet.draw(ctx)); // disegno i bullet
+    if (this.timeTillNextBulletAllowed > 0) { // se il timer è maggiore di 0
+      this.timeTillNextBulletAllowed--;  // decremento il timer
     }
   }
 
-  collideWith(sprite) {
-    const bulletThatHitSpriteIndex = this.bullets.findIndex((bullet) =>
-      bullet.collideWith(sprite)
+  collideWith(sprite) { // controllo se un bullet collide con un altro sprite
+    const bulletThatHitSpriteIndex = this.bullets.findIndex((bullet) => // trovo il bullet che collide
+      bullet.collideWith(sprite) // ritorno true se collide
     );
 
-    if (bulletThatHitSpriteIndex >= 0) {
-      this.bullets.splice(bulletThatHitSpriteIndex, 1);
-      return true;
+    if (bulletThatHitSpriteIndex >= 0) { // se il bullet collide
+      this.bullets.splice(bulletThatHitSpriteIndex, 1); // rimuovo il bullet
+      return true; // ritorno true
     }
 
-    return false;
+    return false; // ritorno false
   }
 
-  shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
+  shoot(x, y, velocity, timeTillNextBulletAllowed = 0) { // funzione che spara il bullet
     if (
       this.timeTillNextBulletAllowed <= 0 &&
       this.bullets.length < this.maxBulletsAtATime
-    ) {
-      const bullet = new Bullet(this.canvas, x, y, velocity, this.type);
-      this.bullets.push(bullet);
-      if (this.soundEnabled) {
-        this.shootSound.currentTime = 0;
-        this.shootSound.play();
-      }
-      this.timeTillNextBulletAllowed = timeTillNextBulletAllowed;
+    ) { // se il timer è minore o uguale a 0 e il numero di bullet è minore del numero massimo di bullet
+      const bullet = new Bullet(this.canvas, x, y, velocity, this.type); // creo un nuovo bullet
+      this.bullets.push(bullet); // aggiungo il bullet all'array
+      if (this.soundEnabled) { // se il suono è abilitato
+        this.shootSound.currentTime = 0; // resetto il tempo dell'audio
+        this.shootSound.play(); // faccio partire l'audio
+      } 
+      this.timeTillNextBulletAllowed = timeTillNextBulletAllowed; // setto il timer
     }
   }
 
-  setMaxBulletsAtATime(bullets){
-    this.maxBulletsAtATime = bullets;
+  setMaxBulletsAtATime(bullets){ // setto il numero massimo di bullet
+    this.maxBulletsAtATime = bullets; 
   }
 
-  clearBullets(){
-    this.bullets = [];
+  clearBullets(){ // funzione che rimuove tutti i bullet
+    this.bullets = []; 
   }
 }
