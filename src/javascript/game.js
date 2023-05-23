@@ -242,6 +242,7 @@ function playSound() {
 
 function setRecord(){
   var xhr = new XMLHttpRequest();
+  var score = document.getElementById('scoreSpanID');
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -253,6 +254,7 @@ function setRecord(){
 
   xhr.open("POST", "setRecord.php", true);
   xhr.send();
+  xhr.send("score=" + encodeURIComponent(scoreValue));
 }
 
 setInterval(game, 1000 / 60);

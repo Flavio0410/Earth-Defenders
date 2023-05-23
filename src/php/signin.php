@@ -27,7 +27,7 @@
             session_start();
             // $_SESSION['id'] = $result->fetch_assoc()['id'];
             $_SESSION['username'] = $usernamesignin;
-            header("Location: index.php");
+            header("Location: welcome.php");
             die();
         }
         $stmt->close();

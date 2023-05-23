@@ -17,7 +17,6 @@
     {
         die("Connection failed!" . mysqli_connect_error());
     } else {
-        $stmt = $con->prepare("INSERT INTO user (username, name, surname, email, password) VALUES (?, ?, ?, ?, ?)");
         $stmt = $con->prepare("UPDATE `record` SET `score` = ? WHERE `username` = ?");
         $stmt->$stmt->bind_param("ss", $score, $sessionUsername);
         $stmt->execute();
