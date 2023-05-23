@@ -54,7 +54,7 @@
                 </style>
 
                 <!-- Crea il bottone circolare -->
-                <button class="btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
+                <button class="nav-item btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
                 <span><?php echo $initial; ?></span>
                 </button>
 
