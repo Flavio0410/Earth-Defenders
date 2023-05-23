@@ -1,4 +1,4 @@
-<?php include 'config.php';?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,12 +34,32 @@
         <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
 
 
-        <div id="navigationbar"></div>
+        <!-- <div id="navigationbar"></div>
             <script> 
             $(function(){
             $("#navigationbar").load("navbar.php"); 
             });
-            </script> 
+            </script>  -->
+        
+        <?php
+            session_start();
+            if(!isset($_SESSION['username'])){
+                echo '<div id="navigationbar"></div>
+                <script> 
+                    $(function(){
+                    $("#navigationbar").load("navbar.php"); 
+                    });
+                </script>';
+            }
+            else {
+                echo '<div id="navigationbar"></div>
+                <script> 
+                    $(function(){
+                    $("#navigationbar").load("navbarlogin.php"); 
+                    });
+                </script>';
+            }
+        ?>
 
 
         <audio id="songID" autoplay loop>

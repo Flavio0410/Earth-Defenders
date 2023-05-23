@@ -29,12 +29,31 @@
     </div>
   </div>
   <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
-  <div id="navigationbar"></div>
+  <!-- <div id="navigationbar"></div>
     <script> 
       $(function(){
         $("#navigationbar").load("navbar.php"); 
       });
-    </script>
+    </script> -->
+    <?php
+            session_start();
+            if(!isset($_SESSION['username'])){
+                echo '<div id="navigationbar"></div>
+                <script> 
+                    $(function(){
+                    $("#navigationbar").load("navbar.php"); 
+                    });
+                </script>';
+            }
+            else {
+                echo '<div id="navigationbar"></div>
+                <script> 
+                    $(function(){
+                    $("#navigationbar").load("navbarlogin.php"); 
+                    });
+                </script>';
+            }
+        ?>
 
 
 
@@ -73,7 +92,7 @@
 
           <div class="row enemyrow">
             <div class="col-sm-2">
-              <img src="../../public/assets/images/pshield.png" class="img-fluid" alt="Shield" style="max-width: 48px; max-height: 58px; margin-top: -3px">
+              <img src="../../public/assets/images/shieldbuff.png" class="img-fluid" alt="Shield" style="max-width: 48px; max-height: 58px; margin-top: -3px">
             </div>
             <div class="col-sm-10">Attivando il potenziamento "Scudo", una barriera energetica protettiva circonda la navicella spaziale del giocatore, una volta colpiti lo scudo si distrugge. Non ha limiti di tempo e non sono cumulabili più scudi.</div>
           </div>
