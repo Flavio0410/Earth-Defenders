@@ -147,11 +147,13 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: calc(100vh - 150px);
+  height: auto;
   position: fixed;
   top: 150px;
   left: 0;
   z-index: 1;
+  overflow: auto;
+  max-height: calc(100vh - 150px);
 }
 
 .descriptionrules{
@@ -195,10 +197,12 @@ body {
 
 .titlerulespage{
   text-align: center;
-  font-size: 20px;
-  color: white;
+  font-size: 25px;
+  color: var(--main-color);
+  text-shadow: 2px 2px 0px var(--main-color-darker);
   font-family: 'Press Start 2P', cursive;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .enemyrow{
@@ -207,6 +211,14 @@ body {
   color: white;
   font-family: 'Press Start 2P', cursive;
   font-size: 10px;
+}
+
+.col-sm-2{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes cursorelampeggiante{ /*animazione del cursore lampeggiante */
@@ -318,11 +330,16 @@ body {
 
   .pagetitle{
     font-size: 50px;
+    margin-top: 20px;
   }
 
   .descriptionrules{
-    font-size: 10px;
+    font-size: 12px;
     width: 90%;
+  }
+
+  .titlerulespage{
+    font-size: 18px;
   }
 }
 
