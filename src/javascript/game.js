@@ -36,50 +36,51 @@ const buffsController = new BuffsController(canvas, player, enemyController); //
 
 
 
-let pauseButton = document.getElementById("pauseButton");
-pauseButton.addEventListener("click", () => {
-  gamePaused = true;
-  document.getElementById("containerPauseID").style.display = "block";
+let pauseButton = document.getElementById("pauseButton"); // prendo il bottone di pausa
+pauseButton.addEventListener("click", () => { // aggiungo un listener al bottone di pausa
+  gamePaused = true; // metto il gioco in pausa
+  document.getElementById("containerPauseID").style.display = "block"; // mostro il container di pausa
   
-  let rsmbtn = document.getElementById("resumeButtonID");
-  rsmbtn.addEventListener("click", () => {
-    document.getElementById("containerPauseID").style.display = "none";
-    gamePaused = false;
+  let rsmbtn = document.getElementById("resumeButtonID"); // prendo il bottone di resume
+  rsmbtn.addEventListener("click", () => { // aggiungo un listener al bottone di resume
+    document.getElementById("containerPauseID").style.display = "none"; // nascondo il container di pausa
+    gamePaused = false; // tolgo il gioco dalla pausa
   }
   );
 });
 
 
 
-let backButton = document.getElementById("backButton");
-backButton.addEventListener("click", () => {
-  gamePaused = true;
-  let rsmbtn = document.getElementById("resumegamebtn");
-  rsmbtn.addEventListener("click", () => {
-    gamePaused = false;
+
+let backButton = document.getElementById("backButton"); // prendo il bottone di back
+backButton.addEventListener("click", () => { // aggiungo un listener al bottone di back
+  gamePaused = true; // metto il gioco in pausa
+  let rsmbtn = document.getElementById("resumegamebtn"); // prendo il bottone di resume
+  rsmbtn.addEventListener("click", () => {  // aggiungo un listener al bottone di resume
+    gamePaused = false; // tolgo il gioco dalla pausa
   }
   );
 
-  let extbtn = document.getElementById("extgamebtn");
-  extbtn.addEventListener("click", () => {
-    window.location.href = "../php/welcome.php";
-  });
+  let extbtn = document.getElementById("extgamebtn"); // prendo il bottone di exit
+  extbtn.addEventListener("click", () => { // aggiungo un listener al bottone di exit
+    window.location.href = "../php/welcome.php"; // torno alla pagina di welcome
+  }); 
 
 });
 
-let restartButton = document.getElementById("restartButton");
-restartButton.addEventListener("click", () => {
-  window.location.href = "../php/game.php";
+let restartButton = document.getElementById("restartButton"); // prendo il bottone di restart
+restartButton.addEventListener("click", () => { // aggiungo un listener al bottone di restart
+  window.location.href = "../php/game.php"; // ricarico la pagina
 });
 
-let endReturnHome = document.getElementById("returnHomeButton");
-endReturnHome.addEventListener("click", () => {
-  window.location.href = "../php/welcome.php";
+let endReturnHome = document.getElementById("returnHomeButton"); // prendo il bottone di return home
+endReturnHome.addEventListener("click", () => { // aggiungo un listener al bottone di return home
+  window.location.href = "../php/welcome.php"; // torno alla pagina di welcome
 });
 
 
 //Game Over
-let gameOver = document.getElementById("gameOverID");
+let gameOver = document.getElementById("gameOverID"); // prendo il container di game over
 
 function game() {
   // if(!music){
