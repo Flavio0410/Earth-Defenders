@@ -146,6 +146,7 @@
     width: auto;
     height: auto;
     min-width: 40px;
+    min-height: 40px;
     border-radius: 50%;
     font-size: 15px;
     text-align: center;

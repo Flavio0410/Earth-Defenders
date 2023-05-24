@@ -25,26 +25,16 @@
                 <a class="nav-link" id="regolamentonavitem" href="regolamento.php">Regolamento</a>
             </li>
             
-            <!-- <a href="out.php" class="btn btn-outline-light"  data-bs-toggle="modal" role="button">Esci</a> -->
-            <?php
-                session_start(); // Assicurati di avviare la sessione se non è già stata avviata
+            <?php include 'createUserToggle.php';?>
 
-                // Ottieni l'username dalla variabile di sessione PHP
-                $username = $_SESSION["username"];
-
-                // Genera un colore casuale per lo sfondo
-                $randomColor = '#' . dechex(rand(0x000000, 0xFFFFFF));
-
-                // Ottieni l'iniziale dell'username
-                $initial = strtoupper(substr($username, 0, 1));
-                ?>
-
-                <!-- Crea il bottone circolare -->
-                <button class="nav-item btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
+            <li class="nav-item dropdown">
+                <button class="nav-item btn btn-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: <?php echo $randomColor; ?>">
                     <span><?php echo $initial; ?></span>
                 </button>
-
-            <a href="out.php" class="btn btn-outline-light" role="button">Esci</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item text-center" href="out.php">Esci</a></li>
+                </ul>
+            </li>
 
             </ul>
         </div>
