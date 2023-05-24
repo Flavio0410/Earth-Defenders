@@ -155,7 +155,7 @@
 }
 
 .btn-circle:hover{
-    color: black;
+    color: var(--complementary-color-lighter);
 }
 
 .alert{
