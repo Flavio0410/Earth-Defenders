@@ -35,7 +35,6 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Sei sicuro di voler uscire?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     Uscendo ritornerai alla pagina iniziale e perderai tutti i progressi 
@@ -81,9 +80,7 @@
         <canvas id="game"></canvas>
         <script type="module" src="../javascript/game.js?v=<?=$version?>"></script>
       </div>
-      <div class="fireButton">
-        <button class="btn" role="button" id="fireButtonID"> <ion-icon name="flame-outline"></ion-icon> </button>
-      </div>
+    </div>
 
 
     <!-- Game Over -->
