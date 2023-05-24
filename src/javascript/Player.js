@@ -46,6 +46,10 @@ export default class Player {
 
       this.shieldLoseSound = new Audio("../../public/assets/sounds/shield-break.wav");
       this.shieldLoseSound.volume = 0.1;
+
+      // this.fireButton = document.getElementById("fireButton");
+      // this.fireButton.addEventListener("touchstart", this.handleTouchShoot);
+      // this.fireButton.addEventListener("touchend", this.handleTouchShoot);
   
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
@@ -217,8 +221,10 @@ export default class Player {
       handleTouchShoot = (event) => { // funzione che gestisce il touch per sparare
         if (event.type === 'touchstart'){ // se il touch è iniziato
           this.shootPressed = true; // setto il flag a true
+          console.log("shoot");
         } else if (event.type === 'touchend'){ // se il touch è finito
           this.shootPressed = false;  // setto il flag a false
+          console.log("stop");
         }
       }
 
