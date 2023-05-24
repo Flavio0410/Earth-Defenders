@@ -16,7 +16,6 @@
     // to ensure that the connection is made
     if ($con->connect_error)
     {
-        header("Location: index.php?error=100");
         die("Connection failed!" . mysqli_connect_error());
     }
     //altrimenti se lo username non esiste o la password è sbagliata rimanda alla pagina di login con un errore
