@@ -47,10 +47,6 @@ export default class Player {
       this.shieldLoseSound = new Audio("../../public/assets/sounds/shield-break.wav");
       this.shieldLoseSound.volume = 0.1;
 
-      // this.fireButton = document.getElementById("fireButton");
-      // this.fireButton.addEventListener("touchstart", this.handleTouchShoot);
-      // this.fireButton.addEventListener("touchend", this.handleTouchShoot);
-  
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
       document.addEventListener("touchstart", this.handleTouchMove);

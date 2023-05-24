@@ -3,9 +3,6 @@
     $sessionUsername = $_SESSION['username'];
     if(isset($_POST['score'])){
         $score = $_POST['score'];
-        echo "Dati ricevuti correttamente. Score: " . $score;
-    } else {
-        echo "Errore: Nessun dato ricevuto.";
     }
 
     // database details
