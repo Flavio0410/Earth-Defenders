@@ -1,5 +1,4 @@
-
-
+<?php include 'config.php';?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,14 +30,6 @@
             </div>
         </div>
         <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
-
-
-        <!-- <div id="navigationbar"></div>
-            <script> 
-            $(function(){
-            $("#navigationbar").load("navbar.php"); 
-            });
-            </script>  -->
         
         <?php
             session_start();
