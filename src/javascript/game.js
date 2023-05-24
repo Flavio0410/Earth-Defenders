@@ -73,6 +73,11 @@ restartButton.addEventListener("click", () => {
   window.location.href = "../php/game.php";
 });
 
+let endReturnHome = document.getElementById("returnHomeButton");
+endReturnHome.addEventListener("click", () => {
+  window.location.href = "../php/welcome.php";
+});
+
 
 //Game Over
 let gameOver = document.getElementById("gameOverID");

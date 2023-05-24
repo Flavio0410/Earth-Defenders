@@ -90,6 +90,7 @@
       <div class="gameOver" id="gameOverID">
         <h1>Game Over</h1>
         <button class="btn" role="button" id="restartButton"> Rigioca </button>
+        <button class="btn" role="button" id="returnHomeButton"> Esci </button>
       </div>
     </div>
 
