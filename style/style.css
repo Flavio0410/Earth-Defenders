@@ -317,14 +317,7 @@ body {
 
 @media only screen and (max-width: 600px) {
 
-  .spaceshipcont{
-    display: none;
-  }
 
-  .earthcont{
-    right: 90%;
-    top: 80%;
-  }
   .centeredTitle{
     font-size: 20px;
   }
@@ -345,16 +338,6 @@ body {
 }
 
 @media only screen and (min-width: 600px) and (max-width: 767px){
-  .spaceshipcont
-  {
-    display: none;
-  }
-
-  .earthcont{
-    right: 80%;
-    top: 75%;
-
-  }
 
   .centeredTitle{
     font-size: 50px;
@@ -373,9 +356,6 @@ body {
 
 @media only screen and (min-width: 768px) and (max-width: 991px){
 
-  .spaceshipcont{
-    display: none;
-  }
 
   .descriptionrules{
     font-size: 16px;
@@ -386,22 +366,6 @@ body {
 
 @media only screen and (min-width: 992px) and (max-width: 1200px){
   
-.earthcont {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 70%;
-  right: 30%;
-  margin: 0%;
-}
-
-
-.spaceshipcont {
-  position: fixed;
-  width: 15%;
-  height: 25%;
-  top: 40%;
-}
 
 
 .descriptionrules{
@@ -410,26 +374,6 @@ body {
 
 }
 
-@media only screen and (min-width: 1201px) {
-
-  .earthcont {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 70%;
-    right: 30%;
-    margin: 0%;
-  }
-  
-  
-  .spaceshipcont {
-    position: fixed;
-    width: 15%;
-    height: 25%;
-    top: 40%;
-  }
-
-}
 
 @media screen and (max-height: 300px) and (orientation: landscape){
 

@@ -41,7 +41,7 @@
 
                 <!-- Crea il bottone circolare -->
                 <button class="nav-item btn btn-circle" style="background-color: <?php echo $randomColor; ?>">
-                <span><?php echo $initial; ?></span>
+                    <span><?php echo $initial; ?></span>
                 </button>
 
             <a href="out.php" class="btn btn-outline-light" role="button">Esci</a>
@@ -51,3 +51,5 @@
         </div>
     </div>
 </nav>
+
+<script src="../javascript/activeElement.js?v=<?=$version?>"></script>
