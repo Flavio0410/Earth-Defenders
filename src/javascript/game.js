@@ -21,6 +21,9 @@ canvas.height = document.body.clientHeight; // setto l'altezza del canvas
 const background = new Image(); // creo un'immagine
 background.src = "../../public/assets/images/bg.jpg"; // setto il path dell'immagine
 
+
+
+
 let playerBullets = 5; // numero di proiettili del player all'inizio del gioco (aumenta con il livello)
 const playerBulletController = new BulletController(canvas, playerBullets, true, "player"); // creo il controller dei proiettili del player (canvas, numero di proiettili, player, tipo di proiettile)
 const enemyBulletController = new BulletController(canvas, 10, false, "enemy"); // creo il controller dei proiettili dei nemici (canvas, numero di proiettili, nemico, tipo di proiettile) 

@@ -183,9 +183,11 @@ export default class Player {
         window.innerWidth < 768) {
         // si sta utilizzando un browser mobile
         return this.isMobile = true;
+
       } else {
         // si sta utilizzando un browser desktop
         return this.isMobile = false;
+
       }
     }
 

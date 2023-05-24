@@ -23,16 +23,11 @@
   </head>
   <body>
 
-  <div class="container-fluid" style="padding: 0;">
-
     <div class="contall" style="padding: 0;">
       <div class="infoGame text-center">
         <div class="row">
           <div class="col-3">
-
-            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="backButton">
-              Esci
-            </button>
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="backButton">Esci</button>
             <!-- Modal -->
             <div class="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
@@ -72,7 +67,7 @@
           </span>
         </div>
         <div class="col">
-          Enemy Life:
+          Punti vita nemici:
           <img id="enemy1" src="../../public/assets/images/penemy1.png" width="20px" height="20px">
           <span class="lifeSpan1" id="lifeSpan1ID"></span>
           <img id="enemy2" src="../../public/assets/images/penemy2.png" width="20px" height="20px">
@@ -86,11 +81,13 @@
         <script type="module" src="../javascript/game.js?v=<?=$version?>"></script>
       </div>
     </div>
+
+
+
     <!-- Game Over -->
     <div class="gameOver" id="gameOverID" style="visibility: visible; position: fixed; top: 100px; left:0; width: 100vh; height: 100vh; z-index: 10; ">
       <h1>Game Over</h1>
       <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
-    </div>
     </div>
   </body>
 </html>
