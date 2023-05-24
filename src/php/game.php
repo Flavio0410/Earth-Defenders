@@ -48,10 +48,10 @@
             </div>
           </div>
           <div class="col-3">
-            <p>Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
+            <p class="textInfoGame">Livello: <span class="levelSpan" id="levelSpanID">1</span></p>
           </div>
           <div class="col-3">
-            <p>Punteggio: <span class="scoreSpan" id="scoreSpanID">0</span></p>
+            <p class="textInfoGame">Punteggio: <span class="scoreSpan" id="scoreSpanID">0</span></p>
           </div>
           <div class="col-3">
             <button type="button" class="btn btn-outline-light" id="pauseButton"> Pausa </button>

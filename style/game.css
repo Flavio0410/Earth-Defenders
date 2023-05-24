@@ -131,3 +131,24 @@ body {
     border-radius: 50%;
     border: 2px solid white;
   }
+
+  .textInfoGame{
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .textInfoGame{
+      font-size: 10px;
+    }
+    #backButton{
+      width: 70px;
+    }
+    #pauseButton{
+      width: 70px;
+    }
+    .infoGame{
+      color: white;
+      font-size: 8px;
+      background: var(--main-color-darker);
+    }
+  }
