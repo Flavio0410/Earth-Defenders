@@ -23,7 +23,6 @@ background.src = "../../public/assets/images/bg.jpg"; // setto il path dell'imma
 
 
 
-
 let playerBullets = 5; // numero di proiettili del player all'inizio del gioco (aumenta con il livello)
 const playerBulletController = new BulletController(canvas, playerBullets, true, "player"); // creo il controller dei proiettili del player (canvas, numero di proiettili, player, tipo di proiettile)
 const enemyBulletController = new BulletController(canvas, 10, false, "enemy"); // creo il controller dei proiettili dei nemici (canvas, numero di proiettili, nemico, tipo di proiettile) 
@@ -242,22 +241,6 @@ function playSound() {
   audio.play();
 }
 
-// function setRecord(){
-//   var xhr = new XMLHttpRequest();
-//   var score = document.getElementById('scoreSpanID');
-
-//   xhr.onreadystatechange = function() {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       var risposta = xhr.responseText;
-//       // Gestisci la risposta qui
-//       console.log(risposta); // Stampa la risposta nella console
-//     }
-//   };
-
-//   xhr.open("POST", "setRecord.php", true);
-//   xhr.send();
-//   xhr.send("score=" + encodeURIComponent(score));
-// }
 
 function setRecord(){
   var score = enemyController.getPoints();

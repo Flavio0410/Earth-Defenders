@@ -121,3 +121,13 @@ body {
     margin-top: 20px;
     border: 2px solid black;
   }
+
+  .fireButton{
+    position: fixed;
+    bottom: 20%;
+    right: 10%;
+    background: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+  }

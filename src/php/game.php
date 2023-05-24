@@ -81,8 +81,9 @@
         <canvas id="game"></canvas>
         <script type="module" src="../javascript/game.js?v=<?=$version?>"></script>
       </div>
-    </div>
-
+      <div class="fireButton">
+        <button class="btn" role="button" id="fireButtonID"> <ion-icon name="flame-outline"></ion-icon> </button>
+      </div>
 
 
     <!-- Game Over -->

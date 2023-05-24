@@ -53,6 +53,7 @@ export default class Player {
       document.addEventListener("touchend", this.handleTouchMove);
       document.addEventListener("touchmove", this.handleTouchMove);
 
+
       window.addEventListener("resize", () => {
         if(window.innerWidth > 900)
         {
