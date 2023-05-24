@@ -92,5 +92,12 @@
         <button class="btn" role="button" id="restartButton"> Rigioca </button>
       </div>
     </div>
+
+    <div class="containerPause" id="containerPauseID">
+      <div class="pausedGame" id="pauseedGameID">
+        <h1>Gioco in pausa</h1>
+        <button class="btn" role="button" id="resumeButtonID"> Riprendi </button>
+      </div>
+    </div>
   </body>
 </html>

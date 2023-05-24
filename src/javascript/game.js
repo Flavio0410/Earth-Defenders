@@ -36,16 +36,18 @@ const player = new Player(canvas, 3, playerBulletController); // creo il player 
 const buffsController = new BuffsController(canvas, player, enemyController); // creo il controller dei buff (canvas, player, controller dei nemici)
 
 
-let pauseButton = document.getElementById("pauseButton"); // prendo il bottone di pausa dal DOM
-pauseButton.addEventListener("click", () => { // aggiungo un listener al bottone di pausa
-  if(!gamePaused){ // se il gioco non è in pausa
-    gamePaused = true; // metto il gioco in pausa
-    pauseButton.innerHTML = "Resume"; // cambio il testo del bottone
-  }
-  else{
+
+let pauseButton = document.getElementById("pauseButton");
+pauseButton.addEventListener("click", () => {
+  gamePaused = true;
+  document.getElementById("containerPauseID").style.display = "block";
+  
+  let rsmbtn = document.getElementById("resumeButtonID");
+  rsmbtn.addEventListener("click", () => {
+    document.getElementById("containerPauseID").style.display = "none";
     gamePaused = false;
-    pauseButton.innerHTML = "Pause";
   }
+  );
 });
 
 

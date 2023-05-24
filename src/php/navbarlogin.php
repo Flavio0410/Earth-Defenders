@@ -32,6 +32,7 @@
                     <span><?php echo $initial; ?></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
+                    <span class="dropdown-item-text text-center">@<?php echo $username; ?></span>
                     <li><a class="dropdown-item text-center" href="out.php">Esci</a></li>
                 </ul>
             </li>

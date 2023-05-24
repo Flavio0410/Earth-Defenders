@@ -85,3 +85,39 @@ body {
     margin-top: 20px;
     border: 2px solid black;
   }
+
+  .containerPause{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  .pausedGame{
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  #resumeButtonID{
+    background-color: var(--main-color-lighter);
+    color: var(--complementary-color-lighter);
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 2px solid black;
+  }
