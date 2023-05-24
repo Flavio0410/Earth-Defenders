@@ -48,7 +48,6 @@ export default class BuffsController {
                 this.enemyController.buffMultiplier(true); // setto il moltiplicatore dei nemici
             }
         } else if (this.buff.getY() > this.canvas.height && this.isSpawned){ // se il buff è spawnato ma non è stato preso
-            console.log("buff non preso");
             this.isSpawned = false; // setto il flag a false
             this.newBuff = false; // setto il flag a false
             this.enemyController.resetBuffSpawn(); // resetto il timer per il prossimo spawn

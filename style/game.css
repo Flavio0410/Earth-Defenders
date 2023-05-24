@@ -50,3 +50,18 @@ body {
     padding: 0px;
   }
 
+  .gameOver{
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(82, 9, 156, 0.7);
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive;
+  }

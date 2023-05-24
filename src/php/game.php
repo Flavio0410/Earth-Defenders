@@ -85,7 +85,7 @@
 
 
     <!-- Game Over -->
-    <div class="gameOver" id="gameOverID" style="visibility: visible; position: fixed; top: 100px; left:0; width: 100vh; height: 100vh; z-index: 10; ">
+    <div class="gameOver" id="gameOverID">
       <h1>Game Over</h1>
       <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
     </div>

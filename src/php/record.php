@@ -23,7 +23,6 @@
         <link rel="stylesheet" type="text/css" href="../../style/navbar.css?v=<?=$version?>" />
         <link rel="stylesheet" type="text/css" href="../../style/style.css?v=<?=$version?>" />
         <link rel="stylesheet" type="text/css" href="../../style/spinner.css?v=<?=$version?>" />
-        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     </head>
     <body>
         <div class="spiner-wrapper">
