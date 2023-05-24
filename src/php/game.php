@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../../style/game.css?v=<?=$version?>"/>
 
+
   </head>
   <body>
 
@@ -54,7 +55,7 @@
             <p>Punteggio: <span class="scoreSpan" id="scoreSpanID">0</span></p>
           </div>
           <div class="col-3">
-            <button type="button" class="btn btn-outline-light" id="pauseButton"> Pause </button>
+            <button type="button" class="btn btn-outline-light" id="pauseButton"> Pausa </button>
           </div>
       </div>
 
@@ -67,7 +68,7 @@
           </span>
         </div>
         <div class="col">
-          Punti vita nemici:
+          <span>Punti vita:</span> 
           <img id="enemy1" src="../../public/assets/images/penemy1.png" width="20px" height="20px">
           <span class="lifeSpan1" id="lifeSpan1ID"></span>
           <img id="enemy2" src="../../public/assets/images/penemy2.png" width="20px" height="20px">
@@ -85,9 +86,11 @@
 
 
     <!-- Game Over -->
-    <div class="gameOver" id="gameOverID">
-      <h1>Game Over</h1>
-      <button type="button" class="btn btn-danger" id="restartButton" style="visibility: hidden;"> Restart </button>
+    <div class="containerGameOver" id="containerGameOverID">
+      <div class="gameOver" id="gameOverID">
+        <h1>Game Over</h1>
+        <button class="btn" role="button" id="restartButton"> Rigioca </button>
+      </div>
     </div>
   </body>
 </html>

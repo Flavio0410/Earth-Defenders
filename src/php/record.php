@@ -30,6 +30,7 @@
             </div>
         </div>
         <script src="../javascript/spinnerLoader.js?v=<?=$version?>"></script>
+
         
         <?php
             session_start();

@@ -66,21 +66,11 @@ backButton.addEventListener("click", () => {
 
 });
 
-// let restartButton = document.getElementById("restartButton");
-// restartButton.addEventListener("click", () => {
-//   window.location.href = "../php/game.php";
-// });
+let restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", () => {
+  window.location.href = "../php/game.php";
+});
 
-// pause the game when the tab loses focus
-// document.addEventListener("visibilitychange", () => {
-//   if (document.visibilityState === "hidden") {
-//     gamePaused = true;
-//     pauseButton.innerHTML = "Resume";
-//   } else {
-//     gamePaused = false;
-//     pauseButton.innerHTML = "Pause";
-//   }
-// });
 
 //Game Over
 let gameOver = document.getElementById("gameOverID");
@@ -139,7 +129,7 @@ function displayGameOver() {
   if (isGameOver) {
     setRecord();
     gamePaused = true;
-    // gameOver.style.display = "visible";
+    document.getElementById("containerGameOverID").style.display = "block";
   }
 }
 

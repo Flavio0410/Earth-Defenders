@@ -28,7 +28,7 @@
             <?php include 'createUserToggle.php';?>
 
             <li class="nav-item dropdown">
-                <button class="nav-item btn btn-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: <?php echo $randomColor; ?>">
+                <button class="nav-item btn btn-circle dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: <?php echo $randomColor; ?>">
                     <span><?php echo $initial; ?></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
