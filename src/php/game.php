@@ -82,6 +82,10 @@
       </div>
     </div>
 
+    <div class="scrollercontainer" id="scrollercontainerID"></div>
+
+    <div class="shotcontainer" id="shotcontainerID"></div>
+
 
     <!-- Game Over -->
     <div class="containerGameOver" id="containerGameOverID">
