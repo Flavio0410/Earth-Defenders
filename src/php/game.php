@@ -76,16 +76,15 @@
           <span class="lifeSpan3" id="lifeSpan3ID"></span>
         </div>
       </div>
+      <div class="scrollercontainer" id="scrollercontainerID"></div>
+
+      <div class="shotcontainer" id="shotcontainerID"></div>
       </div>
         <canvas id="game"></canvas>
         <script type="module" src="../javascript/game.js?v=<?=$version?>"></script>
+        
       </div>
     </div>
-
-    <div class="scrollercontainer" id="scrollercontainerID"></div>
-
-    <div class="shotcontainer" id="shotcontainerID"></div>
-
 
     <!-- Game Over -->
     <div class="containerGameOver" id="containerGameOverID">
