@@ -171,9 +171,11 @@ body {
     }
     .shotcontainer{
       display: block;
+      z-index: 999;
     }
 
     .scrollercontainer{
       display: block;
+      z-index: 999;
     }
   }
