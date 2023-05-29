@@ -169,20 +169,13 @@ body {
       font-size: 8px;
       background: var(--main-color-darker);
     }
-
     .shotcontainer{
-      position: absolute;
-      width: 50%; /* Copre l'intera larghezza del canvas */
-      height: 50%; /* Copre l'intera altezza del canvas */
-      background-color: red; /* Imposta il colore rosso */
+      display: block;
       z-index: 999;
     }
 
     .scrollercontainer{
-      position: absolute;
-      width: 50%; /* Copre l'intera larghezza del canvas */
-      height: 50%; /* Copre l'intera altezza del canvas */
-      background-color: blue; /* Imposta il colore rosso */
+      display: block;
       z-index: 999;
     }
   }

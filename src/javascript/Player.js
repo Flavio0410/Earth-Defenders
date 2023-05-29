@@ -59,10 +59,6 @@ export default class Player {
       this.divshoot.addEventListener("touchstart", this.handleTouchShoot);
       this.divshoot.addEventListener("touchend", this.handleTouchShoot);
 
-      this.canvas.addEventListener("touchstart", this.handleTouchMove);
-      this.canvas.addEventListener("touchend", this.handleTouchMove);
-      this.canvas.addEventListener("touchmove", this.handleTouchMove);
-
       window.addEventListener("resize", () => {
         if(window.innerWidth > 900)
         {
