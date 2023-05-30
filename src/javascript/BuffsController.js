@@ -1,3 +1,15 @@
+/**
+ * @class BuffsController
+ * @classdesc Classe che gestisce i buff che possono essere raccolti dal giocatore per ottenere dei potenziamenti temporanei o permanenti
+ * @param {HTMLCanvasElement} canvas - Canvas su cui disegnare i buff
+ * @param {Player} player - Oggetto che rappresenta il giocatore
+ * @param {EnemyController} enemyController - Oggetto che gestisce i nemici
+ * @exports BuffsController
+ * @requires Buffs
+ * @version 1.0.0
+ * @author Matteo Zacchino
+ */
+
 import Buffs from "./Buffs.js"
 
 export default class BuffsController {

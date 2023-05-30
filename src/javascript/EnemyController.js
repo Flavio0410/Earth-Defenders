@@ -1,3 +1,16 @@
+/**
+ * @class EnemyController
+ * @desc Classe che gestisce i nemici e la loro formazione di gioco (posizione, movimento, ecc...).
+ * @param {HTMLCanvasElement} canvas - Canvas su cui disegnare i nemici
+ * @param {EnemyBulletController} enemyBulletController - Controller dei proiettili del nemico
+ * @param {PlayerBulletController} playerBulletController - Controller dei proiettili del giocatore
+ * @exports EnemyController
+ * @requires Enemy
+ * @requires MovingDirection
+ * @version 1.0.0
+ * @author Matteo Zacchino
+ */
+
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
 

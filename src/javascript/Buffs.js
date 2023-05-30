@@ -1,3 +1,12 @@
+/**
+ * @class Buffs
+ * @classdesc Classe che contiene le informazioni dei buff
+ * @param {number} x - Coordinata x del buff
+ * @param {number} y - Coordinata y del buff
+ * @version 1.0.0
+ * @exports Buffs
+ * @author Matteo Zacchino
+ */
 export default class Buffs {
 
     constructor(x, y) { 

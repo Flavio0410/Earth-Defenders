@@ -1,3 +1,14 @@
+/**
+ * @class Enemy
+ * @classdesc Classe che rappresenta un nemico del gioco 
+ * @param {number} x - Coordinata x del nemico
+ * @param {number} y - Coordinata y del nemico
+ * @param {number} imageNumber - Numero dell'immagine del nemico
+ * @param {number} life - Vita del nemico
+ * @version 1.0.0
+ * @exports Enemy
+ * @author Matteo Zacchino
+ */
 export default class Enemy {
 
   constructor(x, y, imageNumber, life) {

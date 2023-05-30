@@ -1,4 +1,13 @@
-
+/**
+ * @class Player
+ * @classdesc Classe che gestisce il giocatore e i suoi bullet sparati
+ * @param {HTMLCanvasElement} canvas - Canvas su cui disegnare il giocatore
+ * @param {number} velocity - Velocità del giocatore
+ * @param {BulletController} bulletController - Controller dei bullet
+ * @exports Player
+ * @version 1.0.0
+ * @author Matteo Zacchino
+ */
 export default class Player {
     rightPressed = false;
     leftPressed = false;
@@ -223,10 +232,8 @@ export default class Player {
       handleTouchShoot = (event) => { // funzione che gestisce il touch per sparare
         if (event.type === 'touchstart'){ // se il touch è iniziato
           this.shootPressed = true; // setto il flag a true
-          console.log("shoot");
         } else if (event.type === 'touchend'){ // se il touch è finito
           this.shootPressed = false;  // setto il flag a false
-          console.log("stop");
         }
       }
 

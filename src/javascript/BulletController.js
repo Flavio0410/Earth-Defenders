@@ -1,3 +1,16 @@
+/**
+ * @class BulletController
+ * @classdesc Classe che gestisce i bullet sparati dal giocatore e dai nemici
+ * @author Matteo Zacchino
+ * @param {HTMLCanvasElement} canvas - Canvas su cui disegnare i bullet
+ * @param {number} maxBulletsAtATime - Numero massimo di bullet che possono essere presenti nel canvas
+ * @param {boolean} soundEnabled - Flag che indica se i suoni sono attivi
+ * @param {string} type - Tipo di bullet (player o enemy)
+ * @exports BulletController
+ * @requires Bullet
+ * @version 1.0.0
+ */
+
 import Bullet from "./Bullet.js";
 
 export default class BulletController {

@@ -1,3 +1,15 @@
+/**
+ * @class Bullet
+ * @description Classe che gestisce i bullet sparati dal giocatore e dai nemici
+ * @param {HTMLCanvasElement} canvas - Canvas su cui disegnare i bullet
+ * @param {number} x - Coordinata x del bullet
+ * @param {number} y - Coordinata y del bullet
+ * @param {number} velocity - Velocità del bullet
+ * @param {string} type - Tipo di bullet (player o enemy)
+ * @exports Bullet
+ * @version 1.0.0
+ * @author Matteo Zacchino
+ */
 export default class Bullet {
 
     constructor(canvas, x, y, velocity, type) {
@@ -15,8 +27,6 @@ export default class Bullet {
   
     draw(ctx) { // disegno il bullet
       this.y -= this.velocity; // faccio muovere il bullet
-      // ctx.fillStyle = this.bulletColor;
-      // ctx.fillRect(this.x, this.y, this.width, this.height);
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height); // disegno il bullet
     }
   

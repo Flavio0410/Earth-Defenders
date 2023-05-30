@@ -1,3 +1,9 @@
+/**
+ * @fileoverview File che contiene la logica del gioco e la gestione degli eventi di gioco (es. click, keydown, ecc.)
+ * @author Matteo Zacchino
+ * @version 1.0
+ */
+
 import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
