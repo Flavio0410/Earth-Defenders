@@ -1,22 +1,22 @@
 <?php
 
-    $usernamesignin = $_POST['usernamelogin']; //get the username from the form
-    $passwordsignin = $_POST['passwordlogin'];
+    $usernamesignin = $_POST['usernamelogin']; // prende lo username dalla form
+    $passwordsignin = $_POST['passwordlogin']; // prende la password dalla form
 
-    // database details
+    // dettagli del database
     $host = "localhost";
     $username = "root";
     $password = "";
     $dbname = "earthdefendersdb";
 
 
-    // creating a connection
+    // crea la connessione al database
     $con = new mysqli($host, $username, $password, $dbname);
 
-    // to ensure that the connection is made
+    // controlla la connessione
     if ($con->connect_error)
     {
-        die("Connection failed!" . mysqli_connect_error());
+        die("Connection failed!" . mysqli_connect_error()); // mostra errore se la connessione non è avvenuta
     }
     //altrimenti se lo username non esiste o la password è sbagliata rimanda alla pagina di login con un errore
     else if ($con->query("SELECT * FROM user WHERE username = '$usernamesignin' AND password = '$passwordsignin'")->num_rows == 0) {
@@ -25,19 +25,18 @@
     }
     else {
         // query per verificare che l'utente esista
-        $stmt = $con->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
-        $stmt->bind_param("ss", $usernamesignin, $passwordsignin);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            session_start();
-            // $_SESSION['id'] = $result->fetch_assoc()['id'];
-            $_SESSION['username'] = $usernamesignin;
-            header("Location: welcome.php");
-            die();
-    }
+        $stmt = $con->prepare("SELECT * FROM user WHERE username = ? AND password = ?"); 
+        $stmt->bind_param("ss", $usernamesignin, $passwordsignin); // bind dei parametri
+        $stmt->execute(); // esegue la query
+        $result = $stmt->get_result(); // prende il risultato della query
+        if ($result->num_rows > 0) { // se il risultato ha più di 0 righe
+            session_start(); // inizia la sessione
+            $_SESSION['username'] = $usernamesignin; // imposta lo username nella sessione
+            header("Location: welcome.php"); // reindirizza alla pagina di benvenuto
+            die(); // termina lo script
+    } 
 
-    $stmt->close();
-    $con->close();
+    $stmt->close(); // chiude lo statement
+    $con->close(); // chiude la connessione
     }
 ?>

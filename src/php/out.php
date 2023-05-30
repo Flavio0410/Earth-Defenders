@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    unset($_SESSION['username']);
+    session_start(); // inizia la sessione
+    unset($_SESSION['username']); // elimina l'username dalla sessione
 
-    header("Location: index.php");
+    header("Location: index.php"); // reindirizza alla pagina di login
 ?>

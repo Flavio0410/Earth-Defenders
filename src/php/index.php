@@ -1,8 +1,8 @@
 <?php 
-  include 'config.php';
-  session_start();
-  if(isset($_SESSION['username'])) {
-    header("Location: welcome.php");
+  include 'config.php'; // include il file di configurazione
+  session_start(); // inizia la sessione
+  if(isset($_SESSION['username'])) { // se è stato impostato l'username nella sessione
+    header("Location: welcome.php"); // reindirizza alla pagina di benvenuto
   }
 
 ?>
@@ -75,15 +75,6 @@
       <div class = "titlebuttonContainer">
         <h1 class="centeredTitle">earth defenders</h1>
 
-        <!-- <?php
-        session_start();
-          if(isset($_SESSION['username'])){
-            echo '<a href="game.php" class="playbutton" role="button">Play</a>';
-          }
-          else {
-            echo '<button class="playbutton" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Play</button>';
-          }
-        ?> -->
         <button class="playbutton" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Play</button>
 
       </div>

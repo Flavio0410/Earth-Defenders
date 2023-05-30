@@ -5,9 +5,6 @@ export default class Buffs {
       this.y = y;
       this.width = 40;
       this.height = 44;
-      
-      this.enemyDeathSound = new Audio("../../public/assets/sounds/enemy-death.wav");
-      this.enemyDeathSound.volume = 0.1;
 
       this.image = new Image();
       this.type;
