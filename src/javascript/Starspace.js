@@ -1,5 +1,11 @@
-import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
+/**
+ * @classdesc Classe che gestisce la scena Three.js dove vengono create le stelle e animate in modo da creare un effetto di spazio
+ * @author Flavio Gezzi
+ * @version 1.0.0
+ * @param {string} containerId - L'id del container HTML in cui inserire la scena Three.js
+ */
 
+import * as THREE from "https://unpkg.com/three@0.151.3/build/three.module.js";
 
 class Starspace {
   constructor(containerId) 

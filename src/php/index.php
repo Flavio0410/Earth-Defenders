@@ -77,10 +77,10 @@
 
         <!-- <?php
         session_start();
-          if(isset($_SESSION['username'])){
+          if(isset($_SESSION['username'])){ //Se l'utente è loggato allora il bottone di play lo porta al gioco
             echo '<a href="game.php" class="playbutton" role="button">Play</a>';
           }
-          else {
+          else { //Altrimenti il bottone di play lo porta al login
             echo '<button class="playbutton" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Play</button>';
           }
         ?> -->
@@ -92,7 +92,7 @@
 
       <script type="module" src="../javascript/Loader3d.js?v=<?=$version?>"></script>
 
-      <?php include 'validationFormBackend.php' ?>
+      <?php include 'validationFormBackend.php' ?> 
 
 
     </div>

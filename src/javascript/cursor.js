@@ -1,3 +1,10 @@
+/**
+ * Questo file contiene il codice javascript per la gestione del cursore personalizzato del sito web
+ * @version  1.0.0
+ * @author Flavio Gezzi
+ */
+
+
 const cursor = document.querySelector('.cursor');
 const offset= 1;
 

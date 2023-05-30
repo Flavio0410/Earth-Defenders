@@ -1,3 +1,16 @@
+/**
+ * @classdesc Questo file contiene la classe Loader3d che permette di caricare un modello 3D in una pagina web e di visualizzarlo in una scena Three.js.
+ * @version  1.0.0
+ * @author Flavio Gezzi
+ * @param {string} containerId - L'id dell'elemento HTML in cui inserire la scena Three.js
+ * @param {string} modelUrl - L'url del modello 3D da caricare
+ * @param {number} angleview - L'angolo di visualizzazione della scena
+ * @param {number} cameraposition_z - La posizione della camera lungo l'asse z
+ * @param {number} x_axis_object - La posizione dell'oggetto lungo l'asse x
+ * @param {number} y_axis_object - La posizione dell'oggetto lungo l'asse y
+ * @param {number} z_axis_object - La posizione dell'oggetto lungo l'asse z
+ */
+
 import * as THREE from "https://cdn.skypack.dev/three@0.136.0/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";

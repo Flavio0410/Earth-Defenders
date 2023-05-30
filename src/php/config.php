@@ -1,5 +1,9 @@
 <?php
 
-    $version=time(); // This is to force the browser to reload the css and js files when they are changed
+    /**
+     * Genera la versione utilizzando il tempo in secondi attuale che verrà assegnata ai file importati nei file php per risolvere un problema di cache con xampp.
+     */
+
+    $version=time();
 
 ?>
