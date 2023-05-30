@@ -1,4 +1,8 @@
 <?php
+
+    /**
+     * Questo file PHP viene incluso in index.php e out.php per generare un colore casuale per lo sfondo del bottone di logout e per ottenere l'iniziale dell'username dell'utente loggato
+     */
     session_start(); // Assicurati di avviare la sessione se non è già stata avviata
 
     // Funzione per generare colori luminosi e accesi
