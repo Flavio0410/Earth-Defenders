@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $sessionid = $_SESSION['username'];
-    $version=time(); // This is to force the browser to reload the css and js files when they are changed
+    $version=time(); // Serve per aggiornare la cache del browser
 
     if(!isset($_SESSION['username'])) {
         header("Location: index.php");
@@ -43,15 +43,6 @@
         $("#navigationbar").load("navbarlogin.php"); 
       });
     </script> 
-    <!-- <?php
-      echo '<div id="navigationbar"></div>
-      <script> 
-        $(function(){
-          $("#navigationbar").load("navbarlogin.php"); 
-        });
-      </script>';
-    ?> -->
-
 
     <audio id="songID" autoplay loop>
       <source src="../../public/assets/sounds/Dreamcatcher.mp3" type="audio/mp3">

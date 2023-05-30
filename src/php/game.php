@@ -1,11 +1,11 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("Location: index.php");
-    die();
+  include 'config.php';
+  session_start(); // inizia la sessione
+  if(!isset($_SESSION['username'])){ // se non è stato impostato l'username nella sessione
+    header("Location: index.php"); // reindirizza alla pagina di login
+    die(); // termina lo script
   }
 ?>
-<?php include 'config.php';?>
 
 <!DOCTYPE html>
 <html lang="en">

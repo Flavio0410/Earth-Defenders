@@ -38,12 +38,9 @@ export default class Player {
         this.y = this.canvas.height - this.canvas.height/4;
       }
 
-      // this.width = 100;
-      // this.height = 80;
       this.width = this.calculateWidhtPlayer(100);
       this.height = this.calculateHeightPlayer(80);
       this.image = new Image();
-      // this.image.src = "../public/assets/images/pspaceship.png";
       this.setImage();
       this.isMobileDevice();
 
@@ -56,23 +53,23 @@ export default class Player {
       this.shieldLoseSound = new Audio("../../public/assets/sounds/shield-break.wav");
       this.shieldLoseSound.volume = 0.1;
 
-      document.addEventListener("keydown", this.keydown);
-      document.addEventListener("keyup", this.keyup);
+      document.addEventListener("keydown", this.keydown); // ascolto l'evento keydown
+      document.addEventListener("keyup", this.keyup); // ascolto l'evento keyup
 
-      this.divscroll = document.getElementById("scrollercontainerID");
-      this.divscroll.addEventListener("touchstart", this.handleTouchMove);
-      this.divscroll.addEventListener("touchend", this.handleTouchMove);
-      this.divscroll.addEventListener("touchmove", this.handleTouchMove);
+      this.divscroll = document.getElementById("scrollercontainerID"); // ascolto l'evento touch
+      this.divscroll.addEventListener("touchstart", this.handleTouchMove); // ascolto l'evento touch
+      this.divscroll.addEventListener("touchend", this.handleTouchMove); // ascolto l'evento touch
+      this.divscroll.addEventListener("touchmove", this.handleTouchMove); // ascolto l'evento touch
       
-      this.divshoot = document.getElementById("shotcontainerID");
-      this.divshoot.addEventListener("touchstart", this.handleTouchShoot);
-      this.divshoot.addEventListener("touchend", this.handleTouchShoot);
+      this.divshoot = document.getElementById("shotcontainerID"); // ascolto l'evento touch 
+      this.divshoot.addEventListener("touchstart", this.handleTouchShoot); // ascolto l'evento touch 
+      this.divshoot.addEventListener("touchend", this.handleTouchShoot); // ascolto l'evento touch
 
-      window.addEventListener("resize", () => {
-        if(window.innerWidth > 900)
-        {
-          this.width = 100*(window.innerWidth/1920);
-          this.height = 80*(window.innerHeight/1080);
+      window.addEventListener("resize", () => { // ascolto l'evento resize
+        if(window.innerWidth > 900) // se la larghezza dello schermo è maggiore di 900
+        { 
+          this.width = 100*(window.innerWidth/1920); // calcolo la larghezza
+          this.height = 80*(window.innerHeight/1080); // calcolo l'altezza
         }
       });
     }
