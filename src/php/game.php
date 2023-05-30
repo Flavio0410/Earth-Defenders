@@ -82,9 +82,9 @@
       </div>
     </div>
 
-    <div class="scrollercontainer" id="scrollercontainerID"></div>
-
     <div class="shotcontainer" id="shotcontainerID"></div>
+
+    <div class="scrollercontainer" id="scrollercontainerID"></div>
 
 
     <!-- Game Over -->

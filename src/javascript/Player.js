@@ -49,10 +49,15 @@ export default class Player {
 
       document.addEventListener("keydown", this.keydown);
       document.addEventListener("keyup", this.keyup);
-      document.addEventListener("touchstart", this.handleTouchMove);
-      document.addEventListener("touchend", this.handleTouchMove);
-      document.addEventListener("touchmove", this.handleTouchMove);
 
+      this.divscroll = document.getElementById("scrollercontainerID");
+      this.divscroll.addEventListener("touchstart", this.handleTouchMove);
+      this.divscroll.addEventListener("touchend", this.handleTouchMove);
+      this.divscroll.addEventListener("touchmove", this.handleTouchMove);
+      
+      this.divshoot = document.getElementById("shotcontainerID");
+      this.divshoot.addEventListener("touchstart", this.handleTouchShoot);
+      this.divshoot.addEventListener("touchend", this.handleTouchShoot);
 
       window.addEventListener("resize", () => {
         if(window.innerWidth > 900)
@@ -195,6 +200,7 @@ export default class Player {
     // Comandi mobile
     handleTouchMove = (event) => { // funzione che gestisce il touch per muoversi
       const touch = event.touches[0]; // prendo il primo tocco
+      
       
        if (event.type === 'touchstart') { // se il touch è iniziato
           this.startPosX = touch.pageX; // setto la posizione iniziale
